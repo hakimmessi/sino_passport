@@ -1,4 +1,4 @@
-#include "sinosecu_wrapper.h"
+#include "sinosecu.h"
 #include "png_wrapper.h"
 #include <iostream>
 #include <locale>
@@ -77,6 +77,16 @@ int Sinosecu::initializeScanner(const std::string& userId, int nType, const std:
     std::cout << "  nType: " << nType << std::endl;
     std::cout << "  Directory: " << sdkDirectory << std::endl;
     int result;
+    try {
+        result = InitIDCard(wUserId.c_str(), nType, wSdkDirectory.c_str());
+        std::cout << "InitIDCard returned: " << result << std::endl;
+    } catch (const std::exception& e) {
+        setLastError("Exception during InitIDCard: " + std::string(e.what()));
+        return ERROR_INIT;
+    } catch (...) {
+        setLastError("Unknown exception during InitIDCard - possible library compatibility issue");
+        return ERROR_INIT;
+    }
 
     switch (result) {
         case 0:

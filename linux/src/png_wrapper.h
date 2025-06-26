@@ -2,8 +2,8 @@
 // Created by Hakim Messi on 2025/06/03.
 //
 
-#ifndef SINO_SCANNER_PNG_WRAPPER_H
-#define SINO_SCANNER_PNG_WRAPPER_H
+#ifndef SINO_PASSPORT_PNG_WRAPPER_H
+#define SINO_PASSPORT_PNG_WRAPPER_H
 
 #include <png.h>
 #include <memory>

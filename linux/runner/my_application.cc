@@ -6,6 +6,11 @@
 #endif
 
 #include "flutter/generated_plugin_registrant.h"
+#include "src/sinosecu.h"
+
+#include <iostream>
+#include <memory>
+#include <map>
 
 struct _MyApplication {
   GtkApplication parent_instance;

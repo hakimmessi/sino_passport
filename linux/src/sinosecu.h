@@ -1,5 +1,5 @@
-#ifndef SINOSECU_WRAPPER_H
-#define SINOSECU_WRAPPER_H
+#ifndef SINOSECU_H
+#define SINOSECU_H
 
 #include <string>
 #include <map>
@@ -40,6 +40,7 @@ public:
     //int detectDocumentOnScanner();
    // std::map<std::string, int> autoProcessDocument();
    // std::map<std::string, std::string> scanDocumentComplete(int timeoutSeconds = 20);
+    int SetConfigByFile(const wchar_t* lpConfigFile);
     void releaseScanner();
 
     static constexpr int SUCCESS = 0;
