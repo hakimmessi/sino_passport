@@ -9,6 +9,7 @@ project(runner LANGUAGES CXX)
 add_executable(${BINARY_NAME}
   "main.cc"
   "my_application.cc"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../src/sinosecu.cpp"
   "${FLUTTER_MANAGED_DIR}/generated_plugin_registrant.cc"
 )
 

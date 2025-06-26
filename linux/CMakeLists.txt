@@ -141,14 +141,15 @@ pkg_check_modules(PNG REQUIRED libpng)
 # Add PNG wrapper sources to the binary
 target_sources(${BINARY_NAME}
         PRIVATE
-        src/sinosecu_wrapper.cpp
+        src/sinosecu.cpp
         src/png_wrapper.cpp  # Add PNG wrapper
 )
 
 # Add PNG wrapper include directories
 target_include_directories(${BINARY_NAME} PRIVATE
         ${PNG_INCLUDE_DIRS}
-        src/  # For png_wrapper.h and sinosecu_wrapper.h
+        src/sinosecu.cpp
+        src/png_wrapper.cpp
 )
 
 # Link PNG wrapper dependencies
