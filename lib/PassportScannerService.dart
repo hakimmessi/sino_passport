@@ -1,71 +1,32 @@
-import 'dart:convert';
-import 'dart:io';
-
+import 'package:flutter/services.dart';
 class PassportScannerService {
-  static const String _javaClassPath = './sino_passport/linux/target/distribution/manual_test.sh';
+  static const MethodChannel _channel = MethodChannel('sinosecu');
 
-  static Future<PassportData?> scanPassport() async {
-    try {
-      final result = await Process.run(
-        'java',
-        ['-cp', '*', 'com.ktk.PassportScannerService'],
-        workingDirectory: _javaClassPath,
-      );
+  static Future <int> initializeScanner({
+    required String userId,
+    required int nType,
+    required String sdkDirectory,
+}) async{
+    try{
+      print('[Flutter] Calling initializeScanner with:');
+      print('[Flutter]   UserID: $userId');
+      print('[Flutter]   nType: $nType');
+      print('[Flutter]   SDK Directory: $sdkDirectory');
 
-      if (result.exitCode == 0) {
-        final jsonData = jsonDecode(result.stdout);
-
-        if (jsonData['success'] == true) {
-          return PassportData.fromJson(jsonData);
-        } else {
-          throw Exception(jsonData['error'] ?? 'Unknown error');
-        }
-      } else {
-        throw Exception('Scanner process failed: ${result.stderr}');
-      }
+      final int result = await _channel.invokeMethod('initializeScanner', {
+        'userId': userId,
+        'nType': nType,
+        'sdkDirectory': sdkDirectory,
+      });
+      print('[Flutter] initializeScanner result: $result');
+      return result;
+    } on PlatformException catch (e) {
+      print('[Flutter] Failed to initialize scanner: ${e.message}');
+      print('[Flutter] PlatformException Details: ${e.details}');
+      return -100;
     } catch (e) {
-      throw Exception('Failed to scan passport: $e');
+      print('[Flutter] Unknown error during initializeScanner: $e');
+      return -200;
+    }
     }
   }
-}
-
-class PassportData {
-  final String passportNumber;
-  final String expiry;
-  final String issuingCountry;
-  final String surname;
-  final String firstName;
-  final String englishName;
-  final String gender;
-  final String nationality;
-  final String documentNumber;
-  final String? imagePath;
-
-  PassportData({
-    required this.passportNumber,
-    required this.expiry,
-    required this.issuingCountry,
-    required this.surname,
-    required this.firstName,
-    required this.englishName,
-    required this.gender,
-    required this.nationality,
-    required this.documentNumber,
-    this.imagePath,
-  });
-
-  factory PassportData.fromJson(Map<String, dynamic> json) {
-    return PassportData(
-      passportNumber: json['passportNumber'] ?? '',
-      expiry: json['expiry'] ?? '',
-      issuingCountry: json['issuingCountry'] ?? '',
-      surname: json['surname'] ?? '',
-      firstName: json['firstName'] ?? '',
-      englishName: json['englishName'] ?? '',
-      gender: json['gender'] ?? '',
-      nationality: json['nationality'] ?? '',
-      documentNumber: json['documentNumber'] ?? '',
-      imagePath: json['imagePath'],
-    );
-  }
-}

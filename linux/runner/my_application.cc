@@ -14,19 +14,64 @@ struct _MyApplication {
 
 G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
 
+// Method channel call handler
+static void method_channel_call_handler(FlMethodChannel* channel,
+                                        FlMethodCall* method_call,
+                                        gpointer user_data) {
+    const gchar* method_name = fl_method_call_get_name(method_call);
+    FlValue* args = fl_method_call_get_args(method_call);
+
+    if (strcmp(method_name, "initializeScanner") == 0) {
+        if (!global_scanner_instance) {
+            global_scanner_instance = std::make_unique<Sinosecu>();
+        }
+    }else {
+        if (!global_scanner_instance) {
+            std::cerr << "Linux side: global_scanner_instance is null for method " << method_name << std::endl;
+            fl_method_call_respond(method_call, FL_METHOD_RESPONSE(fl_method_error_response_new("SCANNER_NOT_READY", "Scanner instance not available.", nullptr)), nullptr);
+            return;
+        }
+    }
+    FlMethodResponse* response = nullptr;
+
+    if (strcmp(method_name, "initializeScanner") == 0{
+        if (fl_value_get_type(args) != FL_VALUE_TYPE_MAP) {
+            std::cerr << "Linux side: initializeScanner arguments are not a map." << std::endl;
+            fl_method_call_respond(method_call, FL_METHOD_RESPONSE(fl_method_error_response_new("ARGUMENT_ERROR", "Expected map argument for initializeScanner", nullptr)), nullptr);
+            return;
+        }
+
+        FlValue* user_id_value = fl_value_lookup_string(args, "userId");
+        FlValue* n_type_value = fl_value_lookup_string(args, "nType");
+        FlValue* sdk_dir_value = fl_value_lookup_string(args, "sdkDirectory");
+
+        if (!user_id_value || fl_value_get_type(user_id_value) != FL_VALUE_TYPE_STRING ||
+            !n_type_value || fl_value_get_type(n_type_value) != FL_VALUE_TYPE_INT ||
+            !sdk_dir_value || fl_value_get_type(sdk_dir_value) != FL_VALUE_TYPE_STRING) {
+            std::cerr << "Linux side: Missing or incorrect argument types for initializeScanner." << std::endl;
+            response = FL_METHOD_RESPONSE(fl_method_error_response_new("ARGUMENT_ERROR", "Invalid arguments for initializeScanner", nullptr));
+        } else {
+            const char* userId_cstr = fl_value_get_string(user_id_value);
+            int nType = fl_value_get_int(n_type_value);
+            const char* sdkDirectory_cstr = fl_value_get_string(sdk_dir_value);
+
+            std::cout << "Linux side: Calling initializeScanner with UserID: " << (userId_cstr ? userId_cstr : "NULL")
+                      << ", nType: " << nType
+                      << ", Directory: " << (sdkDirectory_cstr ? sdkDirectory_cstr : "NULL") << std::endl;
+
+            int result = global_scanner_instance->initializeScanner(std::string(userId_cstr ? userId_cstr : ""), nType, std::string(sdkDirectory_cstr ? sdkDirectory_cstr : ""));
+            response = FL_METHOD_RESPONSE(fl_method_success_response_new(fl_value_new_int(result)));
+        }
+    }
+
+}
+
 // Implements GApplication::activate.
 static void my_application_activate(GApplication* application) {
   MyApplication* self = MY_APPLICATION(application);
   GtkWindow* window =
       GTK_WINDOW(gtk_application_window_new(GTK_APPLICATION(application)));
 
-  // Use a header bar when running in GNOME as this is the common style used
-  // by applications and is the setup most users will be using (e.g. Ubuntu
-  // desktop).
-  // If running on X and not using GNOME then just use a traditional title bar
-  // in case the window manager does more exotic layout, e.g. tiling.
-  // If running on Wayland assume the header bar will work (may need changing
-  // if future cases occur).
   gboolean use_header_bar = TRUE;
 #ifdef GDK_WINDOWING_X11
   GdkScreen* screen = gtk_window_get_screen(window);
@@ -40,11 +85,11 @@ static void my_application_activate(GApplication* application) {
   if (use_header_bar) {
     GtkHeaderBar* header_bar = GTK_HEADER_BAR(gtk_header_bar_new());
     gtk_widget_show(GTK_WIDGET(header_bar));
-    gtk_header_bar_set_title(header_bar, "sino_passport");
+    gtk_header_bar_set_title(header_bar, "Passport Scanner");
     gtk_header_bar_set_show_close_button(header_bar, TRUE);
     gtk_window_set_titlebar(window, GTK_WIDGET(header_bar));
   } else {
-    gtk_window_set_title(window, "sino_passport");
+    gtk_window_set_title(window, "Passport Scanner");
   }
 
   gtk_window_set_default_size(window, 1280, 720);
@@ -58,6 +103,47 @@ static void my_application_activate(GApplication* application) {
   gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(view));
 
   fl_register_plugins(FL_PLUGIN_REGISTRY(view));
+
+  // register Flutter plugins
+    fl_register_plugins(FL_PLUGIN_REGISTRY(view));
+
+    // Register custom platform channel
+    FlEngine* engine = fl_view_get_engine(view);
+    if (engine == nullptr) {
+        std::cerr << "Linux side: Could not get Flutter engine." << std::endl;
+        return;
+    }
+
+    g_autoptr(FlStandardMethodCodec) codec = fl_standard_method_codec_new();
+    if (codec == nullptr) {
+        std::cerr << "Linux side: Could not create standard method codec." << std::endl;
+        return;
+    }
+
+    FlBinaryMessenger* messenger = fl_engine_get_binary_messenger(engine);
+    if (messenger == nullptr) {
+        std::cerr << "Linux side: Could not get binary messenger from Flutter engine." << std::endl;
+        return;
+    }
+
+    FlMethodChannel* channel = fl_method_channel_new(
+            messenger,
+            "sinosecu",
+            FL_METHOD_CODEC(codec)
+    );
+
+    if (channel == nullptr) {
+        std::cerr << "Linux side: Failed to create method channel." << std::endl;
+        return;
+    }
+
+    // Update how we set the method call handler
+    fl_method_channel_set_method_call_handler(channel,
+                                              method_call_handler,
+                                              g_object_ref(self),
+                                              g_object_unref);
+
+    std::cout << "Linux side: SinoScanner platform channel registered successfully." << std::endl;
 
   gtk_widget_grab_focus(GTK_WIDGET(view));
 }

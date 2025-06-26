@@ -34,11 +34,6 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     "Debug" "Profile" "Release")
 endif()
 
-# Compilation settings that should be applied to most targets.
-#
-# Be cautious about adding new options here, as plugins use this function by
-# default. In most cases, you should add new options to specific targets instead
-# of modifying this function.
 function(APPLY_STANDARD_SETTINGS TARGET)
   target_compile_features(${TARGET} PUBLIC cxx_std_14)
   target_compile_options(${TARGET} PRIVATE -Wall -Werror)
@@ -53,6 +48,7 @@ add_subdirectory(${FLUTTER_MANAGED_DIR})
 # System-level dependencies.
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK REQUIRED IMPORTED_TARGET gtk+-3.0)
+pkg_check_modules(GLIB REQUIRED IMPORTED_TARGET glib-2.0)
 
 # Application build; see runner/CMakeLists.txt.
 add_subdirectory("runner")
@@ -112,6 +108,14 @@ install(DIRECTORY "${NATIVE_ASSETS_DIR}"
    DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
    COMPONENT Runtime)
 
+# ARM-specific definitions
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "^arm" OR CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64")
+  add_compile_definitions(ARM_BUILD)
+  message(STATUS "ARM build detected - CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
+else()
+  message(STATUS "Non-ARM build - CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
+endif()
+
 # Fully re-copy the assets directory on each build to avoid having stale files
 # from a previous install.
 set(FLUTTER_ASSET_DIR_NAME "flutter_assets")
@@ -125,4 +129,81 @@ install(DIRECTORY "${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}"
 if(NOT CMAKE_BUILD_TYPE MATCHES "Debug")
   install(FILES "${AOT_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
     COMPONENT Runtime)
+endif()
+
+# === PNG Wrapper Configuration ===
+message(STATUS "Configuring PNG Wrapper for libIDCard.so compatibility...")
+
+# Find required packages
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(PNG REQUIRED libpng)
+
+# Add PNG wrapper sources to the binary
+target_sources(${BINARY_NAME}
+        PRIVATE
+        src/sinosecu_wrapper.cpp
+        src/png_wrapper.cpp  # Add PNG wrapper
+)
+
+# Add PNG wrapper include directories
+target_include_directories(${BINARY_NAME} PRIVATE
+        ${PNG_INCLUDE_DIRS}
+        src/  # For png_wrapper.h and sinosecu_wrapper.h
+)
+
+# Link PNG wrapper dependencies
+target_link_libraries(${BINARY_NAME} PRIVATE
+        ${PNG_LIBRARIES}
+        dl  # Required for dlopen/dlsym
+)
+
+# Add PNG wrapper compile definitions
+target_compile_definitions(${BINARY_NAME} PRIVATE
+        ${PNG_CFLAGS_OTHER}
+        PNG_WRAPPER_ENABLED=1
+)
+
+# Ensure PNG wrapper has higher priority than static PNG in libIDCard.so
+set_target_properties(${BINARY_NAME} PROPERTIES
+        LINK_FLAGS "-Wl,--export-dynamic -Wl,--as-needed"
+)
+
+# === Sinosecu SDK Integration ===
+set(SINOSEC_SDK_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs")
+
+# Check if the SDK directory exists
+if(NOT EXISTS "${SINOSEC_SDK_LIB_DIR}")
+  message(WARNING "Sinosecu SDK directory not found: ${SINOSEC_SDK_LIB_DIR}")
+else()
+  message(STATUS "Found Sinosecu SDK at: ${SINOSEC_SDK_LIB_DIR}")
+
+  # List the SDK libraries
+  set(SINOSEC_LIBS
+          "${SINOSEC_SDK_LIB_DIR}/libIDCard.so"
+          # Add other libraries as needed:
+          "${SINOSEC_SDK_LIB_DIR}/libIDCardKernal.so"
+          "${SINOSEC_SDK_LIB_DIR}/libCamDll.so"
+  )
+
+  # CRITICAL: Link SDK libraries AFTER PNG wrapper
+  # This ensures PNG wrapper symbols override libIDCard.so symbols
+  foreach(LIB ${SINOSEC_LIBS})
+    if(EXISTS "${LIB}")
+      target_link_libraries(${BINARY_NAME} PRIVATE "${LIB}")
+      message(STATUS "Linking SDK library: ${LIB}")
+    else()
+      message(WARNING "Library not found: ${LIB}")
+    endif()
+  endforeach()
+
+  # Install SDK libraries to bundle lib directory
+  install(DIRECTORY "${SINOSEC_SDK_LIB_DIR}/"
+          DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
+          FILES_MATCHING
+          PATTERN "*.so*"
+          PATTERN "*.dat"
+          PATTERN "*.xml"
+          PATTERN "*.ini"
+          PATTERN "*.txt"
+  )
 endif()
