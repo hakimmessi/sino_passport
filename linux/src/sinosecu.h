@@ -59,3 +59,4 @@ private:
     bool validateInitialization();
 
 };
+#endif

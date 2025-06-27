@@ -70,5 +70,9 @@ extern "C" {
 // ================================
 
 // These are the main functions libIDCard.so calls - intercept these first
-int read_png_file(CDib* dib, FILE* fp);
-int read_png_file2(CDib* dib, char* filename);
+int read_png_file(CDib *dib, FILE *fp);
+int read_png_file2(CDib *dib, char *filename);
+}
+// ================================
+
+#endif

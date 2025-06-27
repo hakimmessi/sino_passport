@@ -12,6 +12,9 @@
 #include <memory>
 #include <map>
 
+
+static std::unique_ptr<Sinosecu> global_scanner_instance;
+
 struct _MyApplication {
   GtkApplication parent_instance;
   char** dart_entrypoint_arguments;
@@ -143,8 +146,8 @@ static void my_application_activate(GApplication* application) {
     }
 
     // Update how we set the method call handler
-    fl_method_channel_set_method_call_handler(channel,
-                                              method_call_handler,
+    fl_method_channel_set_method_channel_call_handler(channel,
+                                                      method_channel_call_handler,
                                               g_object_ref(self),
                                               g_object_unref);
 
