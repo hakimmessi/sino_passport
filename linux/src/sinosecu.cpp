@@ -52,6 +52,7 @@ bool Sinosecu::validateInitialization() {
         setLastError("Scanner not initialized");
         return false;
     }
+    return true;
 }
 
 int Sinosecu::initializeScanner(const std::string& userId, int nType, const std::string& sdkDirectory) {

@@ -42,7 +42,7 @@ static void method_channel_call_handler(FlMethodChannel* channel,
     }
     FlMethodResponse* response = nullptr;
 
-    if (strcmp(method_name, "initializeScanner") == 0) {  // Fixed missing parenthesis
+    if (strcmp(method_name, "initializeScanner") == 0) {
         if (fl_value_get_type(args) != FL_VALUE_TYPE_MAP) {
             std::cerr << "Linux side: initializeScanner arguments are not a map." << std::endl;
             fl_method_call_respond(method_call, FL_METHOD_RESPONSE(fl_method_error_response_new("ARGUMENT_ERROR", "Expected map argument for initializeScanner", nullptr)), nullptr);
@@ -147,7 +147,7 @@ static void my_application_activate(GApplication* application) {
     }
 
 
-    // Fix the method name for setting the channel handler
+
     fl_method_channel_set_method_call_handler(channel,
                                             method_channel_call_handler,
                                             g_object_ref(self),
