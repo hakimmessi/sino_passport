@@ -17,10 +17,12 @@ class _HomeScreenState extends State<HomeScreen> {
   String _statusText = "Press 'Initialize Scanner' to start";
   bool _isScannerInitialized = false;
   bool _isScanning = false;
+  bool _isInitializing = false;
 
-  Future <void> _initializeScanner() async {
+  Future<void> _initializeScanner() async {
     setState(() {
       _statusText = "Initializing scanner...";
+      _isInitializing = true;
     });
 
     try {
@@ -38,22 +40,24 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           _statusText = "Scanner initialized successfully!";
           _isScannerInitialized = true;
+          _isInitializing = false;
         });
       } else {
         String errorMsg = _getInitErrorMessage(result);
         setState(() {
           _statusText = "Failed to initialize scanner. Error code: $result";
           _isScannerInitialized = false;
+          _isInitializing = false;
         });
       }
     } catch (e) {
       setState(() {
         _statusText = "Error initializing scanner: $e";
         _isScannerInitialized = false;
+        _isInitializing = false;
       });
     }
   }
-
 
   String _getInitErrorMessage(int errorCode) {
     switch (errorCode) {
@@ -106,28 +110,53 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 30),
 
-              // Scan Button
+              // Initialize Scanner Button
+              ElevatedButton(
+                onPressed: _isInitializing ? null : _initializeScanner,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black87,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 40, vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    side: const BorderSide(
+                        color: Colors.black87, width: 2),
+                  ),
+                  elevation: 0,
+                ),
+                child: _isInitializing
+                    ? const SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.black87,
+                  ),
+                )
+                    : const Text('Initialize Scanner'),
+              ),
+
+              // Scan Button (only show when initialized)
               if (_isScannerInitialized) ...[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: _initializeScanner,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black87,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 40, vertical: 20),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          side: const BorderSide(
-                              color: Colors.black87, width: 2),
-                        ),
-                        elevation: 0,
-                      ),
-                      child: const Text('Scan Document'),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // TODO: Add scan functionality here
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black87,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      side: const BorderSide(
+                          color: Colors.black87, width: 2),
                     ),
-                  ],
+                    elevation: 0,
+                  ),
+                  child: const Text('Scan Document'),
                 ),
               ],
             ],
