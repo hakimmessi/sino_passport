@@ -50,6 +50,7 @@ public:
     static constexpr int ERROR_DEVICE = -4;
     static constexpr int ERROR_CONFIG = -5;
     static constexpr int ERROR_TIMEOUT = -100;
+    std::string getLastError() const;
 
 private:
     bool isInitialized;

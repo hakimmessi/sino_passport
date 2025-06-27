@@ -42,7 +42,7 @@ static void method_channel_call_handler(FlMethodChannel* channel,
     }
     FlMethodResponse* response = nullptr;
 
-    if (strcmp(method_name, "initializeScanner") == 0{
+    if (strcmp(method_name, "initializeScanner") == 0) {  // Fixed missing parenthesis
         if (fl_value_get_type(args) != FL_VALUE_TYPE_MAP) {
             std::cerr << "Linux side: initializeScanner arguments are not a map." << std::endl;
             fl_method_call_respond(method_call, FL_METHOD_RESPONSE(fl_method_error_response_new("ARGUMENT_ERROR", "Expected map argument for initializeScanner", nullptr)), nullptr);
@@ -71,8 +71,9 @@ static void method_channel_call_handler(FlMethodChannel* channel,
             response = FL_METHOD_RESPONSE(fl_method_success_response_new(fl_value_new_int(result)));
         }
     }
-
-}
+    
+    fl_method_call_respond(method_call, response, nullptr);  // Add response handler
+}  // Added missing closing brace
 
 // Implements GApplication::activate.
 static void my_application_activate(GApplication* application) {
@@ -145,11 +146,12 @@ static void my_application_activate(GApplication* application) {
         return;
     }
 
-    // Update how we set the method call handler
-    fl_method_channel_set_method_channel_call_handler(channel,
-                                                      method_channel_call_handler,
-                                              g_object_ref(self),
-                                              g_object_unref);
+
+    // Fix the method name for setting the channel handler
+    fl_method_channel_set_method_call_handler(channel,
+                                            method_channel_call_handler,
+                                            g_object_ref(self),
+                                            g_object_unref);
 
     std::cout << "Linux side: SinoScanner platform channel registered successfully." << std::endl;
 
@@ -222,3 +224,4 @@ MyApplication* my_application_new() {
                                      "flags", G_APPLICATION_NON_UNIQUE,
                                      nullptr));
 }
+

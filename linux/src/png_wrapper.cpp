@@ -346,7 +346,7 @@ PngWrapper& PngWrapper::getInstance() {
 extern "C" {
 
 // Override the main PNG reading functions from libIDCard.so
-int read_png_file(CDib* dib, FILE* fp) {
+int read_png_file(CDib *dib, FILE *fp) {
     std::cout << "*** INTERCEPTED: read_png_file(CDib*, FILE*) ***" << std::endl;
 
     // CRITICAL: Analyze the CDib structure BEFORE we modify it
@@ -365,7 +365,7 @@ int read_png_file(CDib* dib, FILE* fp) {
     return result;
 }
 
-int read_png_file2(CDib* dib, char* filename) {
+int read_png_file2(CDib *dib, char *filename) {
     std::cout << "*** INTERCEPTED: read_png_file2(CDib*, char*) ***" << std::endl;
 
     // CRITICAL: Analyze the CDib structure BEFORE we modify it
@@ -384,4 +384,5 @@ int read_png_file2(CDib* dib, char* filename) {
     analyzeCDibUsage(dib, "read_png_file2 - AFTER processing");
 
     return result;
+}
 }

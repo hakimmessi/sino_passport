@@ -89,11 +89,11 @@ int Sinosecu::initializeScanner(const std::string& userId, int nType, const std:
     }
 
     switch (result) {
-        case 0:
+        case 0: {
             isInitialized = true;
             sdkPath = sdkDirectory;
             std::cout << "SDK initialized successfully!" << std::endl;
-            string configPath = sdkDirectory + "/IDCardConfig.ini";
+            std::string configPath = sdkDirectory + "/IDCardConfig.ini";
             if (!std::filesystem::exists(configPath)) {
                 setLastError("Configuration file not found: " + configPath);
                 return ERROR_CONFIG;
@@ -107,27 +107,35 @@ int Sinosecu::initializeScanner(const std::string& userId, int nType, const std:
             }
             std::cout << "SetConfigByFile returned: " << configRes << std::endl;
             break;
-        case 1:
+        }
+        case 1: {
             setLastError("Authorization ID is incorrect - check your license");
             break;
-        case 2:
+        }
+        case 2: {
             setLastError("Device initialization failed - check device connection");
             break;
-        case 3:
+        }
+        case 3: {
             setLastError("Recognition engine initialization failed - check SDK files");
             break;
-        case 4:
+        }
+        case 4: {
             setLastError("Authorization files not found - check license files in SDK directory");
             break;
-        case 5:
+        }
+        case 5: {
             setLastError("Recognition engine failed to load templates - check template files");
             break;
-        case 6:
+        }
+        case 6: {
             setLastError("Chip reader initialization failed - check device drivers");
             break;
-        default:
+        }
+        default: {
             setLastError("Unknown initialization error: " + std::to_string(result));
             break;
+        }
     }
 
 
