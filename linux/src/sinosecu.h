@@ -41,7 +41,7 @@ public:
    // std::map<std::string, int> autoProcessDocument();
    // std::map<std::string, std::string> scanDocumentComplete(int timeoutSeconds = 20);
     int SetConfigByFile(const wchar_t* lpConfigFile);
-    void releaseScanner();
+    //void releaseScanner();
 
     static constexpr int SUCCESS = 0;
     static constexpr int ERROR_INIT = -1;
