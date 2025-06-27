@@ -22,7 +22,7 @@ void FreeIDCard();
 //int GetFieldNameEx(int nAttribute, int nIndex, wchar_t* lpBuffer, int& nBufferLen);
 //int GetRecogResultEx(int nAttribute, int nIndex, wchar_t* lpBuffer, int& nBufferLen);
 
-//int SetConfigByFile(const wchar_t* lpConfigFile);
+int SetConfigByFile(const wchar_t* lpConfigFile);
 //int SetLanguage(int nLangType);
 
 // Image saving
@@ -40,7 +40,6 @@ public:
     //int detectDocumentOnScanner();
    // std::map<std::string, int> autoProcessDocument();
    // std::map<std::string, std::string> scanDocumentComplete(int timeoutSeconds = 20);
-    int SetConfigByFile(const wchar_t* lpConfigFile);
     void releaseScanner();
 
     static constexpr int SUCCESS = 0;
