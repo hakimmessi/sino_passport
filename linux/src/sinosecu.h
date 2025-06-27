@@ -15,7 +15,7 @@ std::string wstring_to_string(const std::wstring& wstr);
 extern "C" {
 int InitIDCard(const wchar_t* lpUserID, int nType, const wchar_t* lpDirectory);
 //int CheckDeviceOnlineEx();
-//void FreeIDCard();
+void FreeIDCard();
 //int DetectDocument();
 //int AutoProcessIDCard(int& nCardType);
 
@@ -41,7 +41,7 @@ public:
    // std::map<std::string, int> autoProcessDocument();
    // std::map<std::string, std::string> scanDocumentComplete(int timeoutSeconds = 20);
     int SetConfigByFile(const wchar_t* lpConfigFile);
-    //void releaseScanner();
+    void releaseScanner();
 
     static constexpr int SUCCESS = 0;
     static constexpr int ERROR_INIT = -1;

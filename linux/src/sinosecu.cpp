@@ -38,6 +38,12 @@ std::string wstring_to_string(const std::wstring& wstr) {
 
 Sinosecu::Sinosecu() : isInitialized(false) {}
 
+Sinosecu::~Sinosecu() {
+    if (isInitialized) {
+        releaseScanner();
+    }
+}
+
 void Sinosecu::setLastError(const std::string& error) {
     lastError = error;
     std::cerr << "Sinosecu Error: " << error << std::endl;
@@ -53,6 +59,18 @@ bool Sinosecu::validateInitialization() {
         return false;
     }
     return true;
+}
+
+void Sinosecu::releaseScanner() {
+    if (isInitialized) {
+        try {
+            FreeIDCard();
+            std::cout << "SDK released successfully" << std::endl;
+        } catch (const std::exception& e) {
+            setLastError("Error releasing SDK: " + std::string(e.what()));
+        }
+        isInitialized = false;
+    }
 }
 
 int Sinosecu::SetConfigByFile(const wchar_t *lpConfigFile) {
