@@ -276,20 +276,49 @@ std::wstring Sinosecu::getFieldValue(int nAttribute, int nIndex) {
 }
 
 std::wstring Sinosecu::extractField(int attribute, int index) {
-    if (!validateInitialization()) return L"";
+    if (!validateInitialization()) {
+        std::cout << "ERROR: Scanner not initialized for field extraction" << std::endl;
+        return L"";
+    }
 
     wchar_t buffer[512] = {0};
     int bufferLen = 512;
 
     try {
+        std::cout << "=== Extracting field [" << attribute << "][" << index << "] ===" << std::endl;
+
         int result = GetRecogResultEx(attribute, index, buffer, bufferLen);
+
+        std::cout << "GetRecogResultEx returned: " << result << std::endl;
+        std::cout << "Buffer length after call: " << bufferLen << std::endl;
+
+        // Print buffer contents in hex for debugging
+        std::cout << "Buffer hex: ";
+        for (int i = 0; i < std::min(20, bufferLen); i++) {
+            printf("%04X ", (unsigned short)buffer[i]);
+        }
+        std::cout << std::endl;
+
         if (result == 0) {
-            return std::wstring(buffer);
+            std::wstring extracted(buffer);
+            std::string extractedStr = wstring_to_string(extracted);
+            std::cout << "SUCCESS: Field " << index << " = '" << extractedStr << "' (length: " << extracted.length() << ")" << std::endl;
+            return extracted;
         } else {
-            std::cout << "Failed to get field " << index << ", error: " << result << std::endl;
+            std::cout << "FAILED: GetRecogResultEx error code: " << result;
+            switch(result) {
+                case -1: std::cout << " (Recognition engine not initialized)"; break;
+                case -2: std::cout << " (Property doesn't exist)"; break;
+                case 1: std::cout << " (Buffer too small)"; break;
+                case 2: std::cout << " (Recognition failed)"; break;
+                case 3: std::cout << " (Field doesn't exist)"; break;
+                default: std::cout << " (Unknown error)"; break;
+            }
+            std::cout << std::endl;
             return L"";
         }
     } catch (const std::exception& e) {
+        std::cout << "EXCEPTION in extractField: " << e.what() << std::endl;
         setLastError("Error extracting field: " + std::string(e.what()));
         return L"";
     }
@@ -311,7 +340,7 @@ PassportData Sinosecu::extractPassportData() {
 
     PassportData passport;
 
-    // Extract all fields (nAttribute = 1 for OCR page data)
+
     passport.passportNumber = extractField(1, 1);
     passport.englishName = extractField(1, 3);
     passport.gender = extractField(1, 4);
