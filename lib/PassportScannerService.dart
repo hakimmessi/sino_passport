@@ -3,6 +3,7 @@ import 'package:sino_passport/ScannerResult.dart';
 
 import 'PassportData.dart';
 import 'DeviceInfo.dart';
+
 class PassportScannerService {
   static const MethodChannel _channel = MethodChannel('sinosecu');
 
@@ -18,14 +19,20 @@ class PassportScannerService {
       print('[Flutter]   nType: $nType');
       print('[Flutter]   SDK Directory: $sdkDirectory');
 
-      final Map<String, dynamic> result = await _channel.invokeMethod(
-          'initializeScanner', {
+      // Get the result and cast it properly
+      final dynamic rawResult = await _channel.invokeMethod('initializeScanner', {
         'userId': userId,
         'nType': nType,
         'sdkDirectory': sdkDirectory,
       });
 
-      print('[Flutter] initializeScanner result: $result');
+      print('[Flutter] Raw result type: ${rawResult.runtimeType}');
+      print('[Flutter] Raw result: $rawResult');
+
+      // Safely cast to Map<String, dynamic>
+      final Map<String, dynamic> result = Map<String, dynamic>.from(rawResult as Map);
+
+      print('[Flutter] Casted result: $result');
 
       final bool success = result['success'] ?? false;
       final String message = result['message'] ?? '';
@@ -44,6 +51,7 @@ class PassportScannerService {
           'Platform error: ${e.message}', errorCode: ScannerError.general);
     } catch (e) {
       print('[Flutter] Unknown error during initializeScanner: $e');
+      print('[Flutter] Error type: ${e.runtimeType}');
       return ScannerResult.error(
           'Unknown error: $e', errorCode: ScannerError.unknown);
     }
@@ -54,8 +62,8 @@ class PassportScannerService {
     try {
       print('[Flutter] Checking device status...');
 
-      final Map<String, dynamic> result = await _channel.invokeMethod(
-          'checkDeviceStatus');
+      final dynamic rawResult = await _channel.invokeMethod('checkDeviceStatus');
+      final Map<String, dynamic> result = Map<String, dynamic>.from(rawResult as Map);
 
       final int status = result['status'] ?? DeviceStatus.disconnected;
       final String message = result['message'] ?? '';
@@ -75,16 +83,14 @@ class PassportScannerService {
   // Detect document presence
   static Future<ScannerResult<int>> detectDocument() async {
     try {
-      final Map<String, dynamic> result = await _channel.invokeMethod(
-          'detectDocument');
+      final dynamic rawResult = await _channel.invokeMethod('detectDocument');
+      final Map<String, dynamic> result = Map<String, dynamic>.from(rawResult as Map);
 
-      final int detectionResult = result['detectionResult'] ??
-          DetectionResult.notDetected;
+      final int detectionResult = result['detectionResult'] ?? DetectionResult.notDetected;
       final String message = result['message'] ?? '';
       final bool documentPresent = result['documentPresent'] ?? false;
 
-      print(
-          '[Flutter] Document detection: $detectionResult - $message (Present: $documentPresent)');
+      print('[Flutter] Document detection: $detectionResult - $message (Present: $documentPresent)');
 
       return ScannerResult.success(detectionResult, message: message);
     } on PlatformException catch (e) {
@@ -101,16 +107,17 @@ class PassportScannerService {
     try {
       print('[Flutter] Processing document...');
 
-      final Map<String, dynamic> result = await _channel.invokeMethod(
-          'processDocument');
+      final dynamic rawResult = await _channel.invokeMethod('processDocument');
+      final Map<String, dynamic> result = Map<String, dynamic>.from(rawResult as Map);
 
       final bool success = result['success'] ?? false;
       final String message = result['message'] ?? '';
       final int processResult = result['processResult'] ?? -1;
 
       if (success && result.containsKey('passportData')) {
-        final Map<String, dynamic> passportDataMap = Map<String, dynamic>.from(
-            result['passportData']);
+        // Handle nested map casting
+        final dynamic rawPassportData = result['passportData'];
+        final Map<String, dynamic> passportDataMap = Map<String, dynamic>.from(rawPassportData as Map);
         final passportData = PassportData.fromMap(passportDataMap);
 
         print('[Flutter] Document processed successfully: $passportData');
@@ -131,12 +138,11 @@ class PassportScannerService {
   // Get device information
   static Future<ScannerResult<DeviceInfo>> getDeviceInfo() async {
     try {
-      final Map<String, dynamic> result = await _channel.invokeMethod(
-          'getDeviceInfo');
+      final dynamic rawResult = await _channel.invokeMethod('getDeviceInfo');
+      final Map<String, dynamic> result = Map<String, dynamic>.from(rawResult as Map);
 
       final deviceInfo = DeviceInfo.fromMap(result);
-      print('[Flutter] Device info: ${deviceInfo.deviceModel} (${deviceInfo
-          .serialNumber})');
+      print('[Flutter] Device info: ${deviceInfo.deviceModel} (${deviceInfo.serialNumber})');
 
       return ScannerResult.success(deviceInfo);
     } on PlatformException catch (e) {
@@ -151,10 +157,10 @@ class PassportScannerService {
   // Play buzzer
   static Future<ScannerResult<bool>> playBuzzer({int duration = 100}) async {
     try {
-      final Map<String, dynamic> result = await _channel.invokeMethod(
-          'playBuzzer', {
+      final dynamic rawResult = await _channel.invokeMethod('playBuzzer', {
         'duration': duration,
       });
+      final Map<String, dynamic> result = Map<String, dynamic>.from(rawResult as Map);
 
       final bool success = result['success'] ?? false;
       print('[Flutter] Buzzer played: $success');
@@ -174,8 +180,8 @@ class PassportScannerService {
     try {
       print('[Flutter] Releasing scanner...');
 
-      final Map<String, dynamic> result = await _channel.invokeMethod(
-          'releaseScanner');
+      final dynamic rawResult = await _channel.invokeMethod('releaseScanner');
+      final Map<String, dynamic> result = Map<String, dynamic>.from(rawResult as Map);
 
       final bool success = result['success'] ?? false;
       final String message = result['message'] ?? '';
@@ -193,8 +199,7 @@ class PassportScannerService {
   }
 
   // Convenience method for continuous document detection
-  static Stream<int> detectDocumentStream(
-      {Duration interval = const Duration(seconds: 1)}) async* {
+  static Stream<int> detectDocumentStream({Duration interval = const Duration(seconds: 1)}) async* {
     while (true) {
       await Future.delayed(interval);
 
@@ -214,15 +219,13 @@ class PassportScannerService {
   }) async {
     print('[Flutter] Starting document scan...');
 
-    final stopwatch = Stopwatch()
-      ..start();
+    final stopwatch = Stopwatch()..start();
 
     while (stopwatch.elapsed < timeout) {
       // Check for document
       final detectionResult = await detectDocument();
       if (!detectionResult.success) {
-        return ScannerResult.error(
-            'Detection failed: ${detectionResult.message}');
+        return ScannerResult.error('Detection failed: ${detectionResult.message}');
       }
 
       if (detectionResult.data == DetectionResult.documentPlaced) {
@@ -241,17 +244,14 @@ class PassportScannerService {
         } else {
           // Play error sound
           await playBuzzer(duration: 50);
-          return ScannerResult.error(
-              'Processing failed: ${processResult.message}');
+          return ScannerResult.error('Processing failed: ${processResult.message}');
         }
       }
 
       await Future.delayed(checkInterval);
     }
 
-    return ScannerResult.error(
-        'Scan timeout: No document detected within ${timeout
-            .inSeconds} seconds');
+    return ScannerResult.error('Scan timeout: No document detected within ${timeout.inSeconds} seconds');
   }
 
   // Helper method to get error message from error code
@@ -284,4 +284,3 @@ class PassportScannerService {
     }
   }
 }
-
