@@ -197,7 +197,7 @@ int Sinosecu::initializeScanner(const std::string& userId, int nType, const std:
         std::cout << "Device status: " << deviceStatus << std::endl;
 
         // Load configuration if available
-        int configResult = loadConfig();
+        int configResult = loadConfig("");
         if (configResult != SUCCESS) {
             std::cout << "Warning: Could not load configuration file" << std::endl;
         }
