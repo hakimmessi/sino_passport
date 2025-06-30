@@ -22,6 +22,36 @@ struct _MyApplication {
 
 G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
 
+// Helper function to create error response
+static FlMethodResponse* create_error_response(const char* code, const char* message, const char* details = nullptr) {
+    return FL_METHOD_RESPONSE(fl_method_error_response_new(code, message, details ? fl_value_new_string(details) : nullptr));
+}
+
+// Helper function to create success response
+static FlMethodResponse* create_success_response(FlValue* result) {
+    return FL_METHOD_RESPONSE(fl_method_success_response_new(result));
+}
+
+// Helper function to validate scanner instance
+static bool ensure_scanner_ready(FlMethodCall* method_call, const char* method_name) {
+    if (!global_scanner_instance) {
+        std::cerr << "Linux side: Scanner instance not available for method " << method_name << std::endl;
+        fl_method_call_respond(method_call, create_error_response("SCANNER_NOT_READY", "Scanner instance not available"), nullptr);
+        return false;
+    }
+    return true;
+}
+
+// Helper function to validate map arguments
+static bool validate_map_args(FlValue* args, FlMethodCall* method_call, const char* method_name) {
+    if (fl_value_get_type(args) != FL_VALUE_TYPE_MAP) {
+        std::cerr << "Linux side: " << method_name << " arguments are not a map" << std::endl;
+        fl_method_call_respond(method_call, create_error_response("ARGUMENT_ERROR", "Expected map argument"), nullptr);
+        return false;
+    }
+    return true;
+}
+
 // Method channel call handler
 static void method_channel_call_handler(FlMethodChannel* channel,
                                         FlMethodCall* method_call,
@@ -29,51 +59,254 @@ static void method_channel_call_handler(FlMethodChannel* channel,
     const gchar* method_name = fl_method_call_get_name(method_call);
     FlValue* args = fl_method_call_get_args(method_call);
 
-    if (strcmp(method_name, "initializeScanner") == 0) {
-        if (!global_scanner_instance) {
-            global_scanner_instance = std::make_unique<Sinosecu>();
-        }
-    }else {
-        if (!global_scanner_instance) {
-            std::cerr << "Linux side: global_scanner_instance is null for method " << method_name << std::endl;
-            fl_method_call_respond(method_call, FL_METHOD_RESPONSE(fl_method_error_response_new("SCANNER_NOT_READY", "Scanner instance not available.", nullptr)), nullptr);
-            return;
-        }
-    }
+    std::cout << "Linux side: Received method call: " << method_name << std::endl;
+
     FlMethodResponse* response = nullptr;
 
-    if (strcmp(method_name, "initializeScanner") == 0) {
-        if (fl_value_get_type(args) != FL_VALUE_TYPE_MAP) {
-            std::cerr << "Linux side: initializeScanner arguments are not a map." << std::endl;
-            fl_method_call_respond(method_call, FL_METHOD_RESPONSE(fl_method_error_response_new("ARGUMENT_ERROR", "Expected map argument for initializeScanner", nullptr)), nullptr);
-            return;
+    try {
+        // Handle initializeScanner - creates instance if needed
+        if (strcmp(method_name, "initializeScanner") == 0) {
+            if (!global_scanner_instance) {
+                global_scanner_instance = std::make_unique<Sinosecu>();
+                std::cout << "Linux side: Created new scanner instance" << std::endl;
+            }
+
+            if (!validate_map_args(args, method_call, method_name)) return;
+
+            FlValue* user_id_value = fl_value_lookup_string(args, "userId");
+            FlValue* n_type_value = fl_value_lookup_string(args, "nType");
+            FlValue* sdk_dir_value = fl_value_lookup_string(args, "sdkDirectory");
+
+            // Validate required parameters
+            if (!user_id_value || fl_value_get_type(user_id_value) != FL_VALUE_TYPE_STRING) {
+                response = create_error_response("ARGUMENT_ERROR", "Missing or invalid 'userId' parameter");
+            }
+            else if (!n_type_value || fl_value_get_type(n_type_value) != FL_VALUE_TYPE_INT) {
+                response = create_error_response("ARGUMENT_ERROR", "Missing or invalid 'nType' parameter");
+            }
+            else if (!sdk_dir_value || fl_value_get_type(sdk_dir_value) != FL_VALUE_TYPE_STRING) {
+                response = create_error_response("ARGUMENT_ERROR", "Missing or invalid 'sdkDirectory' parameter");
+            }
+            else {
+                const char* userId_cstr = fl_value_get_string(user_id_value);
+                int nType = fl_value_get_int(n_type_value);
+                const char* sdkDirectory_cstr = fl_value_get_string(sdk_dir_value);
+
+                std::cout << "Linux side: Initializing scanner with:" << std::endl;
+                std::cout << "  UserID: " << userId_cstr << std::endl;
+                std::cout << "  nType: " << nType << std::endl;
+                std::cout << "  Directory: " << sdkDirectory_cstr << std::endl;
+
+                int result = global_scanner_instance->initializeScanner(
+                        std::string(userId_cstr), nType, std::string(sdkDirectory_cstr)
+                );
+
+                // Create detailed response
+                FlValue* result_map = fl_value_new_map();
+                fl_value_set_string_take(result_map, "result", fl_value_new_int(result));
+                fl_value_set_string_take(result_map, "success", fl_value_new_bool(result == Sinosecu::SUCCESS));
+
+                if (result == Sinosecu::SUCCESS) {
+                    fl_value_set_string_take(result_map, "message", fl_value_new_string("Scanner initialized successfully"));
+
+                    // Add device information if available
+                    std::string serialNumber = global_scanner_instance->getDeviceSerialNumber();
+                    std::string deviceModel = global_scanner_instance->getDeviceModel();
+
+                    if (!serialNumber.empty()) {
+                        fl_value_set_string_take(result_map, "serialNumber", fl_value_new_string(serialNumber.c_str()));
+                    }
+                    if (!deviceModel.empty()) {
+                        fl_value_set_string_take(result_map, "deviceModel", fl_value_new_string(deviceModel.c_str()));
+                    }
+                } else {
+                    std::string error_msg = global_scanner_instance->getLastError();
+                    fl_value_set_string_take(result_map, "message", fl_value_new_string(error_msg.c_str()));
+                    fl_value_set_string_take(result_map, "errorCode", fl_value_new_int(result));
+                }
+
+                response = create_success_response(result_map);
+            }
         }
 
-        FlValue* user_id_value = fl_value_lookup_string(args, "userId");
-        FlValue* n_type_value = fl_value_lookup_string(args, "nType");
-        FlValue* sdk_dir_value = fl_value_lookup_string(args, "sdkDirectory");
+            // Handle checkDeviceStatus
+        else if (strcmp(method_name, "checkDeviceStatus") == 0) {
+            if (!ensure_scanner_ready(method_call, method_name)) return;
 
-        if (!user_id_value || fl_value_get_type(user_id_value) != FL_VALUE_TYPE_STRING ||
-            !n_type_value || fl_value_get_type(n_type_value) != FL_VALUE_TYPE_INT ||
-            !sdk_dir_value || fl_value_get_type(sdk_dir_value) != FL_VALUE_TYPE_STRING) {
-            std::cerr << "Linux side: Missing or incorrect argument types for initializeScanner." << std::endl;
-            response = FL_METHOD_RESPONSE(fl_method_error_response_new("ARGUMENT_ERROR", "Invalid arguments for initializeScanner", nullptr));
-        } else {
-            const char* userId_cstr = fl_value_get_string(user_id_value);
-            int nType = fl_value_get_int(n_type_value);
-            const char* sdkDirectory_cstr = fl_value_get_string(sdk_dir_value);
+            int status = global_scanner_instance->checkDeviceStatus();
 
-            std::cout << "Linux side: Calling initializeScanner with UserID: " << (userId_cstr ? userId_cstr : "NULL")
-                      << ", nType: " << nType
-                      << ", Directory: " << (sdkDirectory_cstr ? sdkDirectory_cstr : "NULL") << std::endl;
+            FlValue* result_map = fl_value_new_map();
+            fl_value_set_string_take(result_map, "status", fl_value_new_int(status));
 
-            int result = global_scanner_instance->initializeScanner(std::string(userId_cstr ? userId_cstr : ""), nType, std::string(sdkDirectory_cstr ? sdkDirectory_cstr : ""));
-            response = FL_METHOD_RESPONSE(fl_method_success_response_new(fl_value_new_int(result)));
+            const char* status_message;
+            switch (status) {
+                case Sinosecu::DEVICE_CONNECTED:
+                    status_message = "Device connected and ready";
+                    break;
+                case Sinosecu::DEVICE_DISCONNECTED:
+                    status_message = "Device disconnected";
+                    break;
+                case Sinosecu::DEVICE_NEEDS_REINIT:
+                    status_message = "Device needs reinitialization";
+                    break;
+                default:
+                    status_message = "Unknown device status";
+                    break;
+            }
+
+            fl_value_set_string_take(result_map, "message", fl_value_new_string(status_message));
+            response = create_success_response(result_map);
         }
+
+            // Handle detectDocument
+        else if (strcmp(method_name, "detectDocument") == 0) {
+            if (!ensure_scanner_ready(method_call, method_name)) return;
+
+            int detection_result = global_scanner_instance->detectDocument();
+
+            FlValue* result_map = fl_value_new_map();
+            fl_value_set_string_take(result_map, "detectionResult", fl_value_new_int(detection_result));
+
+            const char* detection_message;
+            bool document_present = false;
+
+            switch (detection_result) {
+                case Sinosecu::DOC_NOT_DETECTED:
+                    detection_message = "No document detected";
+                    break;
+                case Sinosecu::DOC_PLACED:
+                    detection_message = "Document placed on scanner";
+                    document_present = true;
+                    break;
+                case Sinosecu::DOC_REMOVED:
+                    detection_message = "Document removed from scanner";
+                    break;
+                case Sinosecu::PHONE_BARCODE_DETECTED:
+                    detection_message = "Mobile phone barcode detected";
+                    document_present = true;
+                    break;
+                default:
+                    detection_message = "Unknown detection result";
+                    break;
+            }
+
+            fl_value_set_string_take(result_map, "message", fl_value_new_string(detection_message));
+            fl_value_set_string_take(result_map, "documentPresent", fl_value_new_bool(document_present));
+
+            response = create_success_response(result_map);
+        }
+
+            // Handle processDocument
+        else if (strcmp(method_name, "processDocument") == 0) {
+            if (!ensure_scanner_ready(method_call, method_name)) return;
+
+            int process_result = global_scanner_instance->processDocument();
+
+            FlValue* result_map = fl_value_new_map();
+            fl_value_set_string_take(result_map, "processResult", fl_value_new_int(process_result));
+            fl_value_set_string_take(result_map, "success", fl_value_new_bool(process_result > 0));
+
+            if (process_result > 0) {
+                // Success - get extracted data
+                PassportData passport_data = global_scanner_instance->extractPassportData();
+                auto data_map = passport_data.toMap();
+
+                FlValue* passport_map = fl_value_new_map();
+                for (const auto& pair : data_map) {
+                    if (!pair.second.empty()) {
+                        fl_value_set_string_take(passport_map, pair.first.c_str(),
+                                                 fl_value_new_string(pair.second.c_str()));
+                    }
+                }
+
+                fl_value_set_string_take(result_map, "passportData", passport_map);
+                fl_value_set_string_take(result_map, "message", fl_value_new_string("Document processed successfully"));
+            } else {
+                std::string error_msg = global_scanner_instance->getLastError();
+                fl_value_set_string_take(result_map, "message", fl_value_new_string(error_msg.c_str()));
+            }
+
+            response = create_success_response(result_map);
+        }
+
+            // Handle getDeviceInfo
+        else if (strcmp(method_name, "getDeviceInfo") == 0) {
+            if (!ensure_scanner_ready(method_call, method_name)) return;
+
+            FlValue* info_map = fl_value_new_map();
+
+            std::string serialNumber = global_scanner_instance->getDeviceSerialNumber();
+            std::string deviceModel = global_scanner_instance->getDeviceModel();
+            bool is_ready = global_scanner_instance->isReady();
+
+            fl_value_set_string_take(info_map, "serialNumber", fl_value_new_string(serialNumber.c_str()));
+            fl_value_set_string_take(info_map, "deviceModel", fl_value_new_string(deviceModel.c_str()));
+            fl_value_set_string_take(info_map, "isReady", fl_value_new_bool(is_ready));
+
+            response = create_success_response(info_map);
+        }
+
+            // Handle playBuzzer
+        else if (strcmp(method_name, "playBuzzer") == 0) {
+            if (!ensure_scanner_ready(method_call, method_name)) return;
+
+            int duration = 100; // Default duration
+
+            if (args && fl_value_get_type(args) == FL_VALUE_TYPE_MAP) {
+                FlValue* duration_value = fl_value_lookup_string(args, "duration");
+                if (duration_value && fl_value_get_type(duration_value) == FL_VALUE_TYPE_INT) {
+                    duration = fl_value_get_int(duration_value);
+                }
+            }
+
+            int result = global_scanner_instance->playBuzzer(duration);
+
+            FlValue* result_map = fl_value_new_map();
+            fl_value_set_string_take(result_map, "result", fl_value_new_int(result));
+            fl_value_set_string_take(result_map, "success", fl_value_new_bool(result == Sinosecu::SUCCESS));
+
+            response = create_success_response(result_map);
+        }
+
+            // Handle releaseScanner
+        else if (strcmp(method_name, "releaseScanner") == 0) {
+            if (global_scanner_instance) {
+                global_scanner_instance->releaseScanner();
+                global_scanner_instance.reset();
+                std::cout << "Linux side: Scanner instance released" << std::endl;
+            }
+
+            FlValue* result_map = fl_value_new_map();
+            fl_value_set_string_take(result_map, "success", fl_value_new_bool(true));
+            fl_value_set_string_take(result_map, "message", fl_value_new_string("Scanner released successfully"));
+
+            response = create_success_response(result_map);
+        }
+
+            // Handle unknown methods
+        else {
+            std::cerr << "Linux side: Unknown method called: " << method_name << std::endl;
+            response = create_error_response("METHOD_NOT_FOUND", "Unknown method", method_name);
+        }
+
+    } catch (const std::exception& e) {
+        std::cerr << "Linux side: Exception in method " << method_name << ": " << e.what() << std::endl;
+        response = create_error_response("NATIVE_EXCEPTION", "Native code exception", e.what());
+    } catch (...) {
+        std::cerr << "Linux side: Unknown exception in method " << method_name << std::endl;
+        response = create_error_response("UNKNOWN_EXCEPTION", "Unknown native exception");
     }
-    
-    fl_method_call_respond(method_call, response, nullptr);  // Add response handler
-}  // Added missing closing brace
+
+    // Always respond to the method call
+    if (response) {
+        fl_method_call_respond(method_call, response, nullptr);
+    } else {
+        // Fallback response if none was created
+        fl_method_call_respond(method_call, create_error_response("INTERNAL_ERROR", "No response generated"), nullptr);
+    }
+
+    std::cout << "Linux side: Method call " << method_name << " completed" << std::endl;
+}
 
 // Implements GApplication::activate.
 static void my_application_activate(GApplication* application) {

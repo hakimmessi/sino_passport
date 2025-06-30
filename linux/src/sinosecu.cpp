@@ -6,16 +6,24 @@
 #include <filesystem>
 #include <thread>
 #include <chrono>
+#include <sstream>
+#include <iomanip>
 
+// Utility functions
 std::wstring string_to_wstring(const std::string& str) {
-    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> conv;
-    return conv.from_bytes(str);
+    if (str.empty()) return L"";
+
+    try {
+        std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> conv;
+        return conv.from_bytes(str);
+    } catch (const std::exception& e) {
+        std::cerr << "String conversion error: " << e.what() << std::endl;
+        return L"";
+    }
 }
 
 std::string wstring_to_string(const std::wstring& wstr) {
-    if (wstr.empty()) {
-        return "";
-    }
+    if (wstr.empty()) return "";
 
     try {
         std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> conv;
@@ -26,17 +34,53 @@ std::string wstring_to_string(const std::wstring& wstr) {
         // Fallback: manual conversion for basic ASCII
         std::string result;
         for (wchar_t wc : wstr) {
-            if (wc < 128) { // Basic ASCII only
+            if (wc < 128) {
                 result += static_cast<char>(wc);
             } else {
-                result += '?'; // Replace non-ASCII with ?
+                result += '?';
             }
         }
         return result;
     }
 }
 
-Sinosecu::Sinosecu() : isInitialized(false) {}
+// PassportData methods
+std::map<std::string, std::string> PassportData::toMap() const {
+    std::map<std::string, std::string> result;
+    result["passportNumber"] = wstring_to_string(passportNumber);
+    result["englishName"] = wstring_to_string(englishName);
+    result["gender"] = wstring_to_string(gender);
+    result["birthDate"] = wstring_to_string(birthDate);
+    result["expiry"] = wstring_to_string(expiry);
+    result["issuingCountry"] = wstring_to_string(issuingCountry);
+    result["surname"] = wstring_to_string(surname);
+    result["firstName"] = wstring_to_string(firstName);
+    result["nationality"] = wstring_to_string(nationality);
+    result["documentNumber"] = wstring_to_string(documentNumber);
+    return result;
+}
+
+void PassportData::clear() {
+    passportNumber.clear();
+    englishName.clear();
+    gender.clear();
+    birthDate.clear();
+    expiry.clear();
+    issuingCountry.clear();
+    surname.clear();
+    firstName.clear();
+    nationality.clear();
+    documentNumber.clear();
+}
+
+bool PassportData::isEmpty() const {
+    return passportNumber.empty() && englishName.empty() &&
+           surname.empty() && firstName.empty();
+}
+
+Sinosecu::Sinosecu() : isInitialized(false) {
+    std::cout << "Sinosecu instance created" << std::endl;
+}
 
 Sinosecu::~Sinosecu() {
     if (isInitialized) {
@@ -53,6 +97,14 @@ std::string Sinosecu::getLastError() const {
     return lastError;
 }
 
+void Sinosecu::clearError() {
+    lastError.clear();
+}
+
+bool Sinosecu::isReady() const {
+    return isInitialized;
+}
+
 bool Sinosecu::validateInitialization() {
     if (!isInitialized) {
         setLastError("Scanner not initialized");
@@ -61,11 +113,23 @@ bool Sinosecu::validateInitialization() {
     return true;
 }
 
+std::string Sinosecu::getInitErrorMessage(int errorCode) {
+    switch (errorCode) {
+        case SUCCESS: return "Success";
+        case ERROR_AUTH_INCORRECT: return "Authorization ID is incorrect - check your license";
+        case ERROR_DEVICE_INIT: return "Device initialization failed - check device connection";
+        case ERROR_ENGINE_INIT: return "Recognition engine initialization failed - check SDK files";
+        case ERROR_AUTH_FILES_NOT_FOUND: return "Authorization files not found - check license files";
+        case ERROR_TEMPLATE_LOAD: return "Recognition engine failed to load templates";
+        case ERROR_CHIP_READER_INIT: return "Chip reader initialization failed - check device drivers";
+        default: return "Unknown initialization error: " + std::to_string(errorCode);
+    }
+}
+
 void Sinosecu::releaseScanner() {
     if (isInitialized) {
         try {
-            // Uncomment this when you have FreeIDCard() declared in your header
-            // FreeIDCard();
+            FreeIDCard();
             std::cout << "SDK released successfully" << std::endl;
         } catch (const std::exception& e) {
             setLastError("Error releasing SDK: " + std::string(e.what()));
@@ -73,10 +137,20 @@ void Sinosecu::releaseScanner() {
         isInitialized = false;
         lastError.clear();
         sdkPath.clear();
+        lastScannedData.clear();
     }
 }
 
+
+
 int Sinosecu::initializeScanner(const std::string& userId, int nType, const std::string& sdkDirectory) {
+
+    // Validate inputs
+    if (userId.empty()) {
+        setLastError("User ID cannot be empty");
+        return ERROR_GENERAL;
+    }
+
     // Check for required files
     std::string libPath = sdkDirectory + "/libIDCard.so";
     if (!std::filesystem::exists(libPath)) {
@@ -85,6 +159,8 @@ int Sinosecu::initializeScanner(const std::string& userId, int nType, const std:
     }
 
     std::cout << "libIDCard.so found at: " << libPath << std::endl;
+
+    // Check if the scanner is already initialized
     if (isInitialized) {
         std::cout << "Scanner already initialized, releasing first..." << std::endl;
         releaseScanner();
@@ -98,68 +174,289 @@ int Sinosecu::initializeScanner(const std::string& userId, int nType, const std:
     std::cout << "  UserID: " << userId << std::endl;
     std::cout << "  nType: " << nType << std::endl;
     std::cout << "  Directory: " << sdkDirectory << std::endl;
+
     int result;
     try {
         result = InitIDCard(wUserId.c_str(), nType, wSdkDirectory.c_str());
         std::cout << "InitIDCard returned: " << result << std::endl;
     } catch (const std::exception& e) {
         setLastError("Exception during InitIDCard: " + std::string(e.what()));
-        return ERROR_INIT;
+        return ERROR_GENERAL;
     } catch (...) {
-        setLastError("Unknown exception during InitIDCard - possible library compatibility issue");
-        return ERROR_INIT;
+        setLastError("Unknown exception during InitIDCard");
+        return ERROR_GENERAL;
     }
 
-    switch (result) {
-        case 0: {
-            isInitialized = true;
-            sdkPath = sdkDirectory;
-            std::cout << "SDK initialized successfully!" << std::endl;
-            std::string configPath = sdkDirectory + "/IDCardConfig.ini";
-            if (!std::filesystem::exists(configPath)) {
-                setLastError("Configuration file not found: " + configPath);
-                return ERROR_CONFIG;
-            }
-            std::wstring wConfigPath = string_to_wstring(configPath);
-            int configRes = SetConfigByFile(wConfigPath.c_str());
-            if (configRes != 0) {
-                setLastError("Failed to load configuration from: " + configPath);
-                releaseScanner();
-                return ERROR_CONFIG;
-            }
-            std::cout << "SetConfigByFile returned: " << configRes << std::endl;
-            break;
+    if (result == SUCCESS) {
+        isInitialized = true;
+        sdkPath = sdkDirectory;
+        std::cout << "SDK initialized successfully!" << std::endl;
+
+        // Check device status
+        int deviceStatus = checkDeviceStatus();
+        std::cout << "Device status: " << deviceStatus << std::endl;
+
+        // Load configuration if available
+        int configResult = loadConfig();
+        if (configResult != SUCCESS) {
+            std::cout << "Warning: Could not load configuration file" << std::endl;
         }
-        case 1: {
-            setLastError("Authorization ID is incorrect - check your license");
-            break;
-        }
-        case 2: {
-            setLastError("Device initialization failed - check device connection");
-            break;
-        }
-        case 3: {
-            setLastError("Recognition engine initialization failed - check SDK files");
-            break;
-        }
-        case 4: {
-            setLastError("Authorization files not found - check license files in SDK directory");
-            break;
-        }
-        case 5: {
-            setLastError("Recognition engine failed to load templates - check template files");
-            break;
-        }
-        case 6: {
-            setLastError("Chip reader initialization failed - check device drivers");
-            break;
-        }
-        default: {
-            setLastError("Unknown initialization error: " + std::to_string(result));
-            break;
-        }
+
+        // Test buzzer
+        playBuzzer(50);
+
+        clearError();
+    } else {
+        setLastError(getInitErrorMessage(result));
     }
 
-    std::cout << "=== initializeScanner complete ===" << std::endl;
     return result;
 }
+
+int Sinosecu::checkDeviceStatus() {
+    if (!validateInitialization()) return ERROR_GENERAL;
+
+    try {
+        return CheckDeviceOnlineEx();
+    } catch (const std::exception& e) {
+        setLastError("Error checking device status: " + std::string(e.what()));
+        return ERROR_GENERAL;
+    }
+}
+
+int Sinosecu::detectDocument() {
+    if (!validateInitialization()) return ERROR_GENERAL;
+
+    try {
+        return DetectDocument();
+    } catch (const std::exception& e) {
+        setLastError("Error detecting document: " + std::string(e.what()));
+        return ERROR_GENERAL;
+    }
+}
+
+int Sinosecu::processDocument() {
+    if (!validateInitialization()) return ERROR_GENERAL;
+
+    std::cout << "Processing document..." << std::endl;
+
+    int cardType = 0;
+    int result;
+
+    try {
+        result = AutoProcessIDCard(cardType);
+        std::cout << "AutoProcessIDCard returned: " << result << std::endl;
+        std::cout << "Card type: " << cardType << std::endl;
+    } catch (const std::exception& e) {
+        setLastError("Error processing document: " + std::string(e.what()));
+        return ERROR_GENERAL;
+    }
+
+    if (result > 0) {
+        // Success - extract data
+        lastScannedData = extractPassportData();
+
+        // Save image with timestamp
+        auto now = std::chrono::system_clock::now();
+        auto time_t = std::chrono::system_clock::to_time_t(now);
+        std::string filename = "/tmp/passport_" + std::to_string(time_t) + ".jpg";
+        saveImage(filename);
+
+        playBuzzer(200); // Success sound
+        clearError();
+    } else {
+        setLastError("Document processing failed with code: " + std::to_string(result));
+    }
+
+    return result;
+}
+
+std::wstring Sinosecu::getFieldValue(int nAttribute, int nIndex) {
+    return extractField(nAttribute, nIndex);
+}
+
+std::wstring Sinosecu::extractField(int attribute, int index) {
+    if (!validateInitialization()) return L"";
+
+    wchar_t buffer[512] = {0};
+    int bufferLen = 512;
+
+    try {
+        int result = GetRecogResultEx(attribute, index, buffer, bufferLen);
+        if (result == 0) {
+            return std::wstring(buffer);
+        } else {
+            std::cout << "Failed to get field " << index << ", error: " << result << std::endl;
+            return L"";
+        }
+    } catch (const std::exception& e) {
+        setLastError("Error extracting field: " + std::string(e.what()));
+        return L"";
+    }
+}
+
+bool Sinosecu::validateFieldData(const std::wstring& data) {
+    // Remove leading/trailing whitespace and check if meaningful data exists
+    std::wstring trimmed = data;
+    trimmed.erase(0, trimmed.find_first_not_of(L" \t\n\r"));
+    trimmed.erase(trimmed.find_last_not_of(L" \t\n\r") + 1);
+
+    return !trimmed.empty() && trimmed != L"0" && trimmed != L"00000000";
+}
+
+PassportData Sinosecu::extractPassportData() {
+    if (!validateInitialization()) return PassportData{};
+
+    std::cout << "Extracting passport data..." << std::endl;
+
+    PassportData passport;
+
+    // Extract all fields (nAttribute = 1 for OCR page data)
+    passport.passportNumber = extractField(1, 1);
+    passport.englishName = extractField(1, 3);
+    passport.gender = extractField(1, 4);
+    passport.birthDate = extractField(1, 5);
+    passport.expiry = extractField(1, 6);
+    passport.issuingCountry = extractField(1, 7);
+    passport.surname = extractField(1, 8);
+    passport.firstName = extractField(1, 9);
+    passport.nationality = extractField(1, 12);
+    passport.documentNumber = extractField(1, 13);
+
+    // Log extracted data
+    std::cout << "=== Extracted Passport Data ===" << std::endl;
+    auto dataMap = passport.toMap();
+    for (const auto& pair : dataMap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+    std::cout << "===============================" << std::endl;
+
+    return passport;
+}
+
+int Sinosecu::playBuzzer(int durationMs) {
+    if (!validateInitialization()) return ERROR_GENERAL;
+
+    try {
+        return BuzzerAlarm(durationMs);
+    } catch (const std::exception& e) {
+        setLastError("Error playing buzzer: " + std::string(e.what()));
+        return ERROR_GENERAL;
+    }
+}
+
+int Sinosecu::saveImage(const std::string& filename, int imageType) {
+    if (!validateInitialization()) return ERROR_GENERAL;
+
+    try {
+        std::wstring wFilename = string_to_wstring(filename);
+        int result = SaveImageEx(wFilename.c_str(), imageType);
+        if (result == 0) {
+            std::cout << "Image saved: " << filename << std::endl;
+        } else {
+            std::cout << "Image save failed with code: " << result << std::endl;
+        }
+        return result;
+    } catch (const std::exception& e) {
+        setLastError("Error saving image: " + std::string(e.what()));
+        return ERROR_GENERAL;
+    }
+}
+
+std::string Sinosecu::getDeviceSerialNumber() {
+    if (!validateInitialization()) return "";
+
+    try {
+        wchar_t buffer[16] = {0};
+        int result = GetDeviceSN(buffer, 16);
+        if (result == 0) {
+            return wstring_to_string(std::wstring(buffer));
+        }
+        return "";
+    } catch (const std::exception& e) {
+        setLastError("Error getting device serial: " + std::string(e.what()));
+        return "";
+    }
+}
+
+std::string Sinosecu::getDeviceModel() {
+    if (!validateInitialization()) return "";
+
+    try {
+        wchar_t buffer[64] = {0};
+        int result = GetCurrentDevice(buffer, 64);
+        if (result == 0) {
+            return wstring_to_string(std::wstring(buffer));
+        }
+        return "";
+    } catch (const std::exception& e) {
+        setLastError("Error getting device model: " + std::string(e.what()));
+        return "";
+    }
+}
+
+int Sinosecu::loadConfig(const std::string& configPath) {
+    if (!validateInitialization()) return ERROR_CONFIG;
+
+    std::string actualConfigPath = configPath.empty() ?
+                                   sdkPath + "/IDCardConfig.ini" : configPath;
+
+    if (!std::filesystem::exists(actualConfigPath)) {
+        setLastError("Configuration file not found: " + actualConfigPath);
+        return ERROR_CONFIG;
+    }
+
+    try {
+        std::wstring wConfigPath = string_to_wstring(actualConfigPath);
+        int result = SetConfigByFile(wConfigPath.c_str());
+        if (result == 0) {
+            std::cout << "Configuration loaded successfully" << std::endl;
+        } else {
+            setLastError("Failed to load configuration");
+        }
+        return result;
+    } catch (const std::exception& e) {
+        setLastError("Error loading config: " + std::string(e.what()));
+        return ERROR_CONFIG;
+    }
+}
+
+int Sinosecu::setLanguage(int language) {
+    if (!validateInitialization()) return ERROR_GENERAL;
+
+    try {
+        return SetLanguage(language);
+    } catch (const std::exception& e) {
+        setLastError("Error setting language: " + std::string(e.what()));
+        return ERROR_GENERAL;
+    }
+}
+
+// Testing/debugging method
+void Sinosecu::runDetectionLoop() {
+    if (!validateInitialization()) {
+        std::cerr << "Detection loop cannot run - scanner not initialized." << std::endl;
+        return;
+    }
+
+    std::cout << "Starting detection loop... (Press Ctrl+C to exit)" << std::endl;
+
+    while (isInitialized) {
+        int docDetectResult = detectDocument();
+        std::cout << "DetectDocument returned: " << docDetectResult << std::endl;
+
+        if (docDetectResult == DOC_PLACED) {
+            playBuzzer(100);
+            int processResult = processDocument();
+
+            if (processResult > 0) {
+                std::cout << "Document processed successfully!" << std::endl;
+            } else {
+                std::cout << "Document processing failed: " << getLastError() << std::endl;
+            }
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Fixed: was seconds(1000)
+    }
+}
+
