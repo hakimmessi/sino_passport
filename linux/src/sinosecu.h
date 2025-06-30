@@ -73,6 +73,7 @@ public:
     static constexpr int ERROR_CHIP_READER_INIT = 6;
     static constexpr int ERROR_CONFIG = -5;
     static constexpr int ERROR_GENERAL = -1;
+    static constexpr int ERROR_INIT = -10;
 
     // Device status codes
     static constexpr int DEVICE_CONNECTED = 1;
@@ -90,10 +91,10 @@ public:
     static constexpr int CARD_NO_CHIP = 2;
     static constexpr int CARD_HAS_BARCODE = 4;
     static constexpr int CARD_HAS_CHIP_AND_BARCODE = 5;
-    static constexpr int CARD_NO_CHIP_BUT_BARCODE = 6
+    static constexpr int CARD_NO_CHIP_BUT_BARCODE = 6;
 
     // Core functionality
-    int initializeScanner(const std::string& userId, int nType = 0, const std::string& sdkDirectory = ".");
+    int initializeScanner(const std::string& userId, int nType, const std::string& sdkDirectory);
     int checkDeviceStatus();
     int detectDocument();
     int processDocument();
@@ -112,8 +113,8 @@ public:
     std::string getDeviceModel();
 
     // Configuration
-    int loadConfig(const std::string& configPath = "");
-    int setLanguage(int language = 1); // 0=Chinese, 1=English
+    int loadConfig(const std::string& configPath);
+    int setLanguage(int language);
 
     // Status and error handling
     bool isReady() const;
