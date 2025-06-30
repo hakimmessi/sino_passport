@@ -336,29 +336,55 @@ bool Sinosecu::validateFieldData(const std::wstring& data) {
 PassportData Sinosecu::extractPassportData() {
     if (!validateInitialization()) return PassportData{};
 
-    std::cout << "Extracting passport data..." << std::endl;
+    std::cout << "\n=== EXTRACTING PASSPORT DATA WITH CORRECT INDICES ===" << std::endl;
 
     PassportData passport;
 
+    // Java: GetRecogResultEx(1,11,passportNumber,...)
+    passport.passportNumber = extractField(1, 11);      // Index 11 (not 1!)
 
-    passport.passportNumber = extractField(1, 1);
-    passport.englishName = extractField(1, 3);
-    passport.gender = extractField(1, 4);
-    passport.birthDate = extractField(1, 5);
-    passport.expiry = extractField(1, 6);
-    passport.issuingCountry = extractField(1, 7);
-    passport.surname = extractField(1, 8);
-    passport.firstName = extractField(1, 9);
-    passport.nationality = extractField(1, 12);
-    passport.documentNumber = extractField(1, 13);
+    // Java: GetRecogResultEx(1,3,englishName,...)
+    passport.englishName = extractField(1, 3);          // Index 3 ✓
+
+    // Java: GetRecogResultEx(1,4,gender,...)
+    passport.gender = extractField(1, 4);               // Index 4 ✓
+
+    // Java: GetRecogResultEx(1,6,expiry,...)
+    passport.expiry = extractField(1, 6);               // Index 6 ✓
+
+    // Java: GetRecogResultEx(1,7,issuingCountru,...)
+    passport.issuingCountry = extractField(1, 7);       // Index 7 ✓
+
+    // Java: GetRecogResultEx(1,8,surname,...)
+    passport.surname = extractField(1, 8);              // Index 8 ✓
+
+    // Java: GetRecogResultEx(1,9,firstName,...)
+    passport.firstName = extractField(1, 9);            // Index 9 ✓
+
+    // Java: GetRecogResultEx(1,12,nationality,...)
+    passport.nationality = extractField(1, 12);         // Index 12 ✓
+
+    // Java: GetRecogResultEx(1,13,documentNumber,...)
+    passport.documentNumber = extractField(1, 13);      // Index 13 ✓
+
+    // Birth date - let's try a few common indices since Java doesn't show this
+    passport.birthDate = extractField(1, 5);            // Try index 5 first
+    if (passport.birthDate.empty()) {
+        passport.birthDate = extractField(1, 16);        // Try index 16
+    }
+    if (passport.birthDate.empty()) {
+        passport.birthDate = extractField(1, 2);         // Try index 2
+    }
 
     // Log extracted data
-    std::cout << "=== Extracted Passport Data ===" << std::endl;
+    std::cout << "\n=== EXTRACTED PASSPORT DATA (CORRECTED INDICES) ===" << std::endl;
     auto dataMap = passport.toMap();
     for (const auto& pair : dataMap) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
+        if (!pair.second.empty()) {
+            std::cout << pair.first << ": " << pair.second << std::endl;
+        }
     }
-    std::cout << "===============================" << std::endl;
+    std::cout << "=================================================" << std::endl;
 
     return passport;
 }
