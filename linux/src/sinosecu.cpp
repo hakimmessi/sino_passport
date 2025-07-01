@@ -388,42 +388,4 @@ int Sinosecu::loadConfig(const std::string& configPath) {
     }
 }
 
-int Sinosecu::setLanguage(int language) {
-    if (!validateInitialization()) return ERROR_GENERAL;
-
-    try {
-        return SetLanguage(language);
-    } catch (const std::exception& e) {
-        setLastError("Error setting language: " + std::string(e.what()));
-        return ERROR_GENERAL;
-    }
-}
-
-// Testing/debugging method
-void Sinosecu::runDetectionLoop() {
-    if (!validateInitialization()) {
-        std::cerr << "Detection loop cannot run - scanner not initialized." << std::endl;
-        return;
-    }
-
-    std::cout << "Starting detection loop... (Press Ctrl+C to exit)" << std::endl;
-
-    while (isInitialized) {
-        int docDetectResult = detectDocument();
-        std::cout << "DetectDocument returned: " << docDetectResult << std::endl;
-
-        if (docDetectResult == DOC_PLACED) {
-            playBuzzer(100);
-            int processResult = processDocument();
-
-            if (processResult > 0) {
-                std::cout << "Document processed successfully!" << std::endl;
-            } else {
-                std::cout << "Document processing failed: " << getLastError() << std::endl;
-            }
-        }
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Fixed: was seconds(1000)
-    }
-}
 

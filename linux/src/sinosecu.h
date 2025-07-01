@@ -103,8 +103,8 @@ public:
     void releaseScanner();
 
     // Data extraction
-    std::wstring getFieldValue(int nAttribute, int nIndex);
-    PassportData extractPassportData();
+    //std::wstring getFieldValue(int nAttribute, int nIndex);
+    //PassportData extractPassportData();
     void extract();
 
     // Device control
