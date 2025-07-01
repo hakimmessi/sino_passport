@@ -123,7 +123,6 @@ public:
     bool isReady() const;
     std::string getLastError() const;
     void clearError();
-    void debugAllFields();
 
     // For testing/debugging
     void runDetectionLoop();
@@ -140,8 +139,8 @@ private:
     std::string getInitErrorMessage(int errorCode);
 
     // Internal data extraction helpers
-    std::wstring extractField(int attribute, int index);
-    bool validateFieldData(const std::wstring& data);
+    //std::wstring extractField(int attribute, int index);
+    //bool validateFieldData(const std::wstring& data);
 
 };
 #endif

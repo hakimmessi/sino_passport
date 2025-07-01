@@ -275,70 +275,6 @@ int Sinosecu::processDocument() {
     return result;
 }
 
-std::wstring Sinosecu::getFieldValue(int nAttribute, int nIndex) {
-    return extractField(nAttribute, nIndex);
-}
-
-std::wstring Sinosecu::extractField(int attribute, int index) {
-    if (!validateInitialization()) {
-        std::cout << "ERROR: Scanner not initialized for field extraction" << std::endl;
-        return L"";
-    }
-
-    // Try multiple buffer sizes like Java does with its long string
-    std::vector<int> bufferSizes = {512, 1024, 2048};
-
-    for (int bufSize : bufferSizes) {
-        std::vector<wchar_t> buffer(bufSize, 0);
-        int bufferLen = bufSize;
-
-        std::cout << "=== Extracting field [" << attribute << "][" << index << "] (bufsize=" << bufSize << ") ===" << std::endl;
-
-        try {
-            int result = GetRecogResultEx(attribute, index, buffer.data(), bufferLen);
-
-            std::cout << "GetRecogResultEx returned: " << result << ", bufferLen: " << bufferLen << std::endl;
-
-            if (result == 0) {
-                if (bufferLen > 0) {
-                    std::wstring extracted(buffer.data(), bufferLen);
-                    std::string extractedStr = wstring_to_string(extracted);
-                    std::cout << "SUCCESS: Field " << index << " = '" << extractedStr << "' (length: " << bufferLen << ")" << std::endl;
-                    return extracted;
-                } else {
-                    std::cout << "SUCCESS but bufferLen = 0" << std::endl;
-                    // Try treating the buffer as null-terminated
-                    std::wstring nullTerm(buffer.data());
-                    if (!nullTerm.empty()) {
-                        std::string nullTermStr = wstring_to_string(nullTerm);
-                        std::cout << "SUCCESS (null-term): Field " << index << " = '" << nullTermStr << "'" << std::endl;
-                        return nullTerm;
-                    }
-                }
-            } else if (result == 1) {
-                std::cout << "Buffer too small, need: " << bufferLen << std::endl;
-                continue; // Try next buffer size
-            } else {
-                std::cout << "Error: " << result << std::endl;
-                break; // Don't try other buffer sizes for errors
-            }
-        } catch (const std::exception& e) {
-            std::cout << "EXCEPTION: " << e.what() << std::endl;
-            break;
-        }
-    }
-
-    return L"";
-}
-
-bool Sinosecu::validateFieldData(const std::wstring& data) {
-    // Remove leading/trailing whitespace and check if meaningful data exists
-    std::wstring trimmed = data;
-    trimmed.erase(0, trimmed.find_first_not_of(L" \t\n\r"));
-    trimmed.erase(trimmed.find_last_not_of(L" \t\n\r") + 1);
-
-    return !trimmed.empty() && trimmed != L"0" && trimmed != L"00000000";
-}
 
 void Sinosecu::extract() {
     if (!validateInitialization()) {
@@ -364,61 +300,6 @@ void Sinosecu::extract() {
 
 }
 
-PassportData Sinosecu::extractPassportData() {
-    if (!validateInitialization()) return PassportData{};
-
-    std::cout << "\n=== EXTRACTING PASSPORT DATA WITH CORRECT INDICES ===" << std::endl;
-
-    PassportData passport;
-
-
-    passport.passportNumber = extractField(1, 11);
-
-
-    passport.englishName = extractField(1, 3);
-
-
-    passport.gender = extractField(1, 4);
-
-
-    passport.expiry = extractField(1, 6);
-
-
-    passport.issuingCountry = extractField(1, 7);
-
-
-    passport.surname = extractField(1, 8);
-
-
-    passport.firstName = extractField(1, 9);
-
-
-    passport.nationality = extractField(1, 12);
-
-
-    passport.documentNumber = extractField(1, 13);
-
-
-    passport.birthDate = extractField(1, 5);
-    if (passport.birthDate.empty()) {
-        passport.birthDate = extractField(1, 16);
-    }
-    if (passport.birthDate.empty()) {
-        passport.birthDate = extractField(1, 2);
-    }
-
-    // Log extracted data
-    std::cout << "\n=== EXTRACTED PASSPORT DATA (CORRECTED INDICES) ===" << std::endl;
-    auto dataMap = passport.toMap();
-    for (const auto& pair : dataMap) {
-        if (!pair.second.empty()) {
-            std::cout << pair.first << ": " << pair.second << std::endl;
-        }
-    }
-    std::cout << "=================================================" << std::endl;
-
-    return passport;
-}
 
 int Sinosecu::playBuzzer(int durationMs) {
     if (!validateInitialization()) return ERROR_GENERAL;
