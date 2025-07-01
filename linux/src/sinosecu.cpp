@@ -281,35 +281,55 @@ std::wstring Sinosecu::extractField(int attribute, int index) {
         return L"";
     }
 
-    wchar_t buffer[512] = {0};
+    wchar_t buffer[512];
+    memset(buffer, 0, sizeof(buffer));
+
     int bufferLen = 512;
 
     try {
         std::cout << "=== Extracting field [" << attribute << "][" << index << "] ===" << std::endl;
+        std::cout << "Initial buffer length: " << bufferLen << std::endl;
 
         int result = GetRecogResultEx(attribute, index, buffer, bufferLen);
 
         std::cout << "GetRecogResultEx returned: " << result << std::endl;
         std::cout << "Buffer length after call: " << bufferLen << std::endl;
 
-        // Print buffer contents in hex for debugging
-        std::cout << "Buffer hex: ";
-        for (int i = 0; i < std::min(20, bufferLen); i++) {
-            printf("%04X ", (unsigned short)buffer[i]);
-        }
-        std::cout << std::endl;
-
         if (result == 0) {
-            std::wstring extracted(buffer);
-            std::string extractedStr = wstring_to_string(extracted);
-            std::cout << "SUCCESS: Field " << index << " = '" << extractedStr << "' (length: " << extracted.length() << ")" << std::endl;
-            return extracted;
+            // Success - bufferLen now contains the actual length of data
+            if (bufferLen > 0) {
+                // Create string from the buffer with the actual length
+                std::wstring extracted(buffer, bufferLen);
+                std::string extractedStr = wstring_to_string(extracted);
+                std::cout << "SUCCESS: Field " << index << " = '" << extractedStr << "' (length: " << bufferLen << ")" << std::endl;
+                return extracted;
+            } else {
+                std::cout << "SUCCESS but empty: Field " << index << " returned no data" << std::endl;
+                return L"";
+            }
+        } else if (result == 1) {
+            // Buffer too small - bufferLen contains required size
+            std::cout << "BUFFER TOO SMALL: Need " << bufferLen << " characters" << std::endl;
+
+            // Retry with larger buffer
+            if (bufferLen > 0 && bufferLen < 4096) {  // Safety check
+                std::vector<wchar_t> largeBuf(bufferLen + 1, 0);
+                int newBufLen = bufferLen;
+
+                result = GetRecogResultEx(attribute, index, largeBuf.data(), newBufLen);
+                if (result == 0 && newBufLen > 0) {
+                    std::wstring extracted(largeBuf.data(), newBufLen);
+                    std::string extractedStr = wstring_to_string(extracted);
+                    std::cout << "SUCCESS (retry): Field " << index << " = '" << extractedStr << "' (length: " << newBufLen << ")" << std::endl;
+                    return extracted;
+                }
+            }
+            return L"";
         } else {
             std::cout << "FAILED: GetRecogResultEx error code: " << result;
             switch(result) {
                 case -1: std::cout << " (Recognition engine not initialized)"; break;
                 case -2: std::cout << " (Property doesn't exist)"; break;
-                case 1: std::cout << " (Buffer too small)"; break;
                 case 2: std::cout << " (Recognition failed)"; break;
                 case 3: std::cout << " (Field doesn't exist)"; break;
                 default: std::cout << " (Unknown error)"; break;
