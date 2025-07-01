@@ -105,7 +105,7 @@ public:
     // Data extraction
     //std::wstring getFieldValue(int nAttribute, int nIndex);
     //PassportData extractPassportData();
-    void extract();
+    std::string extract();
 
     // Device control
     int playBuzzer(int durationMs = 100);
