@@ -7,6 +7,7 @@
 #include <thread>
 #include <chrono>
 #include <sstream>
+#include <cstring>
 #include <iomanip>
 
 // Utility functions
@@ -360,40 +361,40 @@ PassportData Sinosecu::extractPassportData() {
 
     PassportData passport;
 
-    // Java: GetRecogResultEx(1,11,passportNumber,...)
-    passport.passportNumber = extractField(1, 11);      // Index 11 (not 1!)
 
-    // Java: GetRecogResultEx(1,3,englishName,...)
-    passport.englishName = extractField(1, 3);          // Index 3 ✓
+    passport.passportNumber = extractField(1, 11);
 
-    // Java: GetRecogResultEx(1,4,gender,...)
-    passport.gender = extractField(1, 4);               // Index 4 ✓
 
-    // Java: GetRecogResultEx(1,6,expiry,...)
-    passport.expiry = extractField(1, 6);               // Index 6 ✓
+    passport.englishName = extractField(1, 3);
 
-    // Java: GetRecogResultEx(1,7,issuingCountru,...)
-    passport.issuingCountry = extractField(1, 7);       // Index 7 ✓
 
-    // Java: GetRecogResultEx(1,8,surname,...)
-    passport.surname = extractField(1, 8);              // Index 8 ✓
+    passport.gender = extractField(1, 4);
 
-    // Java: GetRecogResultEx(1,9,firstName,...)
-    passport.firstName = extractField(1, 9);            // Index 9 ✓
 
-    // Java: GetRecogResultEx(1,12,nationality,...)
-    passport.nationality = extractField(1, 12);         // Index 12 ✓
+    passport.expiry = extractField(1, 6);
 
-    // Java: GetRecogResultEx(1,13,documentNumber,...)
-    passport.documentNumber = extractField(1, 13);      // Index 13 ✓
 
-    // Birth date - let's try a few common indices since Java doesn't show this
-    passport.birthDate = extractField(1, 5);            // Try index 5 first
+    passport.issuingCountry = extractField(1, 7);
+
+
+    passport.surname = extractField(1, 8);
+
+
+    passport.firstName = extractField(1, 9);
+
+
+    passport.nationality = extractField(1, 12);
+
+
+    passport.documentNumber = extractField(1, 13);
+
+
+    passport.birthDate = extractField(1, 5);
     if (passport.birthDate.empty()) {
-        passport.birthDate = extractField(1, 16);        // Try index 16
+        passport.birthDate = extractField(1, 16);
     }
     if (passport.birthDate.empty()) {
-        passport.birthDate = extractField(1, 2);         // Try index 2
+        passport.birthDate = extractField(1, 2);
     }
 
     // Log extracted data
