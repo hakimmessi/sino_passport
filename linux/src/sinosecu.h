@@ -25,7 +25,7 @@ int AutoProcessIDCard(int& nCardType);
 // Data extraction
 int GetFieldNameEx(int nAttribute, int nIndex, wchar_t* lpBuffer, int& nBufferLen);
 int GetRecogResultEx(int nAttribute, int nIndex, wchar_t* lpBuffer, int& nBufferLen);
-int GetIDCardName(LPCTSTR lpBuffer, int& nBufferLen);
+int GetIDCardName(wchar_t* lpBuffer, int& nBufferLen);
 int GetSubID();
 
 // Configuration and control
