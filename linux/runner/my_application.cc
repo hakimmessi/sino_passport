@@ -207,17 +207,11 @@ static void method_channel_call_handler(FlMethodChannel* channel,
             fl_value_set_string_take(result_map, "success", fl_value_new_bool(process_result > 0));
 
             if (process_result > 0) {
-                // Success - get extracted data
-                PassportData passport_data = global_scanner_instance->extractPassportData();
-                auto data_map = passport_data.toMap();
+                // Get REAL data from extract()
+                std::string realPassportNumber = global_scanner_instance->extract();
 
                 FlValue* passport_map = fl_value_new_map();
-                for (const auto& pair : data_map) {
-                    if (!pair.second.empty()) {
-                        fl_value_set_string_take(passport_map, pair.first.c_str(),
-                                                 fl_value_new_string(pair.second.c_str()));
-                    }
-                }
+                fl_value_set_string_take(passport_map, "passportNumber", fl_value_new_string(realPassportNumber.c_str()));
 
                 fl_value_set_string_take(result_map, "passportData", passport_map);
                 fl_value_set_string_take(result_map, "message", fl_value_new_string("Document processed successfully"));

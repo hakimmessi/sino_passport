@@ -276,10 +276,10 @@ int Sinosecu::processDocument() {
 }
 
 
-void Sinosecu::extract() {
+std::string Sinosecu::extract() {
     if (!validateInitialization()) {
         std::cout << "ERROR: Scanner not initialized for extraction" << std::endl;
-        return;
+        return "";
     }
 
     std::cout << "Getting values" << std::endl;
@@ -293,11 +293,12 @@ void Sinosecu::extract() {
     int attRes = GetRecogResultEx(1, 11, passportNumber, nBufferLenpassportNumber);
     std::cout << "attRes: " << attRes << std::endl;
     std::cout << "nBufferLen: " << nBufferLenpassportNumber << std::endl;
+
     std::wstring passportNumberStr(passportNumber);
     std::string passportNumberDisplay = wstring_to_string(passportNumberStr);
     std::cout << "Passport Number: " << passportNumberDisplay << std::endl;
 
-
+    return passportNumberDisplay;  // Return the actual extracted data
 }
 
 
