@@ -25,6 +25,8 @@ int AutoProcessIDCard(int& nCardType);
 // Data extraction
 int GetFieldNameEx(int nAttribute, int nIndex, wchar_t* lpBuffer, int& nBufferLen);
 int GetRecogResultEx(int nAttribute, int nIndex, wchar_t* lpBuffer, int& nBufferLen);
+int GetIDCardName(LPCTSTR lpBuffer, int& nBufferLen);
+int GetSubID();
 
 // Configuration and control
 int SetConfigByFile(const wchar_t* lpConfigFile);
@@ -120,6 +122,7 @@ public:
     bool isReady() const;
     std::string getLastError() const;
     void clearError();
+    void debugAllFields();
 
     // For testing/debugging
     void runDetectionLoop();

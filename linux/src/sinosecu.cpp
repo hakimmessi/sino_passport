@@ -236,6 +236,50 @@ int Sinosecu::detectDocument() {
     }
 }
 
+void Sinosecu::debugAllFields() {
+    std::cout << "\n=== COMPREHENSIVE FIELD SCAN ===" << std::endl;
+
+    // First, let's check document info
+    wchar_t docName[256] = {0};
+    int nameLen = 256;
+    int nameResult = GetIDCardName(docName, nameLen);
+    std::cout << "Document Name Result: " << nameResult << std::endl;
+    if (nameResult == 0) {
+        std::string docNameStr = wstring_to_string(std::wstring(docName));
+        std::cout << "Document Name: '" << docNameStr << "'" << std::endl;
+    }
+
+    // Get sub-type
+    int subType = GetSubID();
+    std::cout << "Document Sub-type: " << subType << std::endl;
+
+    // Scan EVERY field from 0 to 30 for BOTH attributes
+    for (int attr = 0; attr <= 1; attr++) {
+        std::cout << "\n--- ATTRIBUTE " << attr << " (" << (attr == 0 ? "CHIP" : "OCR") << ") ---" << std::endl;
+
+        for (int idx = 0; idx <= 30; idx++) {
+            wchar_t testBuffer[1024] = {0};
+            int testBufLen = 1024;
+
+            int result = GetRecogResultEx(attr, idx, testBuffer, testBufLen);
+
+            if (result == 0 && testBufLen > 0) {
+                std::wstring testField(testBuffer, testBufLen);
+                std::string testStr = wstring_to_string(testField);
+                if (!testStr.empty() && testStr != "0" && testStr != "00000000") {
+                    std::cout << "  [" << attr << "][" << idx << "] = '" << testStr << "' (len:" << testBufLen << ")" << std::endl;
+                }
+            } else if (result != 0) {
+                // Only show errors for indices that should exist
+                if (idx <= 15) {
+                    std::cout << "  [" << attr << "][" << idx << "] ERROR: " << result << std::endl;
+                }
+            }
+        }
+    }
+    std::cout << "\n=== END COMPREHENSIVE SCAN ===" << std::endl;
+}
+
 int Sinosecu::processDocument() {
     if (!validateInitialization()) return ERROR_GENERAL;
 
@@ -254,6 +298,7 @@ int Sinosecu::processDocument() {
     }
 
     if (result > 0) {
+        debugAllFields();
         // Success - extract data
         lastScannedData = extractPassportData();
 
@@ -282,67 +327,50 @@ std::wstring Sinosecu::extractField(int attribute, int index) {
         return L"";
     }
 
-    wchar_t buffer[512];
-    memset(buffer, 0, sizeof(buffer));
+    // Try multiple buffer sizes like Java does with its long string
+    std::vector<int> bufferSizes = {512, 1024, 2048};
 
-    int bufferLen = 512;
+    for (int bufSize : bufferSizes) {
+        std::vector<wchar_t> buffer(bufSize, 0);
+        int bufferLen = bufSize;
 
-    try {
-        std::cout << "=== Extracting field [" << attribute << "][" << index << "] ===" << std::endl;
-        std::cout << "Initial buffer length: " << bufferLen << std::endl;
+        std::cout << "=== Extracting field [" << attribute << "][" << index << "] (bufsize=" << bufSize << ") ===" << std::endl;
 
-        int result = GetRecogResultEx(attribute, index, buffer, bufferLen);
+        try {
+            int result = GetRecogResultEx(attribute, index, buffer.data(), bufferLen);
 
-        std::cout << "GetRecogResultEx returned: " << result << std::endl;
-        std::cout << "Buffer length after call: " << bufferLen << std::endl;
+            std::cout << "GetRecogResultEx returned: " << result << ", bufferLen: " << bufferLen << std::endl;
 
-        if (result == 0) {
-            // Success - bufferLen now contains the actual length of data
-            if (bufferLen > 0) {
-                // Create string from the buffer with the actual length
-                std::wstring extracted(buffer, bufferLen);
-                std::string extractedStr = wstring_to_string(extracted);
-                std::cout << "SUCCESS: Field " << index << " = '" << extractedStr << "' (length: " << bufferLen << ")" << std::endl;
-                return extracted;
-            } else {
-                std::cout << "SUCCESS but empty: Field " << index << " returned no data" << std::endl;
-                return L"";
-            }
-        } else if (result == 1) {
-            // Buffer too small - bufferLen contains required size
-            std::cout << "BUFFER TOO SMALL: Need " << bufferLen << " characters" << std::endl;
-
-            // Retry with larger buffer
-            if (bufferLen > 0 && bufferLen < 4096) {  // Safety check
-                std::vector<wchar_t> largeBuf(bufferLen + 1, 0);
-                int newBufLen = bufferLen;
-
-                result = GetRecogResultEx(attribute, index, largeBuf.data(), newBufLen);
-                if (result == 0 && newBufLen > 0) {
-                    std::wstring extracted(largeBuf.data(), newBufLen);
+            if (result == 0) {
+                if (bufferLen > 0) {
+                    std::wstring extracted(buffer.data(), bufferLen);
                     std::string extractedStr = wstring_to_string(extracted);
-                    std::cout << "SUCCESS (retry): Field " << index << " = '" << extractedStr << "' (length: " << newBufLen << ")" << std::endl;
+                    std::cout << "SUCCESS: Field " << index << " = '" << extractedStr << "' (length: " << bufferLen << ")" << std::endl;
                     return extracted;
+                } else {
+                    std::cout << "SUCCESS but bufferLen = 0" << std::endl;
+                    // Try treating the buffer as null-terminated
+                    std::wstring nullTerm(buffer.data());
+                    if (!nullTerm.empty()) {
+                        std::string nullTermStr = wstring_to_string(nullTerm);
+                        std::cout << "SUCCESS (null-term): Field " << index << " = '" << nullTermStr << "'" << std::endl;
+                        return nullTerm;
+                    }
                 }
+            } else if (result == 1) {
+                std::cout << "Buffer too small, need: " << bufferLen << std::endl;
+                continue; // Try next buffer size
+            } else {
+                std::cout << "Error: " << result << std::endl;
+                break; // Don't try other buffer sizes for errors
             }
-            return L"";
-        } else {
-            std::cout << "FAILED: GetRecogResultEx error code: " << result;
-            switch(result) {
-                case -1: std::cout << " (Recognition engine not initialized)"; break;
-                case -2: std::cout << " (Property doesn't exist)"; break;
-                case 2: std::cout << " (Recognition failed)"; break;
-                case 3: std::cout << " (Field doesn't exist)"; break;
-                default: std::cout << " (Unknown error)"; break;
-            }
-            std::cout << std::endl;
-            return L"";
+        } catch (const std::exception& e) {
+            std::cout << "EXCEPTION: " << e.what() << std::endl;
+            break;
         }
-    } catch (const std::exception& e) {
-        std::cout << "EXCEPTION in extractField: " << e.what() << std::endl;
-        setLastError("Error extracting field: " + std::string(e.what()));
-        return L"";
     }
+
+    return L"";
 }
 
 bool Sinosecu::validateFieldData(const std::wstring& data) {
