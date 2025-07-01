@@ -25,8 +25,8 @@ int AutoProcessIDCard(int& nCardType);
 // Data extraction
 int GetFieldNameEx(int nAttribute, int nIndex, wchar_t* lpBuffer, int& nBufferLen);
 int GetRecogResultEx(int nAttribute, int nIndex, wchar_t* lpBuffer, int& nBufferLen);
-int GetIDCardName(wchar_t* lpBuffer, int& nBufferLen);
-int GetSubID();
+//int GetIDCardName(wchar_t* lpBuffer, int& nBufferLen);
+//int GetSubID();
 
 // Configuration and control
 int SetConfigByFile(const wchar_t* lpConfigFile);
@@ -105,6 +105,7 @@ public:
     // Data extraction
     std::wstring getFieldValue(int nAttribute, int nIndex);
     PassportData extractPassportData();
+    void extract();
 
     // Device control
     int playBuzzer(int durationMs = 100);

@@ -236,49 +236,6 @@ int Sinosecu::detectDocument() {
     }
 }
 
-void Sinosecu::debugAllFields() {
-    std::cout << "\n=== COMPREHENSIVE FIELD SCAN ===" << std::endl;
-
-    // First, let's check document info
-    wchar_t docName[256] = {0};
-    int nameLen = 256;
-    int nameResult = GetIDCardName(docName, nameLen);
-    std::cout << "Document Name Result: " << nameResult << std::endl;
-    if (nameResult == 0) {
-        std::string docNameStr = wstring_to_string(std::wstring(docName));
-        std::cout << "Document Name: '" << docNameStr << "'" << std::endl;
-    }
-
-    // Get sub-type
-    int subType = GetSubID();
-    std::cout << "Document Sub-type: " << subType << std::endl;
-
-    // Scan EVERY field from 0 to 30 for BOTH attributes
-    for (int attr = 0; attr <= 1; attr++) {
-        std::cout << "\n--- ATTRIBUTE " << attr << " (" << (attr == 0 ? "CHIP" : "OCR") << ") ---" << std::endl;
-
-        for (int idx = 0; idx <= 30; idx++) {
-            wchar_t testBuffer[1024] = {0};
-            int testBufLen = 1024;
-
-            int result = GetRecogResultEx(attr, idx, testBuffer, testBufLen);
-
-            if (result == 0 && testBufLen > 0) {
-                std::wstring testField(testBuffer, testBufLen);
-                std::string testStr = wstring_to_string(testField);
-                if (!testStr.empty() && testStr != "0" && testStr != "00000000") {
-                    std::cout << "  [" << attr << "][" << idx << "] = '" << testStr << "' (len:" << testBufLen << ")" << std::endl;
-                }
-            } else if (result != 0) {
-                // Only show errors for indices that should exist
-                if (idx <= 15) {
-                    std::cout << "  [" << attr << "][" << idx << "] ERROR: " << result << std::endl;
-                }
-            }
-        }
-    }
-    std::cout << "\n=== END COMPREHENSIVE SCAN ===" << std::endl;
-}
 
 int Sinosecu::processDocument() {
     if (!validateInitialization()) return ERROR_GENERAL;
@@ -298,9 +255,10 @@ int Sinosecu::processDocument() {
     }
 
     if (result > 0) {
-        debugAllFields();
+        //debugAllFields();
         // Success - extract data
-        lastScannedData = extractPassportData();
+        //lastScannedData = extractPassportData();
+        extract();
 
         // Save image with timestamp
         auto now = std::chrono::system_clock::now();
@@ -380,6 +338,30 @@ bool Sinosecu::validateFieldData(const std::wstring& data) {
     trimmed.erase(trimmed.find_last_not_of(L" \t\n\r") + 1);
 
     return !trimmed.empty() && trimmed != L"0" && trimmed != L"00000000";
+}
+
+void Sinosecu::extract() {
+    if (!validateInitialization()) {
+        std::cout << "ERROR: Scanner not initialized for extraction" << std::endl;
+        return;
+    }
+
+    std::cout << "Getting values" << std::endl;
+
+    // Passport number
+    wchar_t passportNumber[512];
+    wmemset(passportNumber, L'0', 511);
+    passportNumber[511] = L'\0';
+    int nBufferLenpassportNumber = 512;
+
+    int attRes = GetRecogResultEx(1, 11, passportNumber, nBufferLenpassportNumber);
+    std::cout << "attRes: " << attRes << std::endl;
+    std::cout << "nBufferLen: " << nBufferLenpassportNumber << std::endl;
+    std::wstring passportNumberStr(passportNumber);
+    std::string passportNumberDisplay = wstring_to_string(passportNumberStr);
+    std::cout << "Passport Number: " << passportNumberDisplay << std::endl;
+
+
 }
 
 PassportData Sinosecu::extractPassportData() {
