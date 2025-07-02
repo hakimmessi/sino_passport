@@ -284,7 +284,7 @@ std::string Sinosecu::extract() {
 
     std::cout << "Getting values" << std::endl;
 
-    // Passport number
+    // Passport number (Index 11)
     wchar_t passportNumber[512];
     wmemset(passportNumber, L'0', 511);
     passportNumber[511] = L'\0';
@@ -293,12 +293,115 @@ std::string Sinosecu::extract() {
     int attRes = GetRecogResultEx(1, 11, passportNumber, nBufferLenpassportNumber);
     std::cout << "attRes: " << attRes << std::endl;
     std::cout << "nBufferLen: " << nBufferLenpassportNumber << std::endl;
-
     std::wstring passportNumberStr(passportNumber);
     std::string passportNumberDisplay = wstring_to_string(passportNumberStr);
     std::cout << "Passport Number: " << passportNumberDisplay << std::endl;
 
-    return passportNumberDisplay;  // Return the actual extracted data
+    // Expiry Date (Index 6)
+    wchar_t expiry[512];
+    wmemset(expiry, L'0', 511);
+    expiry[511] = L'\0';
+    int nBufferLenexpiry = 512;
+
+    attRes = GetRecogResultEx(1, 6, expiry, nBufferLenexpiry);
+    std::cout << "attRes: " << attRes << std::endl;
+    std::cout << "nBufferLen: " << nBufferLenexpiry << std::endl;
+    std::wstring expiryStr(expiry);
+    std::string expiryDisplay = wstring_to_string(expiryStr);
+    std::cout << "Expiry: " << expiryDisplay << std::endl;
+
+    // Issuing Country (Index 7)
+    wchar_t issuingCountry[512];
+    wmemset(issuingCountry, L'0', 511);
+    issuingCountry[511] = L'\0';
+    int nBufferLenissuingCountry = 512;
+
+    attRes = GetRecogResultEx(1, 7, issuingCountry, nBufferLenissuingCountry);
+    std::cout << "attRes: " << attRes << std::endl;
+    std::cout << "nBufferLen: " << nBufferLenissuingCountry << std::endl;
+    std::wstring issuingCountryStr(issuingCountry);
+    std::string issuingCountryDisplay = wstring_to_string(issuingCountryStr);
+    std::cout << "Issuing Country: " << issuingCountryDisplay << std::endl;
+
+    // Surname (Index 8)
+    wchar_t surname[512];
+    wmemset(surname, L'0', 511);
+    surname[511] = L'\0';
+    int nBufferLensurname = 512;
+
+    attRes = GetRecogResultEx(1, 8, surname, nBufferLensurname);
+    std::cout << "attRes: " << attRes << std::endl;
+    std::cout << "nBufferLen: " << nBufferLensurname << std::endl;
+    std::wstring surnameStr(surname);
+    std::string surnameDisplay = wstring_to_string(surnameStr);
+    std::cout << "Surname: " << surnameDisplay << std::endl;
+
+    // English Name (Index 3)
+    wchar_t englishName[512];
+    wmemset(englishName, L'0', 511);
+    englishName[511] = L'\0';
+    int nBufferLenenglishName = 512;
+
+    attRes = GetRecogResultEx(1, 3, englishName, nBufferLenenglishName);
+    std::cout << "attRes: " << attRes << std::endl;
+    std::cout << "nBufferLen: " << nBufferLenenglishName << std::endl;
+    std::wstring englishNameStr(englishName);
+    std::string englishNameDisplay = wstring_to_string(englishNameStr);
+    std::cout << "English Name: " << englishNameDisplay << std::endl;
+
+    // Gender (Index 4)
+    wchar_t gender[512];
+    wmemset(gender, L'0', 511);
+    gender[511] = L'\0';
+    int nBufferLengender = 512;
+
+    attRes = GetRecogResultEx(1, 4, gender, nBufferLengender);
+    std::cout << "attRes: " << attRes << std::endl;
+    std::cout << "nBufferLen: " << nBufferLengender << std::endl;
+    std::wstring genderStr(gender);
+    std::string genderDisplay = wstring_to_string(genderStr);
+    std::cout << "Gender: " << genderDisplay << std::endl;
+
+    // First Name (Index 9)
+    wchar_t firstName[512];
+    wmemset(firstName, L'0', 511);
+    firstName[511] = L'\0';
+    int nBufferLenfirstName = 512;
+
+    attRes = GetRecogResultEx(1, 9, firstName, nBufferLenfirstName);
+    std::cout << "attRes: " << attRes << std::endl;
+    std::cout << "nBufferLen: " << nBufferLenfirstName << std::endl;
+    std::wstring firstNameStr(firstName);
+    std::string firstNameDisplay = wstring_to_string(firstNameStr);
+    std::cout << "First Name: " << firstNameDisplay << std::endl;
+
+    // Nationality (Index 12)
+    wchar_t nationality[512];
+    wmemset(nationality, L'0', 511);
+    nationality[511] = L'\0';
+    int nBufferLennationality = 512;
+
+    attRes = GetRecogResultEx(1, 12, nationality, nBufferLennationality);
+    std::cout << "attRes: " << attRes << std::endl;
+    std::cout << "nBufferLen: " << nBufferLennationality << std::endl;
+    std::wstring nationalityStr(nationality);
+    std::string nationalityDisplay = wstring_to_string(nationalityStr);
+    std::cout << "Nationality: " << nationalityDisplay << std::endl;
+
+    // Document Number (Index 13)
+    wchar_t documentNumber[512];
+    wmemset(documentNumber, L'0', 511);
+    documentNumber[511] = L'\0';
+    int nBufferLendocumentNumber = 512;
+
+    attRes = GetRecogResultEx(1, 13, documentNumber, nBufferLendocumentNumber);
+    std::cout << "attRes: " << attRes << std::endl;
+    std::cout << "nBufferLen: " << nBufferLendocumentNumber << std::endl;
+    std::wstring documentNumberStr(documentNumber);
+    std::string documentNumberDisplay = wstring_to_string(documentNumberStr);
+    std::cout << "Document Number: " << documentNumberDisplay << std::endl;
+
+    return passportNumberDisplay;
 }
 
 

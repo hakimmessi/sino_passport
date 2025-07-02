@@ -207,7 +207,7 @@ static void method_channel_call_handler(FlMethodChannel* channel,
             fl_value_set_string_take(result_map, "success", fl_value_new_bool(process_result > 0));
 
             if (process_result > 0) {
-                // Get REAL data from extract()
+
                 std::string realPassportNumber = global_scanner_instance->extract();
 
                 FlValue* passport_map = fl_value_new_map();
