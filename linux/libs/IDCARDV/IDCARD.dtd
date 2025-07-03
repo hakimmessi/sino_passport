@@ -20,6 +20,7 @@
 <!ELEMENT vecKernal ((CKernalInfo*))>
 <!ELEMENT vecCLocateMethod ((CLocateMethod+))>
 <!ELEMENT vecCReplaceChar ((CReplaceChar+))>
+<!ELEMENT vecCRegex ((CRegex+))>
 <!ELEMENT vecCInsertChar ((CInsertChar*))>
 <!ELEMENT vecOutPutResult ((COutPutResult*))>
 <!ELEMENT vecMergeUnit ((CMergeUnit*))>
@@ -63,7 +64,7 @@
 	bCountryCode CDATA #IMPLIED
 	nContentType CDATA #IMPLIED
 >
-<!ELEMENT CFormatInfo ((vecCReplaceChar?))>
+<!ELEMENT CFormatInfo ((vecCReplaceChar?,vecCRegex?))>
 <!ATTLIST CFormatInfo
 	strInFormat CDATA #REQUIRED
 	strOutFormat CDATA #REQUIRED
@@ -73,6 +74,12 @@
 <!ATTLIST CReplaceChar
 	oldChar CDATA #REQUIRED
 	newChar CDATA #REQUIRED
+>
+<!ELEMENT CRegex EMPTY>
+<!ATTLIST CRegex
+	nOperateType CDATA #REQUIRED
+	regexStr1 CDATA #REQUIRED
+	regexStr2 CDATA #REQUIRED
 >
 <!ELEMENT CInsertChar EMPTY>
 <!ATTLIST CInsertChar
@@ -472,8 +479,10 @@ nScaleY CDATA #REQUIRED>
 	nType CDATA #IMPLIED
 	nID CDATA #IMPLIED
 	nIndex CDATA #IMPLIED
+	nTYType CDATA #IMPLIED
+	nParam1 CDATA #IMPLIED
+	nParam2 CDATA #IMPLIED
 	strModel CDATA #IMPLIED
-	nSig CDATA #IMPLIED
     nRecogImgeType (0|1|2) #REQUIRED
 >
 

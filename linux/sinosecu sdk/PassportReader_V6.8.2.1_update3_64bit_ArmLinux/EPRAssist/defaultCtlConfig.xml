@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Config CustomerID="General">
+    <!-- CustomerID，"General"表示通用 "ZHKYS"表示珠海科研所 ，"SerialPort"表示串口-->
+    <BasicSet>
+        <Port value="90"/>
+        <Protocol value="http"/>
+        <CfgPath value="/cfg/"/>
+        <DataType value="JSON"/>
+        <Autorun value="Y"/>
+        <DLLPath value="/../lib/"/>
+        <IDCardConfigPath value="/../lib/"/>
+        <Language value="0"/>
+        <!-- "0"表示中文  "1"表示英文 -->
+        <AutoRecog value="Y"/>
+        <ResultType value="3"/>
+        <CombineTextAndImage value="N"/>
+        <HaveSourceWithResult value="N"/>
+        <SidInfoSrc value="N"/>
+        <Verify value="N"/>
+        <OpenFan value="N"/>
+		<IsWARN value="Y"/>
+    </BasicSet>
+    <Images Cover="N" Path="/picture/" SaveOrig="N" File="">
+        <White Base64="Y" Compress="N" Save="Y"/>
+        <IR Base64="Y" Compress="N" Save="Y"/>
+        <UV Base64="Y" Compress="N" Save="Y"/>
+        <OcrHead Base64="Y" Compress="N" Save="Y"/>
+        <ChipHead Base64="Y" Compress="N" Save="Y"/>
+        <SidHead Base64="Y" Compress="N" Save="Y"/>
+        <SidFront Base64="Y" Compress="N" Save="Y"/>
+        <SidBack Base64="Y" Compress="N" Save="Y"/>
+    </Images>
+    <RFID value="Y">
+        <SIDReadChip value="Y"/>
+    </RFID>
+    <OCR value="Y">
+        <VIZ value="Y"/>
+        <RecogSID value="Y"/>
+    </OCR>
+    <Advanced>
+        <CallBack value="N"/>
+        <Detect value="N"/>
+    </Advanced>
+    <VirtualKeyboard>
+        <Path value="/虚拟键盘测试模版.kbt"/>
+        <Interval value="20"/>
+    </VirtualKeyboard>
+    <CardMainID>
+        <Internal value="2,3,4,5,6,28,30,7,8,9,11,16,17,19,20,21,22,23,24,27,29,33,37,40,41,42,1000,1003,1004,1007,1008,1009,1010,1013,1017,1018,1019,10211029,1037,1039"/>
+        <HkMT value="10,14,15,25,26,31,32,34,35,39,1001,1005,1014,1030,1031,1032,1040"/>
+        <Overseas value="2001,2002,2003,2004,2010,2011,2012,2013,2014,2015,2020,2021,2023,2025,2031,2041,36,38,2022,2024,2028,2051,2063,2071,2081,2082,2083,2084,2085,2091,2092,2100,2110,2120,2121,2130"/>
+    </CardMainID>
+</Config>

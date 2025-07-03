@@ -1,0 +1,2075 @@
+<?xml version='1.0' encoding='gb2312'?>
+<CredentialsEntry xsi:noNamespaceSchemaLocation="template.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <pages pagecount="1">
+        <page cardtypecount="3" id="1">
+            <cardtype cardname="居民身份证-照片页" imgpath="C:\" stepscount="5" cardsize="2" imgname="wintone" id="1" cardid="2">
+                <steps fieldid="1" stepcount="2" isreplace="0" outputvalueHome="姓名：" formattype="0" ctrltype="1" id="1" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="3" steptype="12"/>
+                </steps>
+                <steps fieldid="2" stepcount="2" isreplace="0" outputvalueHome="性别：" formattype="0" ctrltype="1" id="2" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="3" steptype="12"/>
+                </steps>
+                <steps fieldid="4" stepcount="2" isreplace="0" outputvalueHome="出生：" formattype="0" ctrltype="1" id="3" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="3" steptype="12"/>
+                </steps>
+                <steps fieldid="3" stepcount="2" isreplace="0" outputvalueHome="民族：" formattype="0" ctrltype="1" id="4" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="3" steptype="12"/>
+                </steps>
+                <steps fieldid="6" stepcount="2" isreplace="0" outputvalueHome="公民身份号码：" formattype="0" ctrltype="1" id="5" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="2" id="3" steptype="12"/>
+                </steps>
+            </cardtype>
+            <cardtype cardname="护照" imgpath="C:\" stepscount="7" cardsize="3" imgname="wintone" id="2" cardid="13">
+                <steps fieldid="41" stepcount="2" isreplace="0" outputvalueHome="姓名：" formattype="0" ctrltype="1" id="1" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="2" steptype="12"/>
+                </steps>
+                <steps fieldid="3" stepcount="2" isreplace="0" outputvalueHome="英文姓名：" formattype="0" ctrltype="1" id="2" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="2" steptype="12"/>
+                </steps>
+                <steps fieldid="4" stepcount="2" isreplace="0" outputvalueHome="性别：" formattype="0" ctrltype="1" id="3" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="5" stepcount="2" isreplace="0" outputvalueHome="出生日期：" formattype="0" ctrltype="1" id="4" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="12" stepcount="2" isreplace="0" outputvalueHome="国籍：" formattype="0" ctrltype="1" id="5" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="1" stepcount="2" isreplace="0" outputvalueHome="护照号码：" formattype="0" ctrltype="1" id="6" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="6" stepcount="3" isreplace="0" outputvalueHome="有效期：" formattype="0" ctrltype="1" id="7" read2idfield="" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="2" steptype="12"/>
+                    <step skipcount="1" id="3" steptype="12"/>
+                </steps>
+            </cardtype>
+            <cardtype cardname="二代身份证（读卡）" imgpath="C:\" stepscount="7" cardsize="2" imgname="wintone" id="2" cardid="200">
+                <steps fieldid="1" stepcount="2" isreplace="0" outputvalueHome="姓名：" formattype="0" ctrltype="1" id="1" read2idfield="name" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="2" stepcount="2" isreplace="0" outputvalueHome="性别：" formattype="0" ctrltype="1" id="2" read2idfield="sex" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="4" stepcount="2" isreplace="0" outputvalueHome="出生日期：" formattype="0" ctrltype="1" id="3" read2idfield="birthday" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="3" stepcount="2" isreplace="0" outputvalueHome="民族：" formattype="0" ctrltype="1" id="4" read2idfield="people" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="6" stepcount="2" isreplace="0" outputvalueHome="公民身份号码：" formattype="0" ctrltype="1" id="5" read2idfield="idcard" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="8" stepcount="2" isreplace="0" outputvalueHome="签发日期：" formattype="0" ctrltype="1" id="6" read2idfield="issueday" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="1" steptype="12"/>
+                </steps>
+                <steps fieldid="9" stepcount="3" isreplace="0" outputvalueHome="有效期限：" formattype="0" ctrltype="1" id="7" read2idfield="expityday" ctrlorder="1" recreluse="0" outputvalueEnd="" split="-">
+                    <step skipcount="1" id="1" steptype="10"/>
+                    <step skipcount="1" id="2" steptype="12"/>
+                    <step skipcount="1" id="3" steptype="12"/>
+                </steps>
+            </cardtype>
+        </page>
+    </pages>
+    <IDCard count="114">
+        <Card cardname="居民身份证-照片页" FieldCount="6" cardsize="2" id="2">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="民族"/>
+            <Filed id="4" name="出生"/>
+            <Filed id="5" name="住址"/>
+            <Filed id="6" name="公民身份号码"/>
+        </Card>
+        <Card cardname="居民身份证-签发机关页" FieldCount="4" cardsize="2" id="3">
+            <Filed id="1" name="签发机关"/>
+            <Filed id="2" name="有效期限(含签发日期和有效期)"/>
+            <Filed id="3" name="签发日期"/>
+            <Filed id="4" name="有效期至"/>
+        </Card>
+        <Card cardname="二代身份证（读卡）" FieldCount="9" cardsize="2" id="200">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="民族"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="住址"/>
+            <Filed id="6" name="公民身份证号"/>
+            <Filed id="7" name="签发机关"/>
+            <Filed id="8" name="签发日期"/>
+            <Filed id="9" name="有效期限"/>
+        </Card>
+        <Card cardname="临时居民身份证" FieldCount="10" cardsize="2" id="4">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="民族"/>
+            <Filed id="4" name="出生"/>
+            <Filed id="5" name="住址"/>
+            <Filed id="6" name="公民身份号码"/>
+            <Filed id="7" name="签发机关"/>
+            <Filed id="8" name="有效期限"/>
+            <Filed id="9" name="签发日期"/>
+            <Filed id="10" name="有效期至"/>
+        </Card>
+        <Card cardname="机动车驾驶证" FieldCount="10" cardsize="1" id="5">
+            <Filed id="1" name="证号"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="住址"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="初始领证日期"/>
+            <Filed id="7" name="准驾车型"/>
+            <Filed id="8" name="有效起始日期"/>
+            <Filed id="9" name="有效期限"/>
+            <Filed id="10" name="有效截止日期"/>
+        </Card>
+        <Card cardname="机动车行驶证" FieldCount="10" cardsize="1" id="6">
+            <Filed id="1" name="号牌号码"/>
+            <Filed id="2" name="车辆类型"/>
+            <Filed id="3" name="所有人"/>
+            <Filed id="4" name="住址"/>
+            <Filed id="5" name="品牌型号"/>
+            <Filed id="6" name="车辆识别代号"/>
+            <Filed id="7" name="发动机号码"/>
+            <Filed id="8" name="注册日期"/>
+            <Filed id="9" name="发证日期"/>
+            <Filed id="10" name="使用性质"/>
+        </Card>
+        <Card cardname="军官证2016版(全幅)" FieldCount="12" cardsize="4" id="7">
+            <Filed id="1" name="编号"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="出生年月"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="籍贯"/>
+            <Filed id="6" name="民族"/>
+            <Filed id="7" name="部别"/>
+            <Filed id="8" name="职务"/>
+            <Filed id="9" name="衔级"/>
+            <Filed id="10" name="发证机关"/>
+            <Filed id="11" name="发证日期"/>
+            <Filed id="12" name="有效期至"/>
+        </Card>
+        <Card cardname="往来港澳通行证-照片页" FieldCount="25" cardsize="3" id="9">
+            <Filed id="1" name="证件号码MRZ"/>
+            <Filed id="2" name="中文姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="签发国代码"/>
+            <Filed id="8" name="英文姓"/>
+            <Filed id="9" name="英文名"/>
+            <Filed id="10" name="MRZ1"/>
+            <Filed id="11" name="MRZ2"/>
+            <Filed id="12" name="持证人国籍代码"/>
+            <Filed id="13" name="证件号码"/>
+            <Filed id="14" name="出生地"/>
+            <Filed id="15" name="签发地点"/>
+            <Filed id="16" name="签发日期"/>
+            <Filed id="17" name="签发机关"/>
+            <Filed id="18" name="MRZ1(original)"/>
+            <Filed id="19" name="MRZ2(original)"/>
+            <Filed id="20" name="中文姓名(VIZ)"/>
+            <Filed id="21" name="英文姓名(VIZ)"/>
+            <Filed id="22" name="性别(VIZ)"/>
+            <Filed id="23" name="出生日期(VIZ)"/>
+            <Filed id="24" name="有效期至(VIZ)"/>
+        </Card>
+        <Card cardname="台湾居民往来大陆通行证" FieldCount="21" cardsize="3" id="10">
+            <Filed id="1" name="证件号码MRZ(机读码导出)"/>
+            <Filed id="2" name="中文姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="签发国代码"/>
+            <Filed id="8" name="英文姓"/>
+            <Filed id="9" name="英文名"/>
+            <Filed id="10" name="MRZ1"/>
+            <Filed id="11" name="MRZ2"/>
+            <Filed id="12" name="持证人国籍代码"/>
+            <Filed id="13" name="证件号码"/>
+            <Filed id="14" name="身份证号码"/>
+            <Filed id="15" name="签发日期"/>
+            <Filed id="16" name="签发次数(MRZ)"/>
+            <Filed id="17" name="现住址"/>
+            <Filed id="18" name="职业"/>
+            <Filed id="19" name="签发次数(VIZ)"/>
+            <Filed id="20" name="签发地代码"/>
+        </Card>
+        <Card cardname="往来台湾通行证1992版-照片页" FieldCount="19" cardsize="3" id="11">
+            <Filed id="1" name="证件号码MRZ(机读码导出)"/>
+            <Filed id="2" name="中文姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="签发国代码"/>
+            <Filed id="8" name="英文姓"/>
+            <Filed id="9" name="英文名"/>
+            <Filed id="10" name="MRZ1"/>
+            <Filed id="11" name="MRZ2"/>
+            <Filed id="12" name="持证人国籍代码"/>
+            <Filed id="13" name="证件号码"/>
+            <Filed id="14" name="身份证号码"/>
+            <Filed id="15" name="签发日期"/>
+            <Filed id="16" name="签发次数"/>
+            <Filed id="17" name="现住址"/>
+            <Filed id="18" name="职业"/>
+        </Card>
+        <Card cardname="签证" FieldCount="31" cardsize="3" id="12">
+            <Filed id="1" name="MRZ导出号码"/>
+            <Filed id="2" name="本国姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="签发国代码"/>
+            <Filed id="8" name="英文姓"/>
+            <Filed id="9" name="英文名"/>
+            <Filed id="10" name="MRZ1"/>
+            <Filed id="11" name="MRZ2"/>
+            <Filed id="12" name="持证人国籍代码"/>
+            <Filed id="13" name="证件号码"/>
+            <Filed id="14" name="护照号码/通行证号码"/>
+            <Filed id="15" name="签发地点"/>
+            <Filed id="16" name="签发日期"/>
+            <Filed id="17" name="备注"/>
+            <Filed id="18" name="来往次数"/>
+            <Filed id="19" name="居留事由"/>
+            <Filed id="20" name="出访日期"/>
+            <Filed id="21" name="离境日期"/>
+            <Filed id="22" name="停留天数"/>
+            <Filed id="23" name="签证种类"/>
+            <Filed id="24" name="MRZ1(original)"/>
+            <Filed id="25" name="MRZ2(original)"/>
+            <Filed id="26" name="有效期至OCR"/>
+            <Filed id="27" name="出生日期OCR"/>
+            <Filed id="28" name="英文姓名OCR"/>
+            <Filed id="29" name="性别OCR"/>
+            <Filed id="30" name="证件号码OCR"/>
+        </Card>
+        <Card cardname="护照" FieldCount="42" cardsize="3" id="13">
+            <Filed id="1" name="护照号码MRZ"/>
+            <Filed id="2" name="本国姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="签发国代码"/>
+            <Filed id="8" name="英文姓"/>
+            <Filed id="9" name="英文名"/>
+            <Filed id="10" name="MRZ1"/>
+            <Filed id="11" name="MRZ2"/>
+            <Filed id="12" name="持证人国籍代码"/>
+            <Filed id="13" name="护照号码"/>
+            <Filed id="14" name="出生地点"/>
+            <Filed id="15" name="签发地点"/>
+            <Filed id="16" name="签发日期"/>
+            <Filed id="17" name="RFID MRZ"/>
+            <Filed id="18" name="OCR MRZ"/>
+            <Filed id="19" name="出生地点拼音"/>
+            <Filed id="20" name="签发地点拼音"/>
+            <Filed id="21" name="选择性数据输出MRZ"/>
+            <Filed id="22" name="本国姓名拼音OCR"/>
+            <Filed id="23" name="性别OCR"/>
+            <Filed id="24" name="持证人国籍代码OCR"/>
+            <Filed id="25" name="身份证号码OCR"/>
+            <Filed id="26" name="出生日期OCR"/>
+            <Filed id="27" name="有效期至OCR"/>
+            <Filed id="28" name="签发机关OCR"/>
+            <Filed id="29" name="本国姓"/>
+            <Filed id="30" name="本国名"/>
+            <Filed id="31" name="身高"/>
+            <Filed id="32" name="英文姓(VIZ)"/>
+            <Filed id="33" name="英文名(VIZ)"/>
+            <Filed id="34" name="英文姓名(VIZ)"/>
+            <Filed id="35" name="校对英文姓"/>
+            <Filed id="36" name="校对英文名"/>
+            <Filed id="37" name="监护人姓名"/>
+            <Filed id="38" name="国籍"/>
+            <Filed id="39" name="MRZ1(original)"/>
+            <Filed id="40" name="MRZ2(original)"/>
+            <Filed id="41" name="本国姓名(VIZ)"/>
+        </Card>
+        <Card cardname="港澳居民来往内地通行证-照片页" FieldCount="14" cardsize="2" id="14">
+            <Filed id="1" name="证件号码"/>
+            <Filed id="2" name="中文姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="本证有效期至"/>
+            <Filed id="7" name="英文姓"/>
+            <Filed id="8" name="英文名"/>
+            <Filed id="9" name="港澳证件号码"/>
+            <Filed id="10" name="签发日期"/>
+            <Filed id="11" name="有效期限"/>
+            <Filed id="12" name="签发机关"/>
+            <Filed id="13" name="换证次数"/>
+            <Filed id="14" name="其他姓名"/>
+        </Card>
+        <Card cardname="港澳居民来往内地通行证-机读码页" FieldCount="21" cardsize="2" id="15">
+            <Filed id="1" name="证件号码"/>
+            <Filed id="2" name="中文姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="本证有效期至"/>
+            <Filed id="7" name="英文姓"/>
+            <Filed id="8" name="英文名"/>
+            <Filed id="9" name="MRZ1"/>
+            <Filed id="10" name="MRZ2"/>
+            <Filed id="11" name="MRZ3"/>
+            <Filed id="12" name="签发国代码"/>
+            <Filed id="13" name="身份证件号码"/>
+            <Filed id="14" name="换证次数"/>
+            <Filed id="15" name="身份证件号码(VIZ)"/>
+            <Filed id="16" name="MRZ1(original)"/>
+            <Filed id="17" name="MRZ2(original)"/>
+            <Filed id="18" name="MRZ3(original)"/>
+            <Filed id="19" name="港澳证件标识(VIZ)"/>
+            <Filed id="20" name="出生世纪"/>
+        </Card>
+        <Card cardname="常住人口登记卡" FieldCount="5" cardsize="5" id="16">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="民族"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="公民身份证件编号"/>
+        </Card>
+        <Card cardname="海员证" FieldCount="28" cardsize="3" id="17">
+            <Filed id="1" name="海员证号码MRZ"/>
+            <Filed id="2" name="本国姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="签发国代码"/>
+            <Filed id="8" name="英文姓"/>
+            <Filed id="9" name="英文名"/>
+            <Filed id="10" name="MRZ1"/>
+            <Filed id="11" name="MRZ2"/>
+            <Filed id="12" name="持证人国籍代码"/>
+            <Filed id="13" name="海员证号码"/>
+            <Filed id="14" name="出生地点"/>
+            <Filed id="15" name="签发机关"/>
+            <Filed id="16" name="签发日期"/>
+            <Filed id="17" name="MRZ1(original)"/>
+            <Filed id="18" name="MRZ2(original)"/>
+            <Filed id="19" name="有效期至(VIZ)"/>
+            <Filed id="20" name="签发国代码(VIZ)"/>
+            <Filed id="21" name="持证人国籍(VIZ)"/>
+            <Filed id="22" name="持证人国籍英文(VIZ)"/>
+            <Filed id="23" name="出生日期(VIZ)"/>
+            <Filed id="24" name="出生地点英文(VIZ)"/>
+            <Filed id="25" name="英文姓名(VIZ)"/>
+            <Filed id="26" name="签发机关英文(VIZ)"/>
+            <Filed id="27" name="性别(VIZ)"/>
+        </Card>
+        <Card cardname="军官证-照片页" FieldCount="4" cardsize="10" id="18">
+            <Filed id="1" name="编号"/>
+            <Filed id="2" name="发证机关"/>
+            <Filed id="3" name="发证时间"/>
+            <Filed id="4" name="有效期至"/>
+        </Card>
+        <Card cardname="警官证2006版-照片页" FieldCount="3" cardsize="12" id="20">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="率属公安局"/>
+            <Filed id="3" name="警员证号"/>
+        </Card>
+        <Card cardname="警官证2006版-信息页" FieldCount="7" cardsize="12" id="21">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="血型"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="职务"/>
+            <Filed id="6" name="警衔"/>
+            <Filed id="7" name="有效期限"/>
+        </Card>
+        <Card cardname="往来港澳通行证2014版-照片页" FieldCount="14" cardsize="2" id="22">
+            <Filed id="1" name="证件号码"/>
+            <Filed id="2" name="中文姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="性别"/>
+            <Filed id="6" name="有效期限"/>
+            <Filed id="7" name="签发地点"/>
+            <Filed id="8" name="MRZ1"/>
+            <Filed id="9" name="MRZ2"/>
+            <Filed id="10" name="MRZ3"/>
+            <Filed id="11" name="签发日期"/>
+            <Filed id="12" name="有效期至"/>
+            <Filed id="13" name="签发机关"/>
+            <Filed id="14" name="证件号码VIZ"/>
+        </Card>
+        <Card cardname="边境地区出入通行证2014版-照片页" FieldCount="24" cardsize="3" id="23">
+            <Filed id="1" name="本国姓名"/>
+            <Filed id="2" name="英文姓名"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="身份证号码"/>
+            <Filed id="6" name="职业"/>
+            <Filed id="7" name="签发日期"/>
+            <Filed id="8" name="有效期至"/>
+            <Filed id="9" name="地址"/>
+            <Filed id="10" name="MRZ1"/>
+            <Filed id="11" name="MRZ2"/>
+            <Filed id="12" name="MRZ证件类型"/>
+            <Filed id="13" name="MRZ签发国代码"/>
+            <Filed id="14" name="MRZ英文姓名"/>
+            <Filed id="15" name="MRZ证件号码"/>
+            <Filed id="16" name="MRZ持证人国籍代码"/>
+            <Filed id="17" name="MRZ出生日期"/>
+            <Filed id="18" name="MRZ性别"/>
+            <Filed id="19" name="MRZ有效期至"/>
+            <Filed id="20" name="英文姓"/>
+            <Filed id="21" name="英文名"/>
+            <Filed id="22" name="MRZ1(original)"/>
+            <Filed id="23" name="MRZ2(original)"/>
+            <Filed id="24" name="本国姓名(VIZ)"/>
+        </Card>
+        <Card cardname="中国人民解放军车辆驾驶证2010版" FieldCount="10" cardsize="2" id="24">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="证号"/>
+            <Filed id="4" name="血型"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="部别"/>
+            <Filed id="7" name="准驾车型"/>
+            <Filed id="8" name="初次领证日期"/>
+            <Filed id="9" name="核发日期"/>
+            <Filed id="10" name="有效期至"/>
+        </Card>
+        <Card cardname="台湾居民来往大陆通行证2015版-照片页" FieldCount="9" cardsize="2" id="25">
+            <Filed id="1" name="中文姓名"/>
+            <Filed id="2" name="英文姓名"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="有效期限"/>
+            <Filed id="6" name="签发地点"/>
+            <Filed id="7" name="证件号码"/>
+            <Filed id="8" name="签发次数"/>
+            <Filed id="9" name="签发机关"/>
+        </Card>
+        <Card cardname="台湾居民来往大陆通行证2015版-机读码页" FieldCount="18" cardsize="2" id="26">
+            <Filed id="1" name="证件号码"/>
+            <Filed id="2" name="中文姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="本证有效期至"/>
+            <Filed id="7" name="英文姓"/>
+            <Filed id="8" name="英文名"/>
+            <Filed id="9" name="MRZ1"/>
+            <Filed id="10" name="MRZ2"/>
+            <Filed id="11" name="MRZ3"/>
+            <Filed id="12" name="身份证件号码"/>
+            <Filed id="13" name="换证次数"/>
+            <Filed id="14" name="MRZ1(original)"/>
+            <Filed id="15" name="MRZ2(original)"/>
+            <Filed id="16" name="MRZ3(original)"/>
+            <Filed id="17" name="出生世纪"/>
+        </Card>
+        <Card cardname="中国人民解放军行车执照2012版" FieldCount="7" cardsize="1" id="27">
+            <Filed id="1" name="车属单位"/>
+            <Filed id="2" name="车辆号码"/>
+            <Filed id="3" name="厂牌型号"/>
+            <Filed id="4" name="车体颜色"/>
+            <Filed id="5" name="发动机型号"/>
+            <Filed id="6" name="车架型号"/>
+            <Filed id="7" name="出厂日期"/>
+        </Card>
+        <Card cardname="机动车驾驶证副页" FieldCount="3" cardsize="1" id="28">
+            <Filed id="1" name="证号"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="档案编号"/>
+        </Card>
+        <Card cardname="往来台湾通行证2017版-照片页" FieldCount="14" cardsize="2" id="29">
+            <Filed id="1" name="证件号码"/>
+            <Filed id="2" name="中文姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="性别"/>
+            <Filed id="6" name="有效期限"/>
+            <Filed id="7" name="签发地点"/>
+            <Filed id="8" name="MRZ1"/>
+            <Filed id="9" name="MRZ2"/>
+            <Filed id="10" name="MRZ3"/>
+            <Filed id="11" name="签发机关"/>
+            <Filed id="12" name="签发日期"/>
+            <Filed id="13" name="有效期至"/>
+            <Filed id="14" name="MRZ1(original)"/>
+        </Card>
+        <Card cardname="机动车行驶证副页" FieldCount="11" cardsize="1" id="30">
+            <Filed id="1" name="号牌号码"/>
+            <Filed id="2" name="档案编号"/>
+            <Filed id="3" name="核定载人数"/>
+            <Filed id="4" name="总质量"/>
+            <Filed id="5" name="整备质量"/>
+            <Filed id="6" name="外廓尺寸"/>
+            <Filed id="7" name="行驶证识别代码"/>
+            <Filed id="8" name="核定载质量"/>
+            <Filed id="9" name="准牵引总质量"/>
+            <Filed id="10" name="检验记录"/>
+            <Filed id="11" name="强制报废期止"/>
+        </Card>
+        <Card cardname="港澳台居民居住证-照片页" FieldCount="5" cardsize="2" id="31">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="出生"/>
+            <Filed id="4" name="住址"/>
+            <Filed id="5" name="公民身份证号码"/>
+        </Card>
+        <Card cardname="港澳台居民居住证-签发机关页" FieldCount="5" cardsize="2" id="32">
+            <Filed id="1" name="签发机关"/>
+            <Filed id="2" name="有效期限"/>
+            <Filed id="3" name="签发日期"/>
+            <Filed id="4" name="有效期至"/>
+            <Filed id="5" name="通行证号码"/>
+        </Card>
+        <Card cardname="外国人永久居留身份证2017版-照片页" FieldCount="12" cardsize="2" id="33">
+            <Filed id="1" name="英文姓名"/>
+            <Filed id="2" name="中文姓名"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="出生"/>
+            <Filed id="5" name="国籍"/>
+            <Filed id="6" name="签发机关"/>
+            <Filed id="7" name="英文签发机关"/>
+            <Filed id="8" name="公民身份号码"/>
+            <Filed id="9" name="有效期限"/>
+            <Filed id="10" name="英文姓"/>
+            <Filed id="11" name="英文名"/>
+            <Filed id="12" name="国籍代码"/>
+        </Card>
+        <Card cardname="台湾地区（金马澎）入出境许可证2015版-照片页" FieldCount="9" cardsize="2" id="34">
+            <Filed id="1" name="身份证号"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="出生"/>
+            <Filed id="4" name="有效日期"/>
+            <Filed id="5" name="在台地址"/>
+            <Filed id="6" name="许可证号"/>
+            <Filed id="7" name="核发日期"/>
+            <Filed id="8" name="性别"/>
+            <Filed id="9" name="出生地"/>
+        </Card>
+        <Card cardname="台湾地区居留证-照片页" FieldCount="0" cardsize="2" id="35"/>
+        <Card cardname="越南出入境通行证" FieldCount="15" cardsize="3" id="36">
+            <Filed id="1" name="证件号码MRZ"/>
+            <Filed id="2" name="本国姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="签发国代码"/>
+            <Filed id="8" name="英文姓"/>
+            <Filed id="9" name="英文名"/>
+            <Filed id="10" name="MRZ1"/>
+            <Filed id="11" name="MRZ2"/>
+            <Filed id="12" name="持证人国籍代码"/>
+            <Filed id="13" name="MRZ1(original)"/>
+            <Filed id="14" name="MRZ2(original)"/>
+        </Card>
+        <Card cardname="军官证2016版" FieldCount="12" cardsize="4" id="37">
+            <Filed id="1" name="编号"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="出生年月"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="籍贯"/>
+            <Filed id="6" name="民族"/>
+            <Filed id="7" name="部别"/>
+            <Filed id="8" name="职务"/>
+            <Filed id="9" name="衔级"/>
+            <Filed id="10" name="发证机关"/>
+            <Filed id="11" name="发证日期"/>
+            <Filed id="12" name="有效期至"/>
+        </Card>
+        <Card cardname="阿联酋驾驶证" FieldCount="10" cardsize="2" id="38">
+            <Filed id="1" name="号码"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="国籍"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="失效日期"/>
+            <Filed id="6" name="签发日期"/>
+            <Filed id="7" name="签发地点"/>
+            <Filed id="8" name="姓名(阿拉伯文)"/>
+            <Filed id="9" name="国籍(阿拉伯文)"/>
+            <Filed id="10" name="签发地点(阿拉伯文)"/>
+        </Card>
+        <Card cardname="澳门逗留特别许可证" FieldCount="4" cardsize="2" id="39">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="证件号码"/>
+            <Filed id="3" name="入境日期"/>
+            <Filed id="4" name="批准逗留至"/>
+        </Card>
+        <Card cardname="外国人入境卡正面" FieldCount="0" cardsize="3" id="40"/>
+        <Card cardname="外国人入境卡背面" FieldCount="0" cardsize="3" id="41"/>
+        <Card cardname="中华人民共和国退役军人优待证" FieldCount="4" cardsize="2" id="42">
+            <Filed id="1" name="中文姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="服役期限"/>
+            <Filed id="4" name="发放单位"/>
+        </Card>
+        <Card cardname="居住证（广东、广西、东莞）-照片页" FieldCount="12" cardsize="2" id="1000">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="民族"/>
+            <Filed id="4" name="出生"/>
+            <Filed id="5" name="住址"/>
+            <Filed id="6" name="公民身份号码"/>
+            <Filed id="7" name="签发日期"/>
+            <Filed id="8" name="有效期"/>
+            <Filed id="9" name="证号"/>
+            <Filed id="10" name="服务处所"/>
+            <Filed id="11" name="国家或地区"/>
+            <Filed id="12" name="户籍所在地"/>
+        </Card>
+        <Card cardname="香港居民身份证-照片页" FieldCount="11" cardsize="2" id="1001">
+            <Filed id="1" name="中文姓名"/>
+            <Filed id="2" name="拼音姓名"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="签发日期"/>
+            <Filed id="6" name="身份证号码"/>
+            <Filed id="7" name="符号标记"/>
+            <Filed id="8" name="中文电码"/>
+            <Filed id="9" name="电码译文"/>
+            <Filed id="10" name="电码矫正姓名"/>
+            <Filed id="11" name="英文性别"/>
+        </Card>
+        <Card cardname="澳门居民身份证-照片页" FieldCount="10" cardsize="2" id="1005">
+            <Filed id="1" name="中文姓名"/>
+            <Filed id="2" name="拼音姓名"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="签发日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="身份证号码"/>
+            <Filed id="8" name="首次发证"/>
+            <Filed id="9" name="中文电码"/>
+            <Filed id="10" name="电码译文"/>
+        </Card>
+        <Card cardname="律师执业证-签发机关页" FieldCount="3" cardsize="7" id="1007">
+            <Filed id="1" name="执业机构"/>
+            <Filed id="2" name="执业证类型"/>
+            <Filed id="3" name="执业证号"/>
+        </Card>
+        <Card cardname="律师执业证-照片页" FieldCount="3" cardsize="8" id="1008">
+            <Filed id="1" name="持证人"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="身份证号"/>
+        </Card>
+        <Card cardname="中华人民共和国道路运输证IC卡" FieldCount="7" cardsize="2" id="1009">
+            <Filed id="1" name="业户名称"/>
+            <Filed id="2" name="车辆号牌"/>
+            <Filed id="3" name="车辆类型"/>
+            <Filed id="4" name="品牌型号"/>
+            <Filed id="5" name="核发机关"/>
+            <Filed id="6" name="道路运输证号"/>
+            <Filed id="7" name="发证日期"/>
+        </Card>
+        <Card cardname="名片" FieldCount="12" cardsize="13" id="1010">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="单位名称"/>
+            <Filed id="3" name="职务"/>
+            <Filed id="4" name="手机"/>
+            <Filed id="5" name="电话"/>
+            <Filed id="6" name="电子邮件"/>
+            <Filed id="7" name="公司主页"/>
+            <Filed id="8" name="通讯地址"/>
+            <Filed id="9" name="邮政编码"/>
+            <Filed id="10" name="传真"/>
+            <Filed id="11" name="呼机"/>
+            <Filed id="12" name="备注"/>
+        </Card>
+        <Card cardname="组织机构代码证" FieldCount="7" cardsize="10" id="1011">
+            <Filed id="1" name="代码"/>
+            <Filed id="2" name="机构名称"/>
+            <Filed id="3" name="机构类型"/>
+            <Filed id="4" name="地址"/>
+            <Filed id="5" name="有效期"/>
+            <Filed id="6" name="颁发单位"/>
+            <Filed id="7" name="登记号"/>
+        </Card>
+        <Card cardname="深圳经济特区居住证2015版-照片页" FieldCount="6" cardsize="2" id="1013">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="民族"/>
+            <Filed id="4" name="签发日期"/>
+            <Filed id="5" name="住址"/>
+            <Filed id="6" name="公民身份号码"/>
+        </Card>
+        <Card cardname="澳门蓝卡-照片页" FieldCount="12" cardsize="2" id="1014">
+            <Filed id="1" name="中文姓名"/>
+            <Filed id="2" name="英文姓名"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="&#xfffd;位1"/>
+            <Filed id="6" name="&#xfffd;位2"/>
+            <Filed id="7" name="受聘公司"/>
+            <Filed id="8" name="受聘公司英文名"/>
+            <Filed id="9" name="&#xfffd;&#xfffd;日期"/>
+            <Filed id="10" name="有效期至"/>
+            <Filed id="11" name="&#xfffd;&#xfffd;"/>
+            <Filed id="12" name="有效日期:二&#xfffd;&#xfffd;"/>
+        </Card>
+        <Card cardname="临时海员证" FieldCount="5" cardsize="0" id="1017">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="国籍"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="证件号码"/>
+        </Card>
+        <Card cardname="内蒙古自治区人民法院工作证" FieldCount="5" cardsize="1" id="1018">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="职务"/>
+            <Filed id="3" name="编号"/>
+            <Filed id="4" name="签发日期"/>
+            <Filed id="5" name="有效期"/>
+        </Card>
+        <Card cardname="内蒙古自治区检察机关工作证" FieldCount="7" cardsize="1" id="1019">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="民族"/>
+            <Filed id="3" name="出生年月"/>
+            <Filed id="4" name="职务"/>
+            <Filed id="5" name="单位"/>
+            <Filed id="6" name="编号"/>
+            <Filed id="7" name="有效期至"/>
+        </Card>
+        <Card cardname="社会保障卡（北京、重庆）-照片页" FieldCount="9" cardsize="2" id="1021">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="民族"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="社会保障号码"/>
+            <Filed id="6" name="卡号"/>
+            <Filed id="7" name="发卡日期"/>
+            <Filed id="8" name="有效期限"/>
+            <Filed id="9" name="银行卡号"/>
+        </Card>
+        <Card cardname="台湾全民健康保险卡" FieldCount="4" cardsize="2" id="1030">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="身份号码"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="卡号"/>
+        </Card>
+        <Card cardname="台湾地区身份证-照片页" FieldCount="5" cardsize="2" id="1031">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="出生年月日"/>
+            <Filed id="4" name="发证日期"/>
+            <Filed id="5" name="统一编号"/>
+        </Card>
+        <Card cardname="台湾地区身份证-条码页" FieldCount="7" cardsize="2" id="1032">
+            <Filed id="1" name="父"/>
+            <Filed id="2" name="母"/>
+            <Filed id="3" name="配偶"/>
+            <Filed id="4" name="役别"/>
+            <Filed id="5" name="出生地"/>
+            <Filed id="6" name="住址"/>
+            <Filed id="7" name="号码"/>
+        </Card>
+        <Card cardname="44位机读码" FieldCount="31" cardsize="18" id="1034">
+            <Filed id="1" name="护照号码MRZ"/>
+            <Filed id="2" name="本国姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="签发国代码"/>
+            <Filed id="8" name="英文姓"/>
+            <Filed id="9" name="英文名"/>
+            <Filed id="10" name="MRZ1"/>
+            <Filed id="11" name="MRZ2"/>
+            <Filed id="12" name="持证人国籍代码"/>
+            <Filed id="13" name="护照号码"/>
+            <Filed id="14" name="出生地点"/>
+            <Filed id="15" name="签发地点"/>
+            <Filed id="16" name="签发日期"/>
+            <Filed id="17" name="RFID MRZ"/>
+            <Filed id="18" name="OCR MRZ"/>
+            <Filed id="19" name="出生地点拼音"/>
+            <Filed id="20" name="签发地点拼音"/>
+            <Filed id="21" name="身份统一编号（台湾护照）"/>
+            <Filed id="22" name="本国姓名拼音OCR"/>
+            <Filed id="23" name="性别OCR"/>
+            <Filed id="24" name="持证人国籍代码OCR"/>
+            <Filed id="25" name="身份证号码OCR"/>
+            <Filed id="26" name="出生日期OCR"/>
+            <Filed id="27" name="有效期至OCR"/>
+            <Filed id="28" name="签发机关OCR"/>
+            <Filed id="29" name="本国姓"/>
+            <Filed id="30" name="本国名"/>
+        </Card>
+        <Card cardname="English Name" FieldCount="1" cardsize="2" id="1035">
+            <Filed id="1" name="English Name"/>
+        </Card>
+        <Card cardname="神煤集团工作证" FieldCount="3" cardsize="12" id="1037">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="部门"/>
+            <Filed id="3" name="编号"/>
+        </Card>
+        <Card cardname="营业执照" FieldCount="5" cardsize="21" id="1038">
+            <Filed id="1" name="名称"/>
+            <Filed id="2" name="商事主体类型"/>
+            <Filed id="3" name="住所"/>
+            <Filed id="4" name="法定代表人"/>
+            <Filed id="5" name="成立日期"/>
+        </Card>
+        <Card cardname="厦门市社会保障卡-照片页" FieldCount="5" cardsize="2" id="1039">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="卡号"/>
+            <Filed id="4" name="保险号"/>
+            <Filed id="5" name="身份证"/>
+        </Card>
+        <Card cardname="台湾地区驾驶证" FieldCount="9" cardsize="2" id="1040">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="发证日期"/>
+            <Filed id="5" name="驾照号码"/>
+            <Filed id="6" name="住址"/>
+            <Filed id="7" name="有效日期"/>
+            <Filed id="8" name="管辖编号"/>
+            <Filed id="9" name="驾照种类"/>
+        </Card>
+        <Card cardname="马来西亚身份证-照片页" FieldCount="6" cardsize="2" id="2001">
+            <Filed id="1" name="公民身份号码"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="国籍"/>
+            <Filed id="6" name="住址"/>
+        </Card>
+        <Card cardname="美国加利福尼亚驾驶证" FieldCount="8" cardsize="2" id="2002">
+            <Filed id="1" name="驾照号码"/>
+            <Filed id="2" name="姓"/>
+            <Filed id="3" name="名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="地址"/>
+            <Filed id="7" name="驾照类型"/>
+            <Filed id="8" name="有效期至"/>
+        </Card>
+        <Card cardname="新西兰驾驶证" FieldCount="6" cardsize="2" id="2003">
+            <Filed id="1" name="姓"/>
+            <Filed id="2" name="名"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="签发日期"/>
+            <Filed id="5" name="驾驶证ID"/>
+            <Filed id="6" name="Expiry Data"/>
+        </Card>
+        <Card cardname="新加坡身份证" FieldCount="7" cardsize="2" id="2004">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="民族"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="出生国"/>
+            <Filed id="6" name="身份证号码"/>
+            <Filed id="7" name="中文姓名"/>
+        </Card>
+        <Card cardname="TD-2型机读旅行证件" FieldCount="2" cardsize="21" id="2006">
+            <Filed id="1" name="MRZ1"/>
+            <Filed id="2" name="MRZ2"/>
+        </Card>
+        <Card cardname="TD-1型机读旅行证件" FieldCount="18" cardsize="2" id="2009">
+            <Filed id="1" name="身份号码"/>
+            <Filed id="2" name="签发国代码"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="英文姓"/>
+            <Filed id="8" name="英文名"/>
+            <Filed id="9" name="MRZ1"/>
+            <Filed id="10" name="MRZ2"/>
+            <Filed id="11" name="MRZ3"/>
+            <Filed id="12" name="国家代码（本国）"/>
+            <Filed id="13" name="身份号码（扩展）"/>
+            <Filed id="14" name="选择性数据"/>
+            <Filed id="15" name="MRZ1(original)"/>
+            <Filed id="16" name="MRZ2(original)"/>
+            <Filed id="17" name="MRZ3(original)"/>
+        </Card>
+        <Card cardname="印度尼西亚居民身份证" FieldCount="15" cardsize="2" id="2010">
+            <Filed id="1" name="身份号码"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="出生地"/>
+            <Filed id="5" name="性别"/>
+            <Filed id="6" name="地区"/>
+            <Filed id="7" name="国籍"/>
+            <Filed id="8" name="民族"/>
+            <Filed id="9" name="血型"/>
+            <Filed id="10" name="地址"/>
+            <Filed id="11" name="地址一"/>
+            <Filed id="12" name="地址二"/>
+            <Filed id="13" name="地址三"/>
+            <Filed id="14" name="有效期至"/>
+            <Filed id="15" name="婚姻状况"/>
+        </Card>
+        <Card cardname="泰国国民身份证" FieldCount="12" cardsize="2" id="2011">
+            <Filed id="1" name="名"/>
+            <Filed id="2" name="姓"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="签发日期"/>
+            <Filed id="5" name="有效期至"/>
+            <Filed id="6" name="身份号码"/>
+            <Filed id="7" name="姓名(泰文)"/>
+            <Filed id="8" name="出生日期(泰文)"/>
+            <Filed id="9" name="名(泰文)"/>
+            <Filed id="10" name="姓(泰文)"/>
+            <Filed id="11" name="性别(泰文)"/>
+            <Filed id="12" name="地址(泰文)"/>
+        </Card>
+        <Card cardname="泰国驾驶证" FieldCount="10" cardsize="2" id="2012">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="驾照号号"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="签发日期"/>
+            <Filed id="5" name="有效期至"/>
+            <Filed id="6" name="身份号码"/>
+            <Filed id="7" name="性别"/>
+            <Filed id="8" name="姓名(泰文)"/>
+            <Filed id="9" name="名(泰文)"/>
+            <Filed id="10" name="姓(泰文)"/>
+        </Card>
+        <Card cardname="墨西哥选民证-照片页" FieldCount="11" cardsize="2" id="2013">
+            <Filed id="1" name="父姓"/>
+            <Filed id="2" name="母性"/>
+            <Filed id="3" name="名字"/>
+            <Filed id="4" name="街道和号码"/>
+            <Filed id="5" name="殖民地和邮编"/>
+            <Filed id="6" name="城市和州"/>
+            <Filed id="7" name="选民代码"/>
+            <Filed id="8" name="身份唯一标识"/>
+            <Filed id="9" name="性别"/>
+            <Filed id="10" name="年龄"/>
+            <Filed id="11" name="出生日期"/>
+        </Card>
+        <Card cardname="墨西哥选民证背面ABC·" FieldCount="1" cardsize="2" id="2014">
+            <Filed id="1" name="身份唯一标识"/>
+        </Card>
+        <Card cardname="墨西哥身份证背面ABC" FieldCount="1" cardsize="2" id="2015">
+            <Filed id="1" name="身份唯一标识"/>
+        </Card>
+        <Card cardname="APEC机读旅行证件" FieldCount="19" cardsize="2" id="2019">
+            <Filed id="1" name="身份号码"/>
+            <Filed id="2" name="签发国代码"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="英文姓"/>
+            <Filed id="8" name="英文名"/>
+            <Filed id="9" name="MRZ1"/>
+            <Filed id="10" name="MRZ2"/>
+            <Filed id="11" name="MRZ3"/>
+            <Filed id="12" name="国家代码（本国）"/>
+            <Filed id="13" name="身份号码（扩展）"/>
+            <Filed id="14" name="选择性数据"/>
+            <Filed id="15" name="MRZ1(original)"/>
+            <Filed id="16" name="MRZ2(original)"/>
+            <Filed id="17" name="MRZ3(original)"/>
+            <Filed id="18" name="可到达国家"/>
+        </Card>
+        <Card cardname="瑞典驾驶证" FieldCount="7" cardsize="2" id="2020">
+            <Filed id="1" name="名"/>
+            <Filed id="2" name="姓"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="签发日期"/>
+            <Filed id="5" name="有效期至"/>
+            <Filed id="6" name="证件号码"/>
+            <Filed id="7" name="社保卡号"/>
+        </Card>
+        <Card cardname="马来西亚驾照" FieldCount="6" cardsize="2" id="2021">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="民族"/>
+            <Filed id="3" name="公民身份号码"/>
+            <Filed id="4" name="证件类型"/>
+            <Filed id="5" name="有效期至"/>
+            <Filed id="6" name="住址"/>
+        </Card>
+        <Card cardname="菲律宾身份证-照片页" FieldCount="7" cardsize="2" id="2022">
+            <Filed id="1" name="姓"/>
+            <Filed id="2" name="名"/>
+            <Filed id="3" name="中名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="地址"/>
+            <Filed id="7" name="身份号码"/>
+        </Card>
+        <Card cardname="新加坡工作证2017版-照片页" FieldCount="8" cardsize="2" id="2023">
+            <Filed id="1" name="雇主"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="号码"/>
+            <Filed id="4" name="部门"/>
+            <Filed id="5" name="工作"/>
+            <Filed id="6" name="申请日期"/>
+            <Filed id="7" name="发行日期"/>
+            <Filed id="8" name="有效期至"/>
+        </Card>
+        <Card cardname="菲律宾驾驶证" FieldCount="13" cardsize="2" id="2024">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="国籍"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="体重"/>
+            <Filed id="6" name="身高"/>
+            <Filed id="7" name="地址"/>
+            <Filed id="8" name="证件编号"/>
+            <Filed id="9" name="到期日期"/>
+            <Filed id="10" name="机构代码"/>
+            <Filed id="11" name="EYES COLOR"/>
+            <Filed id="12" name="RESTRICTION"/>
+            <Filed id="13" name="CONDITIONS"/>
+        </Card>
+        <Card cardname="新加坡工作证2017版-指纹页" FieldCount="5" cardsize="2" id="2025">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="FIN"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="国籍"/>
+        </Card>
+        <Card cardname="法国身份证" FieldCount="4" cardsize="2" id="2028">
+            <Filed id="1" name="MRZ1"/>
+            <Filed id="2" name="MRZ2"/>
+            <Filed id="3" name="MRZ1(original)"/>
+            <Filed id="4" name="MRZ2(original)"/>
+        </Card>
+        <Card cardname="新加坡驾驶证" FieldCount="5" cardsize="2" id="2031">
+            <Filed id="1" name="驾照号码"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="签发日期"/>
+            <Filed id="5" name="有效期至"/>
+        </Card>
+        <Card cardname="印度尼西亚驾驶证" FieldCount="9" cardsize="2" id="2041">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="性别"/>
+            <Filed id="3" name="地址"/>
+            <Filed id="4" name="城市"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="身高"/>
+            <Filed id="7" name="工作"/>
+            <Filed id="8" name="身份证号码"/>
+            <Filed id="9" name="有效期至"/>
+        </Card>
+        <Card cardname="日本驾照" FieldCount="6" cardsize="2" id="2051">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="出生日期"/>
+            <Filed id="3" name="住所"/>
+            <Filed id="4" name="交付"/>
+            <Filed id="5" name="有效期至"/>
+            <Filed id="6" name="免许条件等"/>
+        </Card>
+        <Card cardname="韩国居民身份证-照片页" FieldCount="1" cardsize="2" id="2060">
+            <Filed id="1" name="公民身份号码"/>
+        </Card>
+        <Card cardname="韩国驾驶证" FieldCount="2" cardsize="0" id="2061">
+            <Filed id="1" name="驾驶证号"/>
+            <Filed id="2" name="公民身份号码"/>
+        </Card>
+        <Card cardname="阿联酋身份证-照片页" FieldCount="3" cardsize="2" id="2063">
+            <Filed id="1" name="身份证号"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="国籍"/>
+        </Card>
+        <Card cardname="阿联酋身份证-背面" FieldCount="20" cardsize="2" id="2064">
+            <Filed id="1" name="号码"/>
+            <Filed id="2" name="职业"/>
+            <Filed id="3" name="签发地点"/>
+            <Filed id="4" name="监护人/雇主"/>
+            <Filed id="5" name="MRZ1"/>
+            <Filed id="6" name="MRZ2"/>
+            <Filed id="7" name="MRZ3"/>
+            <Filed id="8" name="MRZ1(original)"/>
+            <Filed id="9" name="MRZ2(original)"/>
+            <Filed id="10" name="MRZ3(original)"/>
+            <Filed id="11" name="证件类型"/>
+            <Filed id="12" name="签发国代码"/>
+            <Filed id="13" name="号码(MRZ)"/>
+            <Filed id="14" name="号码2(MRZ)"/>
+            <Filed id="15" name="性别"/>
+            <Filed id="16" name="出生日期"/>
+            <Filed id="17" name="有效期至"/>
+            <Filed id="18" name="国家代码（本国）"/>
+            <Filed id="19" name="英文姓"/>
+            <Filed id="20" name="英文名"/>
+        </Card>
+        <Card cardname="阿曼身份证" FieldCount="7" cardsize="2" id="2070">
+            <Filed id="1" name="号码"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="职业"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="有效期至"/>
+            <Filed id="6" name="出生地点"/>
+            <Filed id="7" name="发起人"/>
+        </Card>
+        <Card cardname="肯尼亚身份证-照片页" FieldCount="8" cardsize="2" id="2071">
+            <Filed id="1" name="编号"/>
+            <Filed id="2" name="身份号码"/>
+            <Filed id="3" name="姓名"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="性别"/>
+            <Filed id="6" name="出生地"/>
+            <Filed id="7" name="签发地"/>
+            <Filed id="8" name="签发日期"/>
+        </Card>
+        <Card cardname="埃及身份证-照片页" FieldCount="6" cardsize="2" id="2081">
+            <Filed id="1" name="名"/>
+            <Filed id="2" name="姓"/>
+            <Filed id="3" name="地址"/>
+            <Filed id="4" name="城市"/>
+            <Filed id="5" name="身份号码"/>
+            <Filed id="6" name="出生日期"/>
+        </Card>
+        <Card cardname="埃及身份证-背面" FieldCount="7" cardsize="2" id="2082">
+            <Filed id="1" name="签发日期"/>
+            <Filed id="2" name="身份证号"/>
+            <Filed id="3" name="职业"/>
+            <Filed id="4" name="宗教"/>
+            <Filed id="5" name="性别"/>
+            <Filed id="6" name="截止日期"/>
+            <Filed id="7" name="婚姻状况"/>
+        </Card>
+        <Card cardname="埃及驾驶证" FieldCount="8" cardsize="2" id="2083">
+            <Filed id="1" name="国家身份证号码"/>
+            <Filed id="2" name="阿拉伯语姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="住址"/>
+            <Filed id="5" name="签发日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="国籍"/>
+            <Filed id="8" name="职业"/>
+        </Card>
+        <Card cardname="埃及行驶证正面" FieldCount="9" cardsize="2" id="2084">
+            <Filed id="1" name="省份"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="住址"/>
+            <Filed id="4" name="执照过期日期"/>
+            <Filed id="5" name="有效期至"/>
+            <Filed id="6" name="发牌单位"/>
+            <Filed id="7" name="车牌号"/>
+            <Filed id="8" name="执照类型"/>
+            <Filed id="9" name="国籍"/>
+        </Card>
+        <Card cardname="埃及行驶证背面" FieldCount="15" cardsize="2" id="2085">
+            <Filed id="1" name="车品牌名"/>
+            <Filed id="2" name="车型号"/>
+            <Filed id="3" name="生产日期"/>
+            <Filed id="4" name="车架号"/>
+            <Filed id="5" name="车类型"/>
+            <Filed id="6" name="马达编号"/>
+            <Filed id="7" name="发动机容量"/>
+            <Filed id="8" name="圆柱"/>
+            <Filed id="9" name="燃料"/>
+            <Filed id="10" name="颜色"/>
+            <Filed id="11" name="保险"/>
+            <Filed id="12" name="验车日期"/>
+            <Filed id="13" name="其他特征"/>
+            <Filed id="14" name="电子标签"/>
+            <Filed id="15" name="定义号码"/>
+        </Card>
+        <Card cardname="卡塔尔身份证-照片页" FieldCount="8" cardsize="2" id="2091">
+            <Filed id="1" name="身份号码"/>
+            <Filed id="2" name="出生日期"/>
+            <Filed id="3" name="有效期至"/>
+            <Filed id="4" name="国籍（阿拉伯文）"/>
+            <Filed id="5" name="国籍（英文）"/>
+            <Filed id="6" name="职业"/>
+            <Filed id="7" name="姓名（阿拉伯文）"/>
+            <Filed id="8" name="姓名（英文）"/>
+        </Card>
+        <Card cardname="卡塔尔身份证-背面" FieldCount="5" cardsize="2" id="2092">
+            <Filed id="1" name="护照号码"/>
+            <Filed id="2" name="护照有效期至"/>
+            <Filed id="3" name="序列号"/>
+            <Filed id="4" name="居住类型"/>
+            <Filed id="5" name="雇主"/>
+        </Card>
+        <Card cardname="智利身份证正面" FieldCount="12" cardsize="3" id="2100">
+            <Filed id="1" name="第一名字"/>
+            <Filed id="2" name="第二名字"/>
+            <Filed id="3" name="第一姓氏"/>
+            <Filed id="4" name="第二姓氏"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="RUN号码"/>
+            <Filed id="7" name="性别"/>
+            <Filed id="8" name="国籍"/>
+            <Filed id="9" name="有效期至"/>
+            <Filed id="10" name="签发日期"/>
+            <Filed id="11" name="文档编号"/>
+            <Filed id="12" name="证件类型"/>
+        </Card>
+        <Card cardname="沙特身份证" FieldCount="15" cardsize="2" id="2110">
+            <Filed id="1" name="姓名"/>
+            <Filed id="2" name="姓名（阿拉伯文）"/>
+            <Filed id="3" name="号码"/>
+            <Filed id="4" name="号码（阿拉伯文）"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="出生日期（阿拉伯文）"/>
+            <Filed id="7" name="签发日期"/>
+            <Filed id="8" name="签发日期（阿拉伯文）"/>
+            <Filed id="9" name="有效期至"/>
+            <Filed id="10" name="有效期至（阿拉伯文）"/>
+            <Filed id="11" name="国籍（阿拉伯文）"/>
+            <Filed id="12" name="职业（阿拉伯文）"/>
+            <Filed id="13" name="雇主（阿拉伯文）"/>
+            <Filed id="14" name="工作许可证（阿拉伯文）"/>
+            <Filed id="15" name="出生地（阿拉伯文）"/>
+        </Card>
+        <Card cardname="秘鲁身份证" FieldCount="27" cardsize="2" id="2120">
+            <Filed id="1" name="MRZ1"/>
+            <Filed id="2" name="MRZ2"/>
+            <Filed id="3" name="MRZ3"/>
+            <Filed id="4" name="证件类型"/>
+            <Filed id="5" name="签发国代码"/>
+            <Filed id="6" name="持证人国籍代码"/>
+            <Filed id="7" name="证件号码"/>
+            <Filed id="8" name="出生日期"/>
+            <Filed id="9" name="本证有效期至"/>
+            <Filed id="10" name="性别"/>
+            <Filed id="11" name="姓氏"/>
+            <Filed id="12" name="第二姓氏"/>
+            <Filed id="13" name="名"/>
+            <Filed id="14" name="中间名"/>
+            <Filed id="15" name="证件号码(VIZ)"/>
+            <Filed id="16" name="出生日期(VIZ)"/>
+            <Filed id="17" name="签发日期(VIZ)"/>
+            <Filed id="18" name="有效期至(VIZ)"/>
+            <Filed id="19" name="性别(VIZ)"/>
+            <Filed id="20" name="姓氏(VIZ)"/>
+            <Filed id="21" name="第二姓氏(VIZ)"/>
+            <Filed id="22" name="名(VIZ)"/>
+            <Filed id="23" name="中间名(VIZ)"/>
+            <Filed id="24" name="MRZ1(original)"/>
+            <Filed id="25" name="MRZ2(original)"/>
+            <Filed id="26" name="MRZ3(original)"/>
+            <Filed id="27" name="持证人国籍代码(VIZ)"/>
+        </Card>
+        <Card cardname="秘鲁身份证1代背面" FieldCount="1" cardsize="2" id="2121">
+            <Filed id="1" name="地址"/>
+        </Card>
+        <Card cardname="厄瓜多尔身份证-照片页" FieldCount="13" cardsize="2" id="2130">
+            <Filed id="1" name="姓氏"/>
+            <Filed id="2" name="名字"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="出生日期"/>
+            <Filed id="5" name="地址"/>
+            <Filed id="6" name="号码"/>
+            <Filed id="7" name="国籍"/>
+            <Filed id="8" name="婚姻状况"/>
+            <Filed id="9" name="号码2"/>
+            <Filed id="10" name="有效期至"/>
+            <Filed id="11" name="证件类型"/>
+            <Filed id="12" name="姓氏(配偶)"/>
+            <Filed id="13" name="名字(配偶)"/>
+        </Card>
+        <Card cardname="厄瓜多尔2012版身份证背面" FieldCount="6" cardsize="2" id="2131">
+            <Filed id="1" name="MRZ1"/>
+            <Filed id="2" name="MRZ2"/>
+            <Filed id="3" name="MRZ3"/>
+            <Filed id="4" name="MRZ1(original)"/>
+            <Filed id="5" name="MRZ2(original)"/>
+            <Filed id="6" name="MRZ3(original)"/>
+        </Card>
+        <Card cardname="玻利维亚身份证" FieldCount="3" cardsize="2" id="2140">
+            <Filed id="1" name="身份证号"/>
+            <Filed id="2" name="有效期至"/>
+            <Filed id="3" name="签发日期"/>
+        </Card>
+        <Card cardname="玻利维亚身份证背面" FieldCount="7" cardsize="2" id="2141">
+            <Filed id="1" name="身份证号"/>
+            <Filed id="2" name="姓名"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="出生地点"/>
+            <Filed id="5" name="住址"/>
+            <Filed id="6" name="婚姻状况"/>
+            <Filed id="7" name="职业"/>
+        </Card>
+        <Card cardname="阿根廷身份证" FieldCount="8" cardsize="2" id="2150">
+            <Filed id="1" name="名"/>
+            <Filed id="2" name="姓"/>
+            <Filed id="3" name="性别"/>
+            <Filed id="4" name="国籍"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="号码"/>
+            <Filed id="8" name="签发日期"/>
+        </Card>
+        <Card cardname="缅甸CI" FieldCount="25" cardsize="3" id="2151">
+            <Filed id="1" name="护照号码MRZ"/>
+            <Filed id="2" name="本国姓名"/>
+            <Filed id="3" name="英文姓名"/>
+            <Filed id="4" name="性别"/>
+            <Filed id="5" name="出生日期"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="签发国代码"/>
+            <Filed id="8" name="MRZ1"/>
+            <Filed id="9" name="MRZ2"/>
+            <Filed id="10" name="持证人国籍代码"/>
+            <Filed id="11" name="选择性数据(MRZ)"/>
+            <Filed id="12" name="护照号码"/>
+            <Filed id="13" name="出生地点"/>
+            <Filed id="14" name="签发日期"/>
+            <Filed id="15" name="性别OCR"/>
+            <Filed id="16" name="持证人国籍代码OCR"/>
+            <Filed id="17" name="出生日期OCR"/>
+            <Filed id="18" name="有效期至OCR"/>
+            <Filed id="19" name="签发机关OCR"/>
+            <Filed id="20" name="本国姓名(VIZ)"/>
+            <Filed id="21" name="英文姓名(VIZ)"/>
+            <Filed id="22" name="国籍"/>
+            <Filed id="23" name="MRZ1(original)"/>
+            <Filed id="24" name="MRZ2(original)"/>
+        </Card>
+        <Card cardname="德国身份证" FieldCount="8" cardsize="2" id="3001">
+            <Filed id="1" name="姓氏"/>
+            <Filed id="2" name="名字"/>
+            <Filed id="3" name="出生日期"/>
+            <Filed id="4" name="国籍"/>
+            <Filed id="5" name="出生地"/>
+            <Filed id="6" name="有效期至"/>
+            <Filed id="7" name="芯片访问号"/>
+            <Filed id="8" name="证件编号"/>
+        </Card>
+    </IDCard>
+    <steptype count="13">
+        <step type="Table" id="1" explain="对应键盘Tab，功能：切换字段" code="9"/>
+        <step type="PageUp" id="2" explain="对应键盘PageUp，功能：下拉框选项置顶" code="33"/>
+        <step type="PageDown" id="3" explain="对应键盘PageDown，功能：下拉框选项置底" code="34"/>
+        <step type="Insert" id="4" explain="对应键盘insert" code="45"/>
+        <step type="Space" id="5" explain="对应键盘space" code="32"/>
+        <step type="UpArrow" id="6" explain="对应键盘↑，功能：方向键，选项上移" code="38"/>
+        <step type="DownArrow" id="7" explain="对应键盘↓，功能：方向键，选项下移" code="40"/>
+        <step type="RightArrow" id="8" explain="对应键盘→，功能：方向键，选项右移" code="39"/>
+        <step type="LeftArrow" id="9" explain="对应键盘←，功能：方向键，选项左移" code="37"/>
+        <step type="Output" id="10" explain="直接输出" code="-1"/>
+        <step type="Home" id="11" explain="对应键盘起始Home" code="36"/>
+        <step type="Enter" id="12" explain="对应键盘Enter，功能：1、切换字段 2、确认选项" code="13"/>
+        <step type="F4" id="13" explain="对应键盘F4，功能：展开下拉框" code="115"/>
+    </steptype>
+    <formattype>
+        <format type="1900/01/01(Y/M/D)" id="1"/>
+        <format type="1900/1/1(Y/M/D)" id="2"/>
+        <format type="1900/1/1(Y/D/M)" id="3"/>
+        <format type="1/1/1900((D/M/Y))" id="4"/>
+        <format type="01/01/1900((D/M/Y))" id="5"/>
+        <format type="1/1/1900((M/D/Y))" id="6"/>
+        <format type="01/01/1900((M/D/Y))" id="7"/>
+        <format type="1900-1-1(Y-M-D)" id="8"/>
+        <format type="1-1-1900(D-M-Y)" id="9"/>
+        <format type="01-01-1900((D-M-Y))" id="10"/>
+        <format type="1-1-1900((M-D-Y))" id="11"/>
+        <format type="01-01-1900((M-D-Y))" id="12"/>
+    </formattype>
+    <outputtype count="5">
+        <stringtype type="sw" id="1"/>
+        <stringtype type="*" id="2"/>
+        <stringtype type=" " id="3"/>
+        <stringtype type="/" id="4"/>
+        <stringtype type="." id="5"/>
+    </outputtype>
+    <doublesurname count="85">
+        <surname id="1" name="欧阳"/>
+        <surname id="2" name="太史"/>
+        <surname id="3" name="端木"/>
+        <surname id="4" name="上官"/>
+        <surname id="5" name="司马"/>
+        <surname id="6" name="东方"/>
+        <surname id="7" name="孤独"/>
+        <surname id="8" name="南宫"/>
+        <surname id="9" name="万俟"/>
+        <surname id="10" name="闻人"/>
+        <surname id="11" name="夏侯"/>
+        <surname id="12" name="诸葛"/>
+        <surname id="13" name="尉迟"/>
+        <surname id="14" name="公羊"/>
+        <surname id="15" name="赫连"/>
+        <surname id="16" name="澹台"/>
+        <surname id="17" name="皇甫"/>
+        <surname id="18" name="宗政"/>
+        <surname id="19" name="濮阳"/>
+        <surname id="20" name="公冶"/>
+        <surname id="21" name="太叔"/>
+        <surname id="22" name="申屠"/>
+        <surname id="23" name="公孙"/>
+        <surname id="24" name="慕容"/>
+        <surname id="25" name="仲孙"/>
+        <surname id="26" name="钟离"/>
+        <surname id="27" name="长孙"/>
+        <surname id="28" name="宇文"/>
+        <surname id="29" name="司徒"/>
+        <surname id="30" name="鲜于"/>
+        <surname id="31" name="司空"/>
+        <surname id="32" name="闾丘"/>
+        <surname id="33" name="子车"/>
+        <surname id="34" name="亓官"/>
+        <surname id="35" name="司寇"/>
+        <surname id="36" name="巫马"/>
+        <surname id="37" name="公西"/>
+        <surname id="38" name="颛孙"/>
+        <surname id="39" name="壤驷"/>
+        <surname id="40" name="公良"/>
+        <surname id="41" name="漆雕"/>
+        <surname id="42" name="乐正"/>
+        <surname id="43" name="宰父"/>
+        <surname id="44" name="谷梁"/>
+        <surname id="45" name="拓跋"/>
+        <surname id="46" name="夹谷"/>
+        <surname id="47" name="轩辕"/>
+        <surname id="48" name="令狐"/>
+        <surname id="49" name="段干"/>
+        <surname id="50" name="百里"/>
+        <surname id="51" name="呼延"/>
+        <surname id="52" name="东郭"/>
+        <surname id="53" name="南门"/>
+        <surname id="54" name="羊舌"/>
+        <surname id="55" name="微生"/>
+        <surname id="56" name="公户"/>
+        <surname id="57" name="公玉"/>
+        <surname id="58" name="公仪"/>
+        <surname id="59" name="梁丘"/>
+        <surname id="60" name="公仲"/>
+        <surname id="61" name="公上"/>
+        <surname id="62" name="公门"/>
+        <surname id="63" name="公山"/>
+        <surname id="64" name="公坚"/>
+        <surname id="65" name="左丘"/>
+        <surname id="66" name="公伯"/>
+        <surname id="67" name="西门"/>
+        <surname id="68" name="公祖"/>
+        <surname id="69" name="第五"/>
+        <surname id="70" name="公乘"/>
+        <surname id="71" name="贯丘"/>
+        <surname id="72" name="公皙"/>
+        <surname id="73" name="南荣"/>
+        <surname id="74" name="东里"/>
+        <surname id="75" name="东宫"/>
+        <surname id="76" name="仲长"/>
+        <surname id="77" name="子书"/>
+        <surname id="78" name="子桑"/>
+        <surname id="79" name="即墨"/>
+        <surname id="80" name="达奚"/>
+        <surname id="81" name="褚师"/>
+        <surname id="82" name="刘观"/>
+        <surname id="83" name="刘傅"/>
+        <surname id="84" name="康有"/>
+        <surname id="85" name="东门"/>
+    </doublesurname>
+    <cardtype imgpath="1234" count="32">
+        <type id="1" cardid="-1" name_eng="Airline Crew ID" name="航空机组人员证"/>
+        <type id="2" cardid="-1" name_eng="Airline Crew ID" name="航空机组人员证"/>
+        <type id="3" cardid="-1" name_eng="China Travel Document" name="中国旅行证"/>
+        <type id="4" cardid="-1" name_eng="Chinese Army/Soldier ID" name="中国士兵证"/>
+        <type id="5" cardid="-1" name_eng="CI-CI(Cedula)" name="中美及北美身份证"/>
+        <type id="6" cardid="-1" name_eng="D-DNI(Document National Idertifi cation Number)" name="档案国内识别码"/>
+        <type id="7" cardid="" name_eng="Diplomatic Passport/ID" name="外交护照"/>
+        <type id="8" cardid="" name_eng="Diplomatic Passport/ID" name="外交护照"/>
+        <type id="9" cardid="-1" name_eng="Foreigner Permanent Residence ID" name="外籍人员永久居留证"/>
+        <type id="10" cardid="-1" name_eng="Foreigner Residence ID" name="外籍人员居留证"/>
+        <type id="11" cardid="-1" name_eng="Foreigner Temporary Residence ID" name="外籍人员临时居留证"/>
+        <type id="12" cardid="-1" name_eng="Foreigner Travel Permit ID" name="外籍人员旅游许可证"/>
+        <type id="13" cardid="12" name_eng="Foreigners Re-Entry Visa" name="外籍人员入境签证"/>
+        <type id="14" cardid="9" name_eng="HK/Macau Travel to Mainland ID" name="香港澳门往来大陆证件"/>
+        <type id="15" cardid="-1" name_eng="Hong Kong SAR Passport" name="香港特区护照"/>
+        <type id="16" cardid="2" name_eng="I-CHINESE ID CARD" name="中国身份证"/>
+        <type id="17" cardid="-1" name_eng="Military ID" name="军官证"/>
+        <type id="18" cardid="-1" name_eng="N-Local Country Residency Permit" name="本国居留许可证"/>
+        <type id="19" cardid="-1" name_eng="Other" name="其他"/>
+        <type id="20" cardid="-1" name_eng="Overseas Chinese Travel Permit" name="海外华侨旅行许可证"/>
+        <type id="21" cardid="13" name_eng="P-PASSPORT" name="护照"/>
+        <type id="22" cardid="-1" name_eng="Sailor ID/Seamass Passport" name="海员证"/>
+        <type id="23" cardid="-1" name_eng="Sailor ID/Seamass Passport" name="海员证"/>
+        <type id="24" cardid="-1" name_eng="Service/Government Passport" name="政府护照"/>
+        <type id="25" cardid="-1" name_eng="Special Hong Kong Passport" name="特殊香港护照"/>
+        <type id="26" cardid="-1" name_eng="Special Hong Kong Passport" name="特殊香港护照"/>
+        <type id="27" cardid="-1" name_eng="Train Employee" name="员工培训证"/>
+        <type id="28" cardid="10" name_eng="Travel Certificate(Taiwan)" name="台湾旅行证件"/>
+        <type id="29" cardid="10" name_eng="Travel Certificate(Taiwan)" name="台湾旅行证件"/>
+        <type id="30" cardid="-1" name_eng="United Nations Laisser-Passer" name="联合国通行证"/>
+        <type id="31" cardid="" name_eng="Work Passport" name="工作护照"/>
+        <type id="32" cardid="-2" name_eng="X-Other" name="其他"/>
+    </cardtype>
+    <nationality count="224">
+        <type id="1" name_eng="Afghanistan" name="阿富汗" code="AFG"/>
+        <type id="2" name_eng="Albania" name="阿尔巴尼亚" code="ALB"/>
+        <type id="3" name_eng="Algeria" name="阿尔及利亚" code="DZA"/>
+        <type id="4" name_eng="American Samoa" name="美属萨摩亚" code="ASM"/>
+        <type id="5" name_eng="Andorra" name="安道尔共和国" code="AND"/>
+        <type id="6" name_eng="Angola" name="安哥拉" code="AGO"/>
+        <type id="7" name_eng="Anguilla-St Kitts-Nevis" name="安圭拉" code="AIA"/>
+        <type id="8" name_eng="Antigua and Barbuda" name="安提瓜和巴布达" code="ATG"/>
+        <type id="9" name_eng="Argentina" name="阿根廷" code="ARG"/>
+        <type id="10" name_eng="Armenia" name="亚美尼亚" code="ARM"/>
+        <type id="11" name_eng="Aruba" name="阿鲁巴岛" code="ABW"/>
+        <type id="12" name_eng="Australia" name="澳大利亚" code="AUS"/>
+        <type id="13" name_eng="Austria" name="奥地利" code="AUT"/>
+        <type id="14" name_eng="Azerbaijan" name="阿塞拜疆" code="AZE"/>
+        <type id="15" name_eng="Bahamas" name="巴哈马" code="BHS"/>
+        <type id="16" name_eng="Bahrain" name="巴林岛" code="BHR"/>
+        <type id="17" name_eng="Bangladesh" name="孟加拉国" code="BGD"/>
+        <type id="18" name_eng="Barbados" name="巴巴多斯" code="BRB"/>
+        <type id="19" name_eng="Belarus" name="白俄罗斯" code="BLR"/>
+        <type id="20" name_eng="Belgium" name="比利时" code="BEL"/>
+        <type id="21" name_eng="Belize" name="伯利兹城" code="BLZ"/>
+        <type id="22" name_eng="Benin" name="贝宁" code="BEN"/>
+        <type id="23" name_eng="Bermuda" name="百慕大群岛" code="BMU"/>
+        <type id="24" name_eng="Bhutan" name="不丹" code="BTN"/>
+        <type id="25" name_eng="Bolivia" name="玻利维亚" code="BOL"/>
+        <type id="26" name_eng="Bosnia Herzegovina" name="波斯尼亚和黑塞哥维那" code="BIH"/>
+        <type id="27" name_eng="Botswana" name="博茨瓦纳" code="BWA"/>
+        <type id="28" name_eng="Brazil" name="巴西" code="BRA"/>
+        <type id="29" name_eng="Brunei Darussalam" name="文莱达鲁萨兰国" code="BRN"/>
+        <type id="30" name_eng="Bulgaria" name="保加利亚" code="BGR"/>
+        <type id="31" name_eng="Burkina Faso" name="布基纳法索" code="BFA"/>
+        <type id="32" name_eng="Burundi" name="布隆迪" code="BDI"/>
+        <type id="33" name_eng="Cambodia" name="柬埔寨" code="KHM"/>
+        <type id="34" name_eng="Cameroon" name="喀麦隆" code="CMR"/>
+        <type id="35" name_eng="Canada" name="加拿大" code="CAN"/>
+        <type id="36" name_eng="Cape Verde" name="佛得角" code="CPV"/>
+        <type id="37" name_eng="Cayman Islands" name="开曼群岛" code="CYM"/>
+        <type id="38" name_eng="Central African Republic" name="中非共和国" code="CAF"/>
+        <type id="39" name_eng="Chad" name="乍得" code="TCD"/>
+        <type id="40" name_eng="Chile" name="智利" code="CHL"/>
+        <type id="41" name_eng="China" name="中国" code="CHN"/>
+        <type id="42" name_eng="Colombia" name="哥伦比亚" code="COL"/>
+        <type id="43" name_eng="Comoro Isl" name="科摩罗群岛" code="COM"/>
+        <type id="44" name_eng="Congo" name="刚果" code="COG"/>
+        <type id="45" name_eng="Cook Islands" name="库克群岛" code="COK"/>
+        <type id="46" name_eng="Costa Rica" name="哥斯达黎加" code="CRI"/>
+        <type id="47" name_eng="Cote D'lvoire" name="科特迪瓦" code="CIV"/>
+        <type id="48" name_eng="Croatia" name="克罗地亚" code="HRV"/>
+        <type id="49" name_eng="Cuba" name="古巴" code="CUB"/>
+        <type id="50" name_eng="Cyprus" name="塞浦路斯" code="CYP"/>
+        <type id="51" name_eng="Czech Rep" name="捷克共和国" code="CZE"/>
+        <type id="52" name_eng="Denmark" name="丹麦" code="DNK"/>
+        <type id="53" name_eng="Djibouti" name="吉布提" code="DJI"/>
+        <type id="54" name_eng="Dominica" name="多米尼加岛" code="DMA"/>
+        <type id="55" name_eng="Dominican republic" name="多米尼加共和国" code="DOM"/>
+        <type id="56" name_eng="Ecuador" name="厄瓜多尔" code="ECU"/>
+        <type id="57" name_eng="Egypt" name="埃及" code="EGY"/>
+        <type id="58" name_eng="El Salvador" name="萨尔瓦多" code="SLV"/>
+        <type id="59" name_eng="Equatorial Guinea" name="赤道几内亚" code="GNQ"/>
+        <type id="60" name_eng="Eritrea" name="厄立特里亚国" code="ERI"/>
+        <type id="61" name_eng="Estonia" name="爱沙尼亚" code="EST"/>
+        <type id="62" name_eng="Ethiopia" name="埃塞俄比亚" code="ETH"/>
+        <type id="63" name_eng="Falkland Is./Malvinas" name="福克兰群岛(马尔维纳斯)" code="FLK"/>
+        <type id="64" name_eng="Fiji Islands" name="斐济群岛" code="FJI"/>
+        <type id="65" name_eng="Finland" name="芬兰" code="FIN"/>
+        <type id="66" name_eng="France" name="法国" code="FRA"/>
+        <type id="67" name_eng="French Guiana" name="法属圭亚那" code="GUF"/>
+        <type id="68" name_eng="French Polynesia" name="法属玻里尼西亚" code="PYF"/>
+        <type id="69" name_eng="Gabon" name="加蓬" code="GAB"/>
+        <type id="70" name_eng="Gambia" name="冈比亚" code="GMB"/>
+        <type id="71" name_eng="Gaza" name="加沙" code=""/>
+        <type id="72" name_eng="Georgia" name="格鲁吉亚" code="GEO"/>
+        <type id="73" name_eng="Germany" name="德国" code="D"/>
+        <type id="74" name_eng="Ghana" name="加纳" code="GHA"/>
+        <type id="75" name_eng="Gibraltar" name="直布罗陀" code="GIB"/>
+        <type id="76" name_eng="Great Britain" name="英国(公民)" code="GBR"/>
+        <type id="76" name_eng="Great Britain" name="英国(属地公民)" code="GBD"/>
+        <type id="76" name_eng="Great Britain" name="英国(海外国民)" code="GBN"/>
+        <type id="76" name_eng="Great Britain" name="英国(海外公民)" code="GBO"/>
+        <type id="76" name_eng="Great Britain" name="英国(被保护人)" code="GBP"/>
+        <type id="76" name_eng="Great Britain" name="英国(臣民)" code="GBS"/>
+        <type id="77" name_eng="Greece" name="希腊" code="GRC"/>
+        <type id="78" name_eng="Greenland" name="格陵兰" code="GRL"/>
+        <type id="79" name_eng="Grenada" name="格林纳达" code="GRD"/>
+        <type id="80" name_eng="Guadeloupe" name="瓜德罗普岛" code="GLP"/>
+        <type id="81" name_eng="Guam" name="关岛" code="GUM"/>
+        <type id="82" name_eng="Guatemala" name="危地马拉" code="GTM"/>
+        <type id="83" name_eng="Guinea" name="几内亚" code="GIN"/>
+        <type id="84" name_eng="Guinea Bissau" name="几内亚比绍" code="GNB"/>
+        <type id="85" name_eng="Guyana" name="圭亚那" code="GUY"/>
+        <type id="86" name_eng="Haiti" name="海地" code="HTI"/>
+        <type id="87" name_eng="Held Territories" name="" code=""/>
+        <type id="88" name_eng="Honduras" name="洪都拉斯" code="HND"/>
+        <type id="89" name_eng="Hong Kong" name="中国香港特别行政区" code="HKG"/>
+        <type id="90" name_eng="Hungary" name="匈牙利" code="HUN"/>
+        <type id="91" name_eng="Iceland" name="冰岛" code="ISL"/>
+        <type id="92" name_eng="India" name="印度" code="IND"/>
+        <type id="93" name_eng="Indian Ocean Islands" name="印度洋群岛" code=""/>
+        <type id="94" name_eng="Indonesia" name="印度尼西亚" code="IDN"/>
+        <type id="95" name_eng="Iran" name="伊朗(伊斯兰共和国)" code="IRN"/>
+        <type id="96" name_eng="Iraq" name="伊拉克" code="IRQ"/>
+        <type id="97" name_eng="Ireland" name="爱尔兰" code="IRL"/>
+        <type id="98" name_eng="Israel" name="以色列" code="ISR"/>
+        <type id="99" name_eng="Italy" name="意大利" code="ITA"/>
+        <type id="100" name_eng="Jamaica" name="牙买加" code="JAM"/>
+        <type id="101" name_eng="Japan" name="日本" code="JPN"/>
+        <type id="102" name_eng="Jordan" name="约旦" code="JOR"/>
+        <type id="103" name_eng="Kazakhstan" name="哈萨克斯坦" code="KAZ"/>
+        <type id="104" name_eng="Kenya" name="肯尼亚" code="KEN"/>
+        <type id="105" name_eng="Kiribati" name="基里巴斯" code="KIR"/>
+        <type id="106" name_eng="Korea Dem.P.Rep.of" name="韩国" code="KOR"/>
+        <type id="107" name_eng="Korea Rep. of" name="朝鲜民主主义人民共和国" code="PRK"/>
+        <type id="108" name_eng="Kuwait" name="科威特" code="KWT"/>
+        <type id="109" name_eng="Kyrgyzstan" name="吉尔吉斯斯坦" code="KGZ"/>
+        <type id="110" name_eng="Laos" name="老挝人民民主共和国" code="LAO"/>
+        <type id="111" name_eng="Latvia" name="拉脱维亚" code="LVA"/>
+        <type id="112" name_eng="Lebanon" name="黎巴嫩" code="LBN"/>
+        <type id="113" name_eng="Lesotho" name="莱索托" code="LSO"/>
+        <type id="114" name_eng="Liberia" name="利比里亚" code="LBR"/>
+        <type id="115" name_eng="Libyan Arab Jamahiriya" name="阿拉伯利比亚民众国" code="LBY"/>
+        <type id="116" name_eng="Liechtenstein" name="列支敦斯登" code="LIE"/>
+        <type id="117" name_eng="Lithuania" name="立陶宛" code="LTU"/>
+        <type id="118" name_eng="Luxembourg" name="卢森堡公国" code="LUX"/>
+        <type id="119" name_eng="Macau" name="澳门" code="MAC"/>
+        <type id="120" name_eng="Macedonia" name="前南斯拉夫马其顿共和国" code="MKD"/>
+        <type id="121" name_eng="Madagascar" name="马达加斯加岛" code="MDJ"/>
+        <type id="122" name_eng="Malawi" name="马拉维" code="MWI"/>
+        <type id="123" name_eng="Malaysia" name="马来西亚" code="MYS"/>
+        <type id="124" name_eng="Maldives Rep.of" name="马尔代夫" code="MDV"/>
+        <type id="125" name_eng="Mali" name="马里" code="MLI"/>
+        <type id="126" name_eng="Malta" name="马尔他" code="MLT"/>
+        <type id="127" name_eng="Marshall Isls.Rep.of" name="马绍尔群岛" code="MHL"/>
+        <type id="128" name_eng="Martinique" name="马提尼克" code="MTQ"/>
+        <type id="129" name_eng="Mauritania" name="毛里塔尼亚" code="MRT"/>
+        <type id="130" name_eng="Mauritius" name="毛里求斯" code="MUS"/>
+        <type id="131" name_eng="Mayotte" name="马约特岛" code="MYT"/>
+        <type id="132" name_eng="Mexico" name="墨西哥" code="MEX"/>
+        <type id="133" name_eng="Micronesia Fed. Sts. of" name="密克罗尼西亚联邦" code="FSM"/>
+        <type id="134" name_eng="Moldova" name="摩尔多瓦共和国" code="MDA"/>
+        <type id="135" name_eng="Monaco" name="摩纳哥" code="MCO"/>
+        <type id="136" name_eng="Mongolia" name="蒙古国" code="MNG"/>
+        <type id="137" name_eng="Montenegro" name="黑山共和国" code=""/>
+        <type id="138" name_eng="Montserrat" name="蒙特塞拉特" code="MSR"/>
+        <type id="139" name_eng="Morocco" name="摩洛哥" code="MAR"/>
+        <type id="140" name_eng="Mozambique" name="莫桑比克" code="MOZ"/>
+        <type id="141" name_eng="Myanmar" name="缅甸" code="MMR"/>
+        <type id="142" name_eng="Namibia" name="纳米比亚" code="NAM"/>
+        <type id="143" name_eng="Nauru Republic of" name="瑙鲁共和国" code="NRU"/>
+        <type id="144" name_eng="Nepal" name="尼泊尔" code="NPL"/>
+        <type id="145" name_eng="Netherlands" name="荷兰" code="NLD"/>
+        <type id="146" name_eng="Netherlands Antilles" name="荷属安的列斯" code="ANT"/>
+        <type id="147" name_eng="New Caledonia" name="新喀里多尼亚" code="NCL"/>
+        <type id="148" name_eng="New Zealand" name="新西兰" code="NZL"/>
+        <type id="149" name_eng="Nicaragua" name="尼加拉瓜" code="NIC"/>
+        <type id="150" name_eng="Niger" name="尼日尔" code="NER"/>
+        <type id="151" name_eng="Nigeria" name="尼日利亚" code="NGA"/>
+        <type id="152" name_eng="Northern Ireland" name="北爱尔兰自治区" code=""/>
+        <type id="153" name_eng="Northern Mariana Islands" name="北马里亚纳群岛" code="MNP"/>
+        <type id="154" name_eng="Norway" name="挪威" code="NOR"/>
+        <type id="155" name_eng="Oman" name="阿曼" code="OMN"/>
+        <type id="156" name_eng="Pakistan" name="巴基斯坦" code="PAK"/>
+        <type id="157" name_eng="Palau Republic of" name="帕劳共和国" code="PLW"/>
+        <type id="158" name_eng="Panama" name="巴拿马" code="PAN"/>
+        <type id="159" name_eng="Papua New Guinea" name="巴布亚新几内亚" code="PNG"/>
+        <type id="160" name_eng="Paraguay" name="巴拉圭" code="PRY"/>
+        <type id="161" name_eng="Peru" name="秘鲁" code="PER"/>
+        <type id="162" name_eng="Philippines" name="菲律宾" code="PHL"/>
+        <type id="163" name_eng="Poland" name="波兰" code="POL"/>
+        <type id="164" name_eng="Portugal" name="葡萄牙" code="PRT"/>
+        <type id="165" name_eng="Puerto Rico" name="波多黎各" code="PRI"/>
+        <type id="166" name_eng="Qatar" name="卡塔尔" code="QAT"/>
+        <type id="167" name_eng="Reunion Isl" name="留尼旺岛" code="REU"/>
+        <type id="168" name_eng="Romania" name="罗马尼亚" code="ROU"/>
+        <type id="169" name_eng="Russia" name="俄罗斯联邦" code="RUS"/>
+        <type id="170" name_eng="Rwanda" name="R卢旺达" code="RWA"/>
+        <type id="171" name_eng="Saint Lucia" name="圣卢西亚岛" code="LCA"/>
+        <type id="172" name_eng="Samoa Westem" name="萨摩亚西方" code="WSM"/>
+        <type id="173" name_eng="San Marino" name="圣马力诺" code="SMR"/>
+        <type id="174" name_eng="Sao Tome and Principe" name="圣多美和普林西比" code="STP"/>
+        <type id="175" name_eng="Saudi Arabia" name="沙特阿拉伯" code="SAU"/>
+        <type id="176" name_eng="Senegal" name="塞内加尔" code="SEN"/>
+        <type id="177" name_eng="Serbia" name="塞尔维亚" code="SCG"/>
+        <type id="178" name_eng="Seychelles Isl" name="塞舌尔" code="SYC"/>
+        <type id="179" name_eng="Sierra Leone" name="塞拉利昂" code="SLE"/>
+        <type id="180" name_eng="Singapore" name="新加坡" code="SGP"/>
+        <type id="181" name_eng="Slovakia" name="斯洛伐克" code="SVK"/>
+        <type id="182" name_eng="Slovenia" name="斯洛维尼亚" code="SVN"/>
+        <type id="183" name_eng="Solomon Islands" name="所罗门群岛" code="SLB"/>
+        <type id="184" name_eng="Somalia" name="索马里" code="SOM"/>
+        <type id="185" name_eng="South Africa" name="南非" code="ZAF"/>
+        <type id="186" name_eng="Spain" name="西班牙" code="ESP"/>
+        <type id="187" name_eng="Sri Lanka" name="斯里兰卡" code="LKA"/>
+        <type id="188" name_eng="St Pierre Et Miquelon" name="圣皮埃尔和密克隆岛" code="SPM"/>
+        <type id="189" name_eng="St Vincent-Grenadines" name="圣文森特" code="VCT"/>
+        <type id="190" name_eng="Sudan" name="苏丹" code="SDN"/>
+        <type id="191" name_eng="Suriname" name="苏里南" code="SUR"/>
+        <type id="192" name_eng="Swaziland" name="斯威士兰" code="SWZ"/>
+        <type id="193" name_eng="Sweden" name="瑞典" code="SWE"/>
+        <type id="194" name_eng="Switzerland" name="瑞士" code="CHE"/>
+        <type id="195" name_eng="Syria" name="叙利亚共和国" code="SYR"/>
+        <type id="196" name_eng="Taiwan" name="台湾" code="TWN"/>
+        <type id="197" name_eng="Tajikistan" name="塔吉克斯坦" code="TJK"/>
+        <type id="198" name_eng="Tanzania" name="坦桑尼亚" code="TZA"/>
+        <type id="199" name_eng="Thailand" name="泰国" code="THA"/>
+        <type id="200" name_eng="Togo" name="多哥" code="TGO"/>
+        <type id="201" name_eng="Tonga" name="汤加" code="TON"/>
+        <type id="202" name_eng="Trinidad and Tobago" name="特立尼达和多巴哥" code="TTO"/>
+        <type id="203" name_eng="Tunisia" name="突尼斯" code="TUN"/>
+        <type id="204" name_eng="Turkey" name="土耳其" code="TUR"/>
+        <type id="205" name_eng="Turkmenistan" name="土库曼斯坦" code="TKM"/>
+        <type id="206" name_eng="Turks and Caicos Islands" name="特克斯和凯科斯群岛" code="TCA"/>
+        <type id="207" name_eng="Tuvalu" name="图瓦卢" code="TUV"/>
+        <type id="208" name_eng="Uganda" name="乌干达" code="UGA"/>
+        <type id="209" name_eng="Ukraine" name="乌克兰" code="UKR"/>
+        <type id="210" name_eng="United Arab Emirates" name="阿拉伯联合酋长国" code="ARE"/>
+        <type id="211" name_eng="United States of America" name="美利坚合众国" code="USA"/>
+        <type id="212" name_eng="Uruguay" name="乌拉圭" code="URY"/>
+        <type id="213" name_eng="Uzbekistan" name="乌兹别克斯坦" code="UZB"/>
+        <type id="214" name_eng="Vanuatu" name="瓦努阿图" code="VUT"/>
+        <type id="215" name_eng="Venezuela" name="委内瑞拉" code="VEN"/>
+        <type id="216" name_eng="Viet Nam" name="越南" code="VNM"/>
+        <type id="217" name_eng="Virgin IslandsBritish" name="维尔京群岛(英属)" code="VGB"/>
+        <type id="218" name_eng="Virgin IslandsUSA" name="维尔京群岛(美属)" code="VIR"/>
+        <type id="219" name_eng="Wallis and Futuna Isl" name="瓦利斯和富图纳群岛" code="WLF"/>
+        <type id="220" name_eng="Yemen" name="也门" code="YEM"/>
+        <type id="221" name_eng="Yugoslavia" name="南斯拉夫" code=""/>
+        <type id="222" name_eng="Zaire" name="扎伊尔" code=""/>
+        <type id="223" name_eng="Zambia" name="赞比亚" code="ZMB"/>
+        <type id="224" name_eng="Zimbabwe" name="津巴布韦" code="ZWE"/>
+    </nationality>
+    <comboxlist count="258">
+        <index recogresult="男" id="0" comboxorder="1" name_eng="Mr." name="男"/>
+        <index recogresult="女" id="1" comboxorder="1" name_eng="Ms." name="女"/>
+        <index recogresult="男" id="0" comboxorder="2" name_eng="MR." name="男"/>
+        <index recogresult="女" id="1" comboxorder="2" name_eng="MS." name="女"/>
+        <index recogresult="-1" id="1" comboxorder="1" name_eng="Airline Crew ID" name="航空机组人员证"/>
+        <index recogresult="-1" id="2" comboxorder="1" name_eng="Airline Crew ID" name="航空机组人员证"/>
+        <index recogresult="-1" id="3" comboxorder="1" name_eng="China Travel Document" name="中国旅行证"/>
+        <index recogresult="-1" id="4" comboxorder="1" name_eng="Chinese Army/Soldier ID" name="中国士兵证"/>
+        <index recogresult="-1" id="5" comboxorder="1" name_eng="CI-CI(Cedula)" name="中美及北美身份证"/>
+        <index recogresult="-1" id="6" comboxorder="1" name_eng="D-DNI(Document National Idertifi cation Number)" name="档案国内识别码"/>
+        <index recogresult="" id="7" comboxorder="1" name_eng="Diplomatic Passport/ID" name="外交护照"/>
+        <index recogresult="" id="8" comboxorder="1" name_eng="Diplomatic Passport/ID" name="外交护照"/>
+        <index recogresult="-1" id="9" comboxorder="1" name_eng="Foreigner Permanent Residence ID" name="外籍人员永久居留证"/>
+        <index recogresult="-1" id="10" comboxorder="1" name_eng="Foreigner Residence ID" name="外籍人员居留证"/>
+        <index recogresult="-1" id="11" comboxorder="1" name_eng="Foreigner Temporary Residence ID" name="外籍人员临时居留证"/>
+        <index recogresult="-1" id="12" comboxorder="1" name_eng="Foreigner Travel Permit ID" name="外籍人员旅游许可证"/>
+        <index recogresult="12" id="13" comboxorder="1" name_eng="Foreigners Re-Entry Visa" name="外籍人员入境签证"/>
+        <index recogresult="9" id="14" comboxorder="1" name_eng="HK/Macau Travel to Mainland ID" name="香港澳门往来大陆证件"/>
+        <index recogresult="-1" id="15" comboxorder="1" name_eng="Hong Kong SAR Passport" name="香港特区护照"/>
+        <index recogresult="2" id="16" comboxorder="1" name_eng="I-CHINESE ID CARD" name="中国身份证"/>
+        <index recogresult="-1" id="17" comboxorder="1" name_eng="Military ID" name="军官证"/>
+        <index recogresult="-1" id="18" comboxorder="1" name_eng="N-Local Country Residency Permit" name="本国居留许可证"/>
+        <index recogresult="-1" id="19" comboxorder="1" name_eng="Other" name="其他"/>
+        <index recogresult="-1" id="20" comboxorder="1" name_eng="Overseas Chinese Travel Permit" name="海外华侨旅行许可证"/>
+        <index recogresult="13" id="21" comboxorder="1" name_eng="P-PASSPORT" name="护照"/>
+        <index recogresult="-1" id="22" comboxorder="1" name_eng="Sailor ID/Seamass Passport" name="海员证"/>
+        <index recogresult="-1" id="23" comboxorder="1" name_eng="Sailor ID/Seamass Passport" name="海员证"/>
+        <index recogresult="-1" id="24" comboxorder="1" name_eng="Service/Government Passport" name="政府护照"/>
+        <index recogresult="-1" id="25" comboxorder="1" name_eng="Special Hong Kong Passport" name="特殊香港护照"/>
+        <index recogresult="-1" id="26" comboxorder="1" name_eng="Special Hong Kong Passport" name="特殊香港护照"/>
+        <index recogresult="-1" id="27" comboxorder="1" name_eng="Train Employee" name="员工培训证"/>
+        <index recogresult="10" id="28" comboxorder="1" name_eng="Travel Certificate(Taiwan)" name="台湾旅行证件"/>
+        <index recogresult="10" id="29" comboxorder="1" name_eng="Travel Certificate(Taiwan)" name="台湾旅行证件"/>
+        <index recogresult="-1" id="30" comboxorder="1" name_eng="United Nations Laisser-Passer" name="联合国通行证"/>
+        <index recogresult="" id="31" comboxorder="1" name_eng="Work Passport" name="工作护照"/>
+        <index recogresult="-2" id="32" comboxorder="1" name_eng="X-Other" name="其他"/>
+        <index recogresult="AFG" id="1" comboxorder="1" name_eng="Afghanistan" name="阿富汗"/>
+        <index recogresult="ALB" id="2" comboxorder="1" name_eng="Albania" name="阿尔巴尼亚"/>
+        <index recogresult="DZA" id="3" comboxorder="1" name_eng="Algeria" name="阿尔及利亚"/>
+        <index recogresult="ASM" id="4" comboxorder="1" name_eng="American Samoa" name="美属萨摩亚"/>
+        <index recogresult="AND" id="5" comboxorder="1" name_eng="Andorra" name="安道尔共和国"/>
+        <index recogresult="AGO" id="6" comboxorder="1" name_eng="Angola" name="安哥拉"/>
+        <index recogresult="AIA" id="7" comboxorder="1" name_eng="Anguilla-St Kitts-Nevis" name="安圭拉"/>
+        <index recogresult="ATG" id="8" comboxorder="1" name_eng="Antigua and Barbuda" name="安提瓜和巴布达"/>
+        <index recogresult="ARG" id="9" comboxorder="1" name_eng="Argentina" name="阿根廷"/>
+        <index recogresult="ARM" id="10" comboxorder="1" name_eng="Armenia" name="亚美尼亚"/>
+        <index recogresult="ABW" id="11" comboxorder="1" name_eng="Aruba" name="阿鲁巴岛"/>
+        <index recogresult="AUS" id="12" comboxorder="1" name_eng="Australia" name="澳大利亚"/>
+        <index recogresult="AUT" id="13" comboxorder="1" name_eng="Austria" name="奥地利"/>
+        <index recogresult="AZE" id="14" comboxorder="1" name_eng="Azerbaijan" name="阿塞拜疆"/>
+        <index recogresult="BHS" id="15" comboxorder="1" name_eng="Bahamas" name="巴哈马"/>
+        <index recogresult="BHR" id="16" comboxorder="1" name_eng="Bahrain" name="巴林岛"/>
+        <index recogresult="BGD" id="17" comboxorder="1" name_eng="Bangladesh" name="孟加拉国"/>
+        <index recogresult="BRB" id="18" comboxorder="1" name_eng="Barbados" name="巴巴多斯"/>
+        <index recogresult="BLR" id="19" comboxorder="1" name_eng="Belarus" name="白俄罗斯"/>
+        <index recogresult="BEL" id="20" comboxorder="1" name_eng="Belgium" name="比利时"/>
+        <index recogresult="BLZ" id="21" comboxorder="1" name_eng="Belize" name="伯利兹城"/>
+        <index recogresult="BEN" id="22" comboxorder="1" name_eng="Benin" name="贝宁"/>
+        <index recogresult="BMU" id="23" comboxorder="1" name_eng="Bermuda" name="百慕大群岛"/>
+        <index recogresult="BTN" id="24" comboxorder="1" name_eng="Bhutan" name="不丹"/>
+        <index recogresult="BOL" id="25" comboxorder="1" name_eng="Bolivia" name="玻利维亚"/>
+        <index recogresult="BIH" id="26" comboxorder="1" name_eng="Bosnia Herzegovina" name="波斯尼亚和黑塞哥维那"/>
+        <index recogresult="BWA" id="27" comboxorder="1" name_eng="Botswana" name="博茨瓦纳"/>
+        <index recogresult="BRA" id="28" comboxorder="1" name_eng="Brazil" name="巴西"/>
+        <index recogresult="BRN" id="29" comboxorder="1" name_eng="Brunei Darussalam" name="文莱达鲁萨兰国"/>
+        <index recogresult="BGR" id="30" comboxorder="1" name_eng="Bulgaria" name="保加利亚"/>
+        <index recogresult="BFA" id="31" comboxorder="1" name_eng="Burkina Faso" name="布基纳法索"/>
+        <index recogresult="BDI" id="32" comboxorder="1" name_eng="Burundi" name="布隆迪"/>
+        <index recogresult="KHM" id="33" comboxorder="1" name_eng="Cambodia" name="柬埔寨"/>
+        <index recogresult="CMR" id="34" comboxorder="1" name_eng="Cameroon" name="喀麦隆"/>
+        <index recogresult="CAN" id="35" comboxorder="1" name_eng="Canada" name="加拿大"/>
+        <index recogresult="CPV" id="36" comboxorder="1" name_eng="Cape Verde" name="佛得角"/>
+        <index recogresult="CYM" id="37" comboxorder="1" name_eng="Cayman Islands" name="开曼群岛"/>
+        <index recogresult="CAF" id="38" comboxorder="1" name_eng="Central African Republic" name="中非共和国"/>
+        <index recogresult="TCD" id="39" comboxorder="1" name_eng="Chad" name="乍得"/>
+        <index recogresult="CHL" id="40" comboxorder="1" name_eng="Chile" name="智利"/>
+        <index recogresult="CHN" id="41" comboxorder="1" name_eng="China" name="中国"/>
+        <index recogresult="COL" id="42" comboxorder="1" name_eng="Colombia" name="哥伦比亚"/>
+        <index recogresult="COM" id="43" comboxorder="1" name_eng="Comoro Isl" name="科摩罗群岛"/>
+        <index recogresult="COG" id="44" comboxorder="1" name_eng="Congo" name="刚果"/>
+        <index recogresult="COK" id="45" comboxorder="1" name_eng="Cook Islands" name="库克群岛"/>
+        <index recogresult="CRI" id="46" comboxorder="1" name_eng="Costa Rica" name="哥斯达黎加"/>
+        <index recogresult="CIV" id="47" comboxorder="1" name_eng="Cote D'lvoire" name="科特迪瓦"/>
+        <index recogresult="HRV" id="48" comboxorder="1" name_eng="Croatia" name="克罗地亚"/>
+        <index recogresult="CUB" id="49" comboxorder="1" name_eng="Cuba" name="古巴"/>
+        <index recogresult="CYP" id="50" comboxorder="1" name_eng="Cyprus" name="塞浦路斯"/>
+        <index recogresult="CZE" id="51" comboxorder="1" name_eng="Czech Rep" name="捷克共和国"/>
+        <index recogresult="DNK" id="52" comboxorder="1" name_eng="Denmark" name="丹麦"/>
+        <index recogresult="DJI" id="53" comboxorder="1" name_eng="Djibouti" name="吉布提"/>
+        <index recogresult="DMA" id="54" comboxorder="1" name_eng="Dominica" name="多米尼加岛"/>
+        <index recogresult="DOM" id="55" comboxorder="1" name_eng="Dominican republic" name="多米尼加共和国"/>
+        <index recogresult="ECU" id="56" comboxorder="1" name_eng="Ecuador" name="厄瓜多尔"/>
+        <index recogresult="EGY" id="57" comboxorder="1" name_eng="Egypt" name="埃及"/>
+        <index recogresult="SLV" id="58" comboxorder="1" name_eng="El Salvador" name="萨尔瓦多"/>
+        <index recogresult="GNQ" id="59" comboxorder="1" name_eng="Equatorial Guinea" name="赤道几内亚"/>
+        <index recogresult="ERI" id="60" comboxorder="1" name_eng="Eritrea" name="厄立特里亚国"/>
+        <index recogresult="EST" id="61" comboxorder="1" name_eng="Estonia" name="爱沙尼亚"/>
+        <index recogresult="ETH" id="62" comboxorder="1" name_eng="Ethiopia" name="埃塞俄比亚"/>
+        <index recogresult="FLK" id="63" comboxorder="1" name_eng="Falkland Is./Malvinas" name="福克兰群岛(马尔维纳斯)"/>
+        <index recogresult="FJI" id="64" comboxorder="1" name_eng="Fiji Islands" name="斐济群岛"/>
+        <index recogresult="FIN" id="65" comboxorder="1" name_eng="Finland" name="芬兰"/>
+        <index recogresult="FRA" id="66" comboxorder="1" name_eng="France" name="法国"/>
+        <index recogresult="GUF" id="67" comboxorder="1" name_eng="French Guiana" name="法属圭亚那"/>
+        <index recogresult="PYF" id="68" comboxorder="1" name_eng="French Polynesia" name="法属玻里尼西亚"/>
+        <index recogresult="GAB" id="69" comboxorder="1" name_eng="Gabon" name="加蓬"/>
+        <index recogresult="GMB" id="70" comboxorder="1" name_eng="Gambia" name="冈比亚"/>
+        <index recogresult="" id="71" comboxorder="1" name_eng="Gaza" name="加沙"/>
+        <index recogresult="GEO" id="72" comboxorder="1" name_eng="Georgia" name="格鲁吉亚"/>
+        <index recogresult="D" id="73" comboxorder="1" name_eng="Germany" name="德国"/>
+        <index recogresult="GHA" id="74" comboxorder="1" name_eng="Ghana" name="加纳"/>
+        <index recogresult="GIB" id="75" comboxorder="1" name_eng="Gibraltar" name="直布罗陀"/>
+        <index recogresult="GBR" id="76" comboxorder="1" name_eng="Great Britain" name="英国(公民)"/>
+        <index recogresult="GBD" id="77" comboxorder="1" name_eng="Great Britain" name="英国(属地公民)"/>
+        <index recogresult="GBN" id="78" comboxorder="1" name_eng="Great Britain" name="英国(海外国民)"/>
+        <index recogresult="GBO" id="79" comboxorder="1" name_eng="Great Britain" name="英国(海外公民)"/>
+        <index recogresult="GBP" id="80" comboxorder="1" name_eng="Great Britain" name="英国(被保护人)"/>
+        <index recogresult="GBS" id="81" comboxorder="1" name_eng="Great Britain" name="英国(臣民)"/>
+        <index recogresult="GRC" id="82" comboxorder="1" name_eng="Greece" name="希腊"/>
+        <index recogresult="GRL" id="83" comboxorder="1" name_eng="Greenland" name="格陵兰"/>
+        <index recogresult="GRD" id="84" comboxorder="1" name_eng="Grenada" name="格林纳达"/>
+        <index recogresult="GLP" id="85" comboxorder="1" name_eng="Guadeloupe" name="瓜德罗普岛"/>
+        <index recogresult="GUM" id="86" comboxorder="1" name_eng="Guam" name="关岛"/>
+        <index recogresult="GTM" id="87" comboxorder="1" name_eng="Guatemala" name="危地马拉"/>
+        <index recogresult="GIN" id="88" comboxorder="1" name_eng="Guinea" name="几内亚"/>
+        <index recogresult="GNB" id="89" comboxorder="1" name_eng="Guinea Bissau" name="几内亚比绍"/>
+        <index recogresult="GUY" id="90" comboxorder="1" name_eng="Guyana" name="圭亚那"/>
+        <index recogresult="HTI" id="91" comboxorder="1" name_eng="Haiti" name="海地"/>
+        <index recogresult="" id="92" comboxorder="1" name_eng="Held Territories" name=""/>
+        <index recogresult="HND" id="93" comboxorder="1" name_eng="Honduras" name="洪都拉斯"/>
+        <index recogresult="HKG" id="94" comboxorder="1" name_eng="Hong Kong" name="中国香港特别行政区"/>
+        <index recogresult="HUN" id="95" comboxorder="1" name_eng="Hungary" name="匈牙利"/>
+        <index recogresult="ISL" id="96" comboxorder="1" name_eng="Iceland" name="冰岛"/>
+        <index recogresult="IND" id="97" comboxorder="1" name_eng="India" name="印度"/>
+        <index recogresult="" id="98" comboxorder="1" name_eng="Indian Ocean Islands" name="印度洋群岛"/>
+        <index recogresult="IDN" id="99" comboxorder="1" name_eng="Indonesia" name="印度尼西亚"/>
+        <index recogresult="IRN" id="100" comboxorder="1" name_eng="Iran" name="伊朗(伊斯兰共和国)"/>
+        <index recogresult="IRQ" id="101" comboxorder="1" name_eng="Iraq" name="伊拉克"/>
+        <index recogresult="IRL" id="102" comboxorder="1" name_eng="Ireland" name="爱尔兰"/>
+        <index recogresult="ISR" id="103" comboxorder="1" name_eng="Israel" name="以色列"/>
+        <index recogresult="ITA" id="104" comboxorder="1" name_eng="Italy" name="意大利"/>
+        <index recogresult="JAM" id="105" comboxorder="1" name_eng="Jamaica" name="牙买加"/>
+        <index recogresult="JPN" id="106" comboxorder="1" name_eng="Japan" name="日本"/>
+        <index recogresult="JOR" id="107" comboxorder="1" name_eng="Jordan" name="约旦"/>
+        <index recogresult="KAZ" id="108" comboxorder="1" name_eng="Kazakhstan" name="哈萨克斯坦"/>
+        <index recogresult="KEN" id="109" comboxorder="1" name_eng="Kenya" name="肯尼亚"/>
+        <index recogresult="KIR" id="110" comboxorder="1" name_eng="Kiribati" name="基里巴斯"/>
+        <index recogresult="KOR" id="111" comboxorder="1" name_eng="Korea Dem.P.Rep.of" name="韩国"/>
+        <index recogresult="PRK" id="112" comboxorder="1" name_eng="Korea Rep. of" name="朝鲜民主主义人民共和国"/>
+        <index recogresult="KWT" id="113" comboxorder="1" name_eng="Kuwait" name="科威特"/>
+        <index recogresult="KGZ" id="114" comboxorder="1" name_eng="Kyrgyzstan" name="吉尔吉斯斯坦"/>
+        <index recogresult="LAO" id="115" comboxorder="1" name_eng="Laos" name="老挝人民民主共和国"/>
+        <index recogresult="LVA" id="116" comboxorder="1" name_eng="Latvia" name="拉脱维亚"/>
+        <index recogresult="LBN" id="117" comboxorder="1" name_eng="Lebanon" name="黎巴嫩"/>
+        <index recogresult="LSO" id="118" comboxorder="1" name_eng="Lesotho" name="莱索托"/>
+        <index recogresult="LBR" id="119" comboxorder="1" name_eng="Liberia" name="利比里亚"/>
+        <index recogresult="LBY" id="112" comboxorder="1" name_eng="Libyan Arab Jamahiriya" name="阿拉伯利比亚民众国"/>
+        <index recogresult="LIE" id="121" comboxorder="1" name_eng="Liechtenstein" name="列支敦斯登"/>
+        <index recogresult="LTU" id="122" comboxorder="1" name_eng="Lithuania" name="立陶宛"/>
+        <index recogresult="LUX" id="123" comboxorder="1" name_eng="Luxembourg" name="卢森堡公国"/>
+        <index recogresult="MAC" id="124" comboxorder="1" name_eng="Macau" name="澳门"/>
+        <index recogresult="MKD" id="125" comboxorder="1" name_eng="Macedonia" name="前南斯拉夫马其顿共和国"/>
+        <index recogresult="MDJ" id="126" comboxorder="1" name_eng="Madagascar" name="马达加斯加岛"/>
+        <index recogresult="MWI" id="127" comboxorder="1" name_eng="Malawi" name="马拉维"/>
+        <index recogresult="MYS" id="128" comboxorder="1" name_eng="Malaysia" name="马来西亚"/>
+        <index recogresult="MDV" id="129" comboxorder="1" name_eng="Maldives Rep.of" name="马尔代夫"/>
+        <index recogresult="MLI" id="130" comboxorder="1" name_eng="Mali" name="马里"/>
+        <index recogresult="MLT" id="131" comboxorder="1" name_eng="Malta" name="马尔他"/>
+        <index recogresult="MHL" id="132" comboxorder="1" name_eng="Marshall Isls.Rep.of" name="马绍尔群岛"/>
+        <index recogresult="MTQ" id="133" comboxorder="1" name_eng="Martinique" name="马提尼克"/>
+        <index recogresult="MRT" id="134" comboxorder="1" name_eng="Mauritania" name="毛里塔尼亚"/>
+        <index recogresult="MUS" id="135" comboxorder="1" name_eng="Mauritius" name="毛里求斯"/>
+        <index recogresult="MYT" id="136" comboxorder="1" name_eng="Mayotte" name="马约特岛"/>
+        <index recogresult="MEX" id="137" comboxorder="1" name_eng="Mexico" name="墨西哥"/>
+        <index recogresult="FSM" id="138" comboxorder="1" name_eng="Micronesia Fed. Sts. of" name="密克罗尼西亚联邦"/>
+        <index recogresult="MDA" id="139" comboxorder="1" name_eng="Moldova" name="摩尔多瓦共和国"/>
+        <index recogresult="MCO" id="140" comboxorder="1" name_eng="Monaco" name="摩纳哥"/>
+        <index recogresult="MNG" id="141" comboxorder="1" name_eng="Mongolia" name="蒙古国"/>
+        <index recogresult="" id="142" comboxorder="1" name_eng="Montenegro" name="黑山共和国"/>
+        <index recogresult="MSR" id="143" comboxorder="1" name_eng="Montserrat" name="蒙特塞拉特"/>
+        <index recogresult="MAR" id="144" comboxorder="1" name_eng="Morocco" name="摩洛哥"/>
+        <index recogresult="MOZ" id="145" comboxorder="1" name_eng="Mozambique" name="莫桑比克"/>
+        <index recogresult="MMR" id="146" comboxorder="1" name_eng="Myanmar" name="缅甸"/>
+        <index recogresult="NAM" id="147" comboxorder="1" name_eng="Namibia" name="纳米比亚"/>
+        <index recogresult="NRU" id="148" comboxorder="1" name_eng="Nauru Republic of" name="瑙鲁共和国"/>
+        <index recogresult="NPL" id="149" comboxorder="1" name_eng="Nepal" name="尼泊尔"/>
+        <index recogresult="NLD" id="150" comboxorder="1" name_eng="Netherlands" name="荷兰"/>
+        <index recogresult="ANT" id="151" comboxorder="1" name_eng="Netherlands Antilles" name="荷属安的列斯"/>
+        <index recogresult="NCL" id="152" comboxorder="1" name_eng="New Caledonia" name="新喀里多尼亚"/>
+        <index recogresult="NZL" id="153" comboxorder="1" name_eng="New Zealand" name="新西兰"/>
+        <index recogresult="NIC" id="154" comboxorder="1" name_eng="Nicaragua" name="尼加拉瓜"/>
+        <index recogresult="NER" id="155" comboxorder="1" name_eng="Niger" name="尼日尔"/>
+        <index recogresult="NGA" id="156" comboxorder="1" name_eng="Nigeria" name="尼日利亚"/>
+        <index recogresult="" id="157" comboxorder="1" name_eng="Northern Ireland" name="北爱尔兰自治区"/>
+        <index recogresult="MNP" id="158" comboxorder="1" name_eng="Northern Mariana Islands" name="北马里亚纳群岛"/>
+        <index recogresult="NOR" id="159" comboxorder="1" name_eng="Norway" name="挪威"/>
+        <index recogresult="OMN" id="160" comboxorder="1" name_eng="Oman" name="阿曼"/>
+        <index recogresult="PAK" id="161" comboxorder="1" name_eng="Pakistan" name="巴基斯坦"/>
+        <index recogresult="PLW" id="162" comboxorder="1" name_eng="Palau Republic of" name="帕劳共和国"/>
+        <index recogresult="PAN" id="163" comboxorder="1" name_eng="Panama" name="巴拿马"/>
+        <index recogresult="PNG" id="164" comboxorder="1" name_eng="Papua New Guinea" name="巴布亚新几内亚"/>
+        <index recogresult="PRY" id="165" comboxorder="1" name_eng="Paraguay" name="巴拉圭"/>
+        <index recogresult="PER" id="166" comboxorder="1" name_eng="Peru" name="秘鲁"/>
+        <index recogresult="PHL" id="167" comboxorder="1" name_eng="Philippines" name="菲律宾"/>
+        <index recogresult="POL" id="168" comboxorder="1" name_eng="Poland" name="波兰"/>
+        <index recogresult="PRT" id="169" comboxorder="1" name_eng="Portugal" name="葡萄牙"/>
+        <index recogresult="PRI" id="170" comboxorder="1" name_eng="Puerto Rico" name="波多黎各"/>
+        <index recogresult="QAT" id="171" comboxorder="1" name_eng="Qatar" name="卡塔尔"/>
+        <index recogresult="REU" id="172" comboxorder="1" name_eng="Reunion Isl" name="留尼旺岛"/>
+        <index recogresult="ROU" id="173" comboxorder="1" name_eng="Romania" name="罗马尼亚"/>
+        <index recogresult="RUS" id="174" comboxorder="1" name_eng="Russia" name="俄罗斯联邦"/>
+        <index recogresult="RWA" id="175" comboxorder="1" name_eng="Rwanda" name="R卢旺达"/>
+        <index recogresult="LCA" id="176" comboxorder="1" name_eng="Saint Lucia" name="圣卢西亚岛"/>
+        <index recogresult="WSM" id="177" comboxorder="1" name_eng="Samoa Westem" name="萨摩亚西方"/>
+        <index recogresult="SMR" id="178" comboxorder="1" name_eng="San Marino" name="圣马力诺"/>
+        <index recogresult="STP" id="179" comboxorder="1" name_eng="Sao Tome and Principe" name="圣多美和普林西比"/>
+        <index recogresult="SAU" id="180" comboxorder="1" name_eng="Saudi Arabia" name="沙特阿拉伯"/>
+        <index recogresult="SEN" id="181" comboxorder="1" name_eng="Senegal" name="塞内加尔"/>
+        <index recogresult="SCG" id="182" comboxorder="1" name_eng="Serbia" name="塞尔维亚"/>
+        <index recogresult="SYC" id="183" comboxorder="1" name_eng="Seychelles Isl" name="塞舌尔"/>
+        <index recogresult="SLE" id="184" comboxorder="1" name_eng="Sierra Leone" name="塞拉利昂"/>
+        <index recogresult="SGP" id="185" comboxorder="1" name_eng="Singapore" name="新加坡"/>
+        <index recogresult="SVK" id="186" comboxorder="1" name_eng="Slovakia" name="斯洛伐克"/>
+        <index recogresult="SVN" id="187" comboxorder="1" name_eng="Slovenia" name="斯洛维尼亚"/>
+        <index recogresult="SLB" id="188" comboxorder="1" name_eng="Solomon Islands" name="所罗门群岛"/>
+        <index recogresult="SOM" id="189" comboxorder="1" name_eng="Somalia" name="索马里"/>
+        <index recogresult="ZAF" id="190" comboxorder="1" name_eng="South Africa" name="南非"/>
+        <index recogresult="ESP" id="191" comboxorder="1" name_eng="Spain" name="西班牙"/>
+        <index recogresult="LKA" id="192" comboxorder="1" name_eng="Sri Lanka" name="斯里兰卡"/>
+        <index recogresult="SPM" id="193" comboxorder="1" name_eng="St Pierre Et Miquelon" name="圣皮埃尔和密克隆岛"/>
+        <index recogresult="VCT" id="194" comboxorder="1" name_eng="St Vincent-Grenadines" name="圣文森特"/>
+        <index recogresult="SDN" id="195" comboxorder="1" name_eng="Sudan" name="苏丹"/>
+        <index recogresult="SUR" id="196" comboxorder="1" name_eng="Suriname" name="苏里南"/>
+        <index recogresult="SWZ" id="197" comboxorder="1" name_eng="Swaziland" name="斯威士兰"/>
+        <index recogresult="SWE" id="198" comboxorder="1" name_eng="Sweden" name="瑞典"/>
+        <index recogresult="CHE" id="199" comboxorder="1" name_eng="Switzerland" name="瑞士"/>
+        <index recogresult="SYR" id="200" comboxorder="1" name_eng="Syria" name="叙利亚共和国"/>
+        <index recogresult="TWN" id="201" comboxorder="1" name_eng="Taiwan" name="台湾"/>
+        <index recogresult="TJK" id="202" comboxorder="1" name_eng="Tajikistan" name="塔吉克斯坦"/>
+        <index recogresult="TZA" id="203" comboxorder="1" name_eng="Tanzania" name="坦桑尼亚"/>
+        <index recogresult="THA" id="204" comboxorder="1" name_eng="Thailand" name="泰国"/>
+        <index recogresult="TGO" id="205" comboxorder="1" name_eng="Togo" name="多哥"/>
+        <index recogresult="TON" id="206" comboxorder="1" name_eng="Tonga" name="汤加"/>
+        <index recogresult="TTO" id="207" comboxorder="1" name_eng="Trinidad and Tobago" name="特立尼达和多巴哥"/>
+        <index recogresult="TUN" id="208" comboxorder="1" name_eng="Tunisia" name="突尼斯"/>
+        <index recogresult="TUR" id="209" comboxorder="1" name_eng="Turkey" name="土耳其"/>
+        <index recogresult="TKM" id="210" comboxorder="1" name_eng="Turkmenistan" name="土库曼斯坦"/>
+        <index recogresult="TCA" id="211" comboxorder="1" name_eng="Turks and Caicos Islands" name="特克斯和凯科斯群岛"/>
+        <index recogresult="TUV" id="212" comboxorder="1" name_eng="Tuvalu" name="图瓦卢"/>
+        <index recogresult="UGA" id="213" comboxorder="1" name_eng="Uganda" name="乌干达"/>
+        <index recogresult="UKR" id="214" comboxorder="1" name_eng="Ukraine" name="乌克兰"/>
+        <index recogresult="ARE" id="215" comboxorder="1" name_eng="United Arab Emirates" name="阿拉伯联合酋长国"/>
+        <index recogresult="USA" id="216" comboxorder="1" name_eng="United States of America" name="美利坚合众国"/>
+        <index recogresult="URY" id="217" comboxorder="1" name_eng="Uruguay" name="乌拉圭"/>
+        <index recogresult="UZB" id="218" comboxorder="1" name_eng="Uzbekistan" name="乌兹别克斯坦"/>
+        <index recogresult="VUT" id="219" comboxorder="1" name_eng="Vanuatu" name="瓦努阿图"/>
+        <index recogresult="VEN" id="220" comboxorder="1" name_eng="Venezuela" name="委内瑞拉"/>
+        <index recogresult="VNM" id="221" comboxorder="1" name_eng="Viet Nam" name="越南"/>
+        <index recogresult="VGB" id="222" comboxorder="1" name_eng="Virgin IslandsBritish" name="维尔京群岛(英属)"/>
+        <index recogresult="VIR" id="223" comboxorder="1" name_eng="Virgin IslandsUSA" name="维尔京群岛(美属)"/>
+        <index recogresult="WLF" id="224" comboxorder="1" name_eng="Wallis and Futuna Isl" name="瓦利斯和富图纳群岛"/>
+        <index recogresult="YEM" id="225" comboxorder="1" name_eng="Yemen" name="也门"/>
+        <index recogresult="" id="226" comboxorder="1" name_eng="Yugoslavia" name="南斯拉夫"/>
+        <index recogresult="" id="227" comboxorder="1" name_eng="Zaire" name="扎伊尔"/>
+        <index recogresult="ZMB" id="228" comboxorder="1" name_eng="Zambia" name="赞比亚"/>
+        <index recogresult="ZWE" id="229" comboxorder="1" name_eng="Zimbabwe" name="津巴布韦"/>
+    </comboxlist>
+    <replacesteps>
+        <replacestep id="1" prevalue="CHN" replacevalue="CN"/>
+        <replacestep id="2" prevalue="USA" replacevalue="USA"/>
+        <replacestep id="3" prevalue="Japan" replacevalue="JP"/>
+        <replacestep id="4" prevalue="男" replacevalue="Mr."/>
+        <replacestep id="5" prevalue="女" replacevalue="Ms"/>
+    </replacesteps>
+    <nations>
+        <nation id="1" name="汉" code="01"/>
+        <nation id="2" name="蒙古" code="02"/>
+        <nation id="3" name="回" code="03"/>
+        <nation id="4" name="藏" code="04"/>
+        <nation id="5" name="维吾尔" code="05"/>
+        <nation id="6" name="苗" code="06"/>
+        <nation id="7" name="彝" code="07"/>
+        <nation id="8" name="壮" code="08"/>
+        <nation id="9" name="布依" code="09"/>
+        <nation id="10" name="朝鲜" code="10"/>
+        <nation id="11" name="满" code="11"/>
+        <nation id="12" name="侗" code="12"/>
+        <nation id="13" name="瑶" code="13"/>
+        <nation id="14" name="白" code="14"/>
+        <nation id="15" name="土家" code="15"/>
+        <nation id="16" name="哈尼" code="16"/>
+        <nation id="17" name="哈萨克" code="17"/>
+        <nation id="18" name="傣" code="18"/>
+        <nation id="19" name="黎" code="19"/>
+        <nation id="20" name="傈傈" code="20"/>
+        <nation id="21" name="佤" code="21"/>
+        <nation id="22" name="畲" code="22"/>
+        <nation id="23" name="高山" code="23"/>
+        <nation id="24" name="拉祜" code="24"/>
+        <nation id="25" name="水" code="25"/>
+        <nation id="26" name="东乡" code="26"/>
+        <nation id="27" name="纳西" code="27"/>
+        <nation id="28" name="景颇" code="28"/>
+        <nation id="29" name="柯尔克孜" code="29"/>
+        <nation id="30" name="土族" code="30"/>
+        <nation id="31" name="达斡尔" code="31"/>
+        <nation id="32" name="仫佬" code="32"/>
+        <nation id="33" name="羌" code="33"/>
+        <nation id="34" name="布朗" code="34"/>
+        <nation id="35" name="撒拉" code="35"/>
+        <nation id="36" name="毛难" code="36"/>
+        <nation id="37" name="仡佬" code="37"/>
+        <nation id="38" name="锡伯" code="38"/>
+        <nation id="39" name="阿昌" code="39"/>
+        <nation id="40" name="普米" code="40"/>
+        <nation id="41" name="塔吉克" code="41"/>
+        <nation id="42" name="怒" code="42"/>
+        <nation id="43" name="乌孜别克" code="43"/>
+        <nation id="44" name="俄罗斯" code="44"/>
+        <nation id="45" name="鄂温克" code="45"/>
+        <nation id="46" name="崩龙" code="46"/>
+        <nation id="47" name="保安" code="47"/>
+        <nation id="48" name="裕固" code="48"/>
+        <nation id="49" name="京" code="49"/>
+        <nation id="50" name="塔塔尔" code="50"/>
+        <nation id="51" name="独龙" code="51"/>
+        <nation id="52" name="鄂伦春" code="52"/>
+        <nation id="53" name="赫哲" code="53"/>
+        <nation id="54" name="门巴" code="54"/>
+        <nation id="55" name="珞巴" code="55"/>
+        <nation id="56" name="基诺" code="56"/>
+        <nation id="57" name="其他" code="97"/>
+        <nation id="58" name="外国血统" code="98"/>
+    </nations>
+</CredentialsEntry>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<models>
+    <model id="1" modelname="zhx">
+        <SerialPort>
+			<!-- Document为证件采集助手所占用串口号 -->
+            <Document>ttyAMA0</Document>    
+            <DocumentZHX>ttyAMA1</DocumentZHX>
+            <BarCode>ttyAMA2</BarCode>
+            <BarCodeZHX>ttyAMA3</BarCodeZHX>
+        </SerialPort>
+        <Coding>
+            <CommMessage>UTF8</CommMessage>
+        </Coding>
+        <Identifier>
+            <FieldStart>
+                <Format>Hex</Format>
+                <Data>02</Data> 
+            </FieldStart>
+            <FieldEnd>
+                <Format>Hex</Format>
+                <Data>03</Data>
+            </FieldEnd>
+            <LineSeparator>
+                <Format>Hex</Format>
+                <Data>0D</Data>
+            </LineSeparator>
+            <FieldStartBarcode>
+                <Format>Hex</Format>
+                <Data>02</Data>
+            </FieldStartBarcode>
+            <FieldEndBarcode>
+                <Format>Hex</Format>
+                <Data>03</Data>
+            </FieldEndBarcode>
+            <LineSeparatorBarcode>
+                <Format>Hex</Format>
+                <Data>0D</Data>
+            </LineSeparatorBarcode>
+        </Identifier>
+		<Cards>
+            <Card mainID="13">
+                <Field indexFromRFID="1" name="mrz1" indexFromOCR="10"/>
+                <Field indexFromRFID="2" name="mrz2" indexFromOCR="11"/>
+            </Card>
+            <Card mainID="14">
+                <Field indexFromRFID="1" name="mrz1"/>
+                <Field indexFromRFID="2" name="mrz2"/>
+                <Field indexFromRFID="3" name="mrz3"/>
+            </Card>
+            <Card mainID="15">
+                <Field indexFromRFID="1" name="mrz1" indexFromOCR="9"/>
+                <Field indexFromRFID="2" name="mrz2" indexFromOCR="10"/>
+                <Field indexFromRFID="3" name="mrz3" indexFromOCR="11"/>
+            </Card>
+            <Card mainID="22">
+                <Field indexFromRFID="1" name="mrz1" indexFromOCR="8"/>
+                <Field indexFromRFID="2" name="mrz2" indexFromOCR="9"/>
+                <Field indexFromRFID="3" name="mrz3" indexFromOCR="10"/>
+            </Card>
+            <Card mainID="25">
+                <Field indexFromRFID="1" name="mrz1"/>
+                <Field indexFromRFID="2" name="mrz2"/>
+                <Field indexFromRFID="3" name="mrz3"/>
+            </Card>
+            <Card mainID="26">
+                <Field indexFromRFID="1" name="mrz1" indexFromOCR="9"/>
+                <Field indexFromRFID="2" name="mrz1" indexFromOCR="10"/>
+                <Field indexFromRFID="3" name="mrz3" indexFromOCR="11"/>
+            </Card>
+            <Card mainID="29">
+                <Field indexFromRFID="1" name="mrz1" indexFromOCR="8"/>
+                <Field indexFromRFID="2" name="mrz2" indexFromOCR="9"/>
+                <Field indexFromRFID="3" name="mrz3" indexFromOCR="10"/>
+            </Card>
+        </Cards>
+    </model>
+</models>

@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Locale Language="chinese" LC_CTYPE="zh_CN.gbk">
+	<Support>
+		<Language name="chinese"/>
+		<Language name="english"/>
+	</Support>
+	<Constants>
+		<Item id="ErrorCode">
+			<Constant Language="chinese">错误码</Constant>
+			<Constant Language="english">code error</Constant>
+		</Item>
+		<Item id="FailedLoadIDCard">
+			<Constant Language="chinese">加载核心动态库失败</Constant>
+			<Constant Language="english">Loading core dynamic library failed</Constant>
+		</Item>
+		<Item id="FailedInitIDCard">
+			<Constant Language="chinese">初始化读卡核心失败</Constant>
+			<Constant Language="english">Initialization of the card reader core failed</Constant>
+		</Item>
+		<Item id="FailedInitSid">
+			<Constant Language="chinese">初始化二代证模块失败</Constant>
+			<Constant Language="english">Initialization of the sid module failed</Constant>
+		</Item>
+		<Item id="OCRKernelNotInit">
+			<Constant Language="chinese">证件识别核心未初始</Constant>
+			<Constant Language="english">Document identification core not initialized</Constant>
+		</Item>
+		<Item id="FailedCreateSemaphore">
+			<Constant Language="chinese">创建信号量出错</Constant>
+			<Constant Language="english">Creating semaphore error</Constant>
+		</Item>
+		<Item id="FailedOpenSemaphore">
+			<Constant Language="chinese">打开信号量出错</Constant>
+			<Constant Language="english">Open semaphore error</Constant>
+		</Item>
+		<Item id="FailedCreateThread">
+			<Constant Language="chinese">创建线程出错</Constant>
+			<Constant Language="english">Creating thread error</Constant>
+		</Item>
+		<Item id="FailedAllocResForReader">
+			<Constant Language="chinese">读卡模块分配资源出错</Constant>
+			<Constant Language="english">Reading resource allocation module error</Constant>
+		</Item>
+		<Item id="DeviceConnected">
+			<Constant Language="chinese">设备已连接</Constant>
+			<Constant Language="english">Device is connected</Constant>
+		</Item>
+		<Item id="DeviceNotConnected">
+			<Constant Language="chinese">设备未连接</Constant>
+			<Constant Language="english">Device not connected</Constant>
+		</Item>
+		<Item id="DeviceOffLine">
+			<Constant Language="chinese">设备掉线</Constant>
+			<Constant Language="english">Device dropped</Constant>
+		</Item>
+		<Item id="DeviceReconnected">
+			<Constant Language="chinese">设备已重新连接</Constant>
+			<Constant Language="english">Device is reconnected</Constant>
+		</Item>
+		<Item id="DeviceStatusUnknown">
+			<Constant Language="chinese">设备状态未知</Constant>
+			<Constant Language="english">Unknown device status</Constant>
+		</Item>
+		<Item id="BeginClassify">
+			<Constant Language="chinese">开始分类</Constant>
+			<Constant Language="english">Start classification</Constant>
+		</Item>
+		<Item id="ValidCardTypeNotSet">
+			<Constant Language="chinese">未设置有效的证件类型</Constant>
+			<Constant Language="english">Valid document type is not set</Constant>
+		</Item>
+		<Item id="ImageNotLoaded">
+			<Constant Language="chinese">未加载图像</Constant>
+			<Constant Language="english">Image not loaded</Constant>
+		</Item>
+		<Item id="TemplateForClassifyNotFound">
+			<Constant Language="chinese">未找到匹配的分类模板</Constant>
+			<Constant Language="english">Matching classification template not found</Constant>
+		</Item>
+		<Item id="RejectionForClassifyFailed">
+			<Constant Language="chinese">因拒识造成分类失败</Constant>
+			<Constant Language="english">Classification failed due to rejection</Constant>
+		</Item>
+		<Item id="CaptureError">
+			<Constant Language="chinese">采集失败</Constant>
+			<Constant Language="english">Acquisition failure</Constant>
+		</Item>
+		<Item id="CropError">
+			<Constant Language="chinese">采集或裁切失败</Constant>
+			<Constant Language="english">Acquisition or crop failure</Constant>
+		</Item>
+		<Item id="RetryForClassifyError">
+			<Constant Language="chinese">分类出错，请重试</Constant>
+			<Constant Language="english">Classification error, please try again</Constant>
+		</Item>
+		<Item id="TypeOfCard">
+			<Constant Language="chinese">证件类别</Constant>
+			<Constant Language="english">Document Type</Constant>
+		</Item>
+		<Item id="MainIDOfCard">
+			<Constant Language="chinese">证件主编号</Constant>
+			<Constant Language="english">Document ID</Constant>
+		</Item>
+		<Item id="CurrentIsChipCard">
+			<Constant Language="chinese">当前证件为芯片卡</Constant>
+			<Constant Language="english">Current document is chip card</Constant>
+		</Item>
+		<Item id="CurrentIsUsualMRZCard">
+			<Constant Language="chinese">当前证件为普通MRZ证件</Constant>
+			<Constant Language="english">Current document is normal document with MRZ</Constant>
+		</Item>
+		<Item id="CurrentIsUsualNoMRZCard">
+			<Constant Language="chinese">当前证件为不带MRZ的普通证件</Constant>
+			<Constant Language="english">Current document is a normal document without MRZ</Constant>
+		</Item>
+		<Item id="CardName">
+			<Constant Language="chinese">证件名称</Constant>
+			<Constant Language="english">Name of document</Constant>
+		</Item>
+		<Item id="SubIDOfCard">
+			<Constant Language="chinese">证件子类型</Constant>
+			<Constant Language="english">Document subtype</Constant>
+		</Item>
+		<Item id="FailedRecog">
+			<Constant Language="chinese">证件识别失败</Constant>
+			<Constant Language="english">Document recognition failed</Constant>
+		</Item>
+		<Item id="FailedChip">
+			<Constant Language="chinese">读芯片失败</Constant>
+			<Constant Language="english">Reading chip failed</Constant>
+		</Item>
+		<Item id="SChipFVIZ">
+			<Constant Language="chinese">读卡成功,VIZ识别失败</Constant>
+			<Constant Language="english">Card reading succeeded , VIZ recognition failed</Constant>
+		</Item>
+		<Item id="FChipSVIZ">
+			<Constant Language="chinese">读卡失败,VIZ识别成功</Constant>
+			<Constant Language="english">Card reading failed , VIZ recognition  succeeded</Constant>
+		</Item>
+		<Item id="FChipFVIZ">
+			<Constant Language="chinese">读卡失败,VIZ识别失败</Constant>
+			<Constant Language="english">Card reading failed , VIZ recognition failed</Constant>
+		</Item>
+		<Item id="IsNotChipCard">
+			<Constant Language="chinese">当前证件不是电子芯片证件</Constant>
+			<Constant Language="english">Current document is not document with e-chip</Constant>
+		</Item>
+		<Item id="IsNotMRZCard">
+			<Constant Language="chinese">当前证件不是MRZ证件</Constant>
+			<Constant Language="english">Current document is not MRZ document</Constant>
+		</Item>
+		<Item id="InnerError">
+			<Constant Language="chinese">内部错误</Constant>
+			<Constant Language="english">Internal error</Constant>
+		</Item>
+		<Item id="DevNameNotAcquired">
+			<Constant Language="chinese">未获取到设备名称</Constant>
+			<Constant Language="english">Device name not obtained</Constant>
+		</Item>
+		<Item id="DevSerialNotAcquired">
+			<Constant Language="chinese">未获取到设备序列号</Constant>
+			<Constant Language="english">Device serial number not obtained</Constant>
+		</Item>
+		<Item id="VersionInfoNotAcquired">
+			<Constant Language="chinese">未获取到开发包版本号</Constant>
+			<Constant Language="english">SDK version number not obtained</Constant>
+		</Item>
+		<Item id="DevNotLoaded">
+			<Constant Language="chinese">设备未成功加载</Constant>
+			<Constant Language="english">Device not loaded successfully</Constant>
+		</Item>
+		<Item id="NotSupported">
+			<Constant Language="chinese">不支持</Constant>
+			<Constant Language="english">Not support</Constant>
+		</Item>
+		<Item id="Have">
+			<Constant Language="chinese">有</Constant>
+			<Constant Language="english">Yes</Constant>
+		</Item>
+		<Item id="HaveNot">
+			<Constant Language="chinese">没有</Constant>
+			<Constant Language="english">No</Constant>
+		</Item>
+		<Item id="AttribOfUVDull">
+			<Constant Language="chinese">紫外迟钝属性</Constant>
+			<Constant Language="english">Ultraviolet dull property</Constant>
+		</Item>
+		<Item id="UVFibreNotDetected">
+			<Constant Language="chinese">未检测到紫外纤维</Constant>
+			<Constant Language="english">No UV fiber detected</Constant>
+		</Item>
+		<Item id="FailedToCheckIfCopy">
+			<Constant Language="chinese">检测证件是否为复印件出错</Constant>
+			<Constant Language="english">fail to check whether the dcouement is copy</Constant>
+		</Item>
+		<Item id="FailedToTakePhoto">
+			<Constant Language="chinese">拍照失败</Constant>
+			<Constant Language="english">fail to capture image</Constant>
+		</Item>
+		<Item id="FailedOpenUserIDFile">
+			<Constant Language="chinese">打开UserID.txt文件失败</Constant>
+			<Constant Language="english">Open UserID.txt file failed</Constant>
+		</Item>
+		<Item id="FailedReadUserIDFile">
+			<Constant Language="chinese">读UserID.txt文件失败</Constant>
+			<Constant Language="english">Reading UserID.txt file failed</Constant>
+		</Item>
+		<Item id="InsufficentMemory">
+			<Constant Language="chinese">内存不足</Constant>
+			<Constant Language="english">Not enough memory</Constant>
+		</Item>
+		<Item id="FinishReadCard">
+			<Constant Language="chinese">读卡结束</Constant>
+			<Constant Language="english">card reading finished</Constant>
+		</Item>
+		<Item id="ReadCardAbnormal">
+			<Constant Language="chinese">读卡异常</Constant>
+			<Constant Language="english">abnormal card reading</Constant>
+		</Item>
+		<Item id="CardDetected">
+			<Constant Language="chinese">检测到放入证件</Constant>
+			<Constant Language="english">document is detected</Constant>
+		</Item>
+		<Item id="EnterReadingThread">
+			<Constant Language="chinese">读卡线程已成功创建</Constant>
+			<Constant Language="english">Card reader thread successfully created</Constant>
+		</Item>
+		<Item id="LeaveReadingThread">
+			<Constant Language="chinese">读卡线程正常结束</Constant>
+			<Constant Language="english">Card reader thread ends normally</Constant>
+		</Item>
+		<Item id="ReadThreadTerminated">
+			<Constant Language="chinese">读卡线程已停止</Constant>
+			<Constant Language="english">Card reader thread stopped</Constant>
+		</Item>
+		<Item id="InvalidCommand">
+			<Constant Language="chinese">无效指令</Constant>
+			<Constant Language="english">Invalid instruction</Constant>
+		</Item>
+		<Item id="TerminateThreadForTimeout">
+			<Constant Language="chinese">关闭线程超时，强制关闭</Constant>
+			<Constant Language="english">Turn off thread timeout, force close</Constant>
+		</Item>
+		<Item id="ReadSID">
+			<Constant Language="chinese">二代证读卡</Constant>
+			<Constant Language="english">Second generation card reading</Constant>
+		</Item>
+		<Item id="FailedSendToWeb">
+			<Constant Language="chinese">发送消息到页面出错</Constant>
+			<Constant Language="english">Sending message to page error</Constant>
+		</Item>
+		<Item id="WebConnected">
+			<Constant Language="chinese">web端页面连接成功</Constant>
+			<Constant Language="english">Web page successfully connected</Constant>
+		</Item>
+		<Item id="ServiceInstalled">
+			<Constant Language="chinese">WebSocket服务成功安装</Constant>
+			<Constant Language="english">WebSocket service successfully installed</Constant>
+		</Item>
+		<Item id="ServiceInstallFailed">
+			<Constant Language="chinese">WebSocket服务安装失败</Constant>
+			<Constant Language="english">WebSocket service installation failed</Constant>
+		</Item>
+		<Item id="ServiceStarted">
+			<Constant Language="chinese">WebSocket服务成功启动</Constant>
+			<Constant Language="english">WebSocket service started successfully</Constant>
+		</Item>
+		<Item id="ServiceStartFailed">
+			<Constant Language="chinese">WebSocket服务启动失败</Constant>
+			<Constant Language="english">websocket service start failed</Constant>
+		</Item>
+		<Item id="ServiceStopped">
+			<Constant Language="chinese">WebSocket服务已停止</Constant>
+			<Constant Language="english">websocket service stopped</Constant>
+		</Item>
+		<Item id="ServiceUninstalled">
+			<Constant Language="chinese">WebSocket服务已卸载</Constant>
+			<Constant Language="english">websocket service uninstalled</Constant>
+		</Item>
+		<Item id="ServiceUninstallFailed">
+			<Constant Language="chinese">WebSocket服务卸载失败</Constant>
+			<Constant Language="english">WebSocket service uninstallation failed</Constant>
+		</Item>
+		<Item id="ReadyToStartService">
+			<Constant Language="chinese">准备启动服务</Constant>
+			<Constant Language="english">Ready to start the service</Constant>
+		</Item>
+		<Item id="ServiceRegFailed">
+			<Constant Language="chinese">注册服务失败</Constant>
+			<Constant Language="english">Registration service failed</Constant>
+		</Item>
+		<Item id="ServiceNotFound">
+			<Constant Language="chinese">未找到服务程序</Constant>
+			<Constant Language="english">Service program not found</Constant>
+		</Item>
+		<Item id="InvalidParam">
+			<Constant Language="chinese">无效参数</Constant>
+			<Constant Language="english">Invalid parameter</Constant>
+		</Item>
+		<Item id="ServiceNameNotInConfig">
+			<Constant Language="chinese">配置文件中没有服务名称</Constant>
+			<Constant Language="english">No service name in the configuration file</Constant>
+		</Item>
+		<Item id="Name">
+			<Constant Language="chinese">姓名</Constant>
+			<Constant Language="english">name</Constant>
+		</Item>
+		<Item id="ChineseName">
+			<Constant Language="chinese">中文姓名</Constant>
+			<Constant Language="english">Chinese name</Constant>
+		</Item>
+		<Item id="EnglishName">
+			<Constant Language="chinese">英文姓名</Constant>
+			<Constant Language="english">English name</Constant>
+		</Item>
+		<Item id="Sex">
+			<Constant Language="chinese">性别</Constant>
+			<Constant Language="english">Gender</Constant>
+		</Item>
+		<Item id="Male">
+			<Constant Language="chinese">男</Constant>
+			<Constant Language="english">Male</Constant>
+		</Item>
+		<Item id="Female">
+			<Constant Language="chinese">女</Constant>
+			<Constant Language="english">Female</Constant>
+		</Item>
+		<Item id="IDCardNo">
+			<Constant Language="chinese">公民身份证号码</Constant>
+			<Constant Language="english">Citizen ID number</Constant>
+		</Item>
+		<Item id="ResidenceNo">
+			<Constant Language="chinese">永久居留证号码</Constant>
+			<Constant Language="english">Permanent residence permit number</Constant>
+		</Item>
+		<Item id="ForeignerResidence">
+			<Constant Language="chinese">外国人永久居留证</Constant>
+			<Constant Language="english">Foreigner's permanent residence permit</Constant>
+		</Item>
+		<Item id="GATResidence">
+			<Constant Language="chinese">港澳台居民居住证</Constant>
+			<Constant Language="english">Hong Kong, Macao and Taiwan residence permit</Constant>
+		</Item>
+		<Item id="NationalityOrAreaCode">
+			<Constant Language="chinese">国籍或所在地区代码</Constant>
+			<Constant Language="english">Nationality or region code</Constant>
+		</Item>
+		<Item id="Nation">
+			<Constant Language="chinese">民族</Constant>
+			<Constant Language="english">Nationality</Constant>
+		</Item>
+		<Item id="IssueDate">
+			<Constant Language="chinese">签发日期</Constant>
+			<Constant Language="english">Date of issue</Constant>
+		</Item>
+		<Item id="ExpireDate">
+			<Constant Language="chinese">有效期至</Constant>
+			<Constant Language="english">Validity period to</Constant>
+		</Item>
+		<Item id="BirthDate">
+			<Constant Language="chinese">出生日期</Constant>
+			<Constant Language="english">Date of birth</Constant>
+		</Item>
+		<Item id="CardVersion">
+			<Constant Language="chinese">证件版本号</Constant>
+			<Constant Language="english">Document version number</Constant>
+		</Item>
+		<Item id="IssueOrganCode">
+			<Constant Language="chinese">签发机关</Constant>
+			<Constant Language="english">Issuing authority</Constant>
+		</Item>
+		<Item id="AcceptanceOrganCode">
+			<Constant Language="chinese">当次申请受理机关代码</Constant>
+			<Constant Language="english">Current application agency code</Constant>
+		</Item>
+		<Item id="IdentificationOfCard">
+			<Constant Language="chinese">证件类型标识</Constant>
+			<Constant Language="english">Document type identifier</Constant>
+		</Item>
+		<Item id="Reserved">
+			<Constant Language="chinese">预留项</Constant>
+			<Constant Language="english">Reserved item</Constant>
+		</Item>
+		<Item id="Address">
+			<Constant Language="chinese">住址</Constant>
+			<Constant Language="english">Address</Constant>
+		</Item>
+		<Item id="PassNumber">
+			<Constant Language="chinese">通行证号码</Constant>
+			<Constant Language="english">Pass number</Constant>
+		</Item>
+		<Item id="IssueCount">
+			<Constant Language="chinese">签发次数</Constant>
+			<Constant Language="english">Issuances times</Constant>
+		</Item>
+		<Item id="DescOfSvc">
+			<Constant Language="chinese">护照阅读器后台服务</Constant>
+			<Constant Language="english">Passport Reader Background Service</Constant>
+		</Item>
+		<Item id="TitleOfCtl">
+			<Constant Language="chinese">护照阅读机控制管理程序</Constant>
+			<Constant Language="english">Passport reader control management program</Constant>
+		</Item>
+		<Item id="DescOfCtl">
+			<Constant Language="chinese">证件识别控制程序</Constant>
+			<Constant Language="english">Document identification control program</Constant>
+		</Item>
+		<Item id="Status">
+			<Constant Language="chinese">状态</Constant>
+			<Constant Language="english">Status</Constant>
+		</Item>
+		<Item id="ServiceStatus">
+			<Constant Language="chinese">服务状态</Constant>
+			<Constant Language="english">Service Status</Constant>
+		</Item>
+		<Item id="DeviceName">
+			<Constant Language="chinese">设备名称</Constant>
+			<Constant Language="english">device name</Constant>
+		</Item>
+		<Item id="DeviceSerialno">
+			<Constant Language="chinese">设备序列号</Constant>
+			<Constant Language="english">device serial no</Constant>
+		</Item>
+		<Item id="DeviceModel">
+			<Constant Language="chinese">设备型号</Constant>
+			<Constant Language="english">device model</Constant>
+		</Item>
+		<Item id="DeviceStatus">
+			<Constant Language="chinese">设备状态</Constant>
+			<Constant Language="english">device status</Constant>
+		</Item>
+		<Item id="ServiceType">
+			<Constant Language="chinese">服务类型</Constant>
+			<Constant Language="english">Service type</Constant>
+		</Item>
+		<Item id="SvcStartOnBoot">
+			<Constant Language="chinese">服务开机自启动</Constant>
+			<Constant Language="english">Service boot self-starting</Constant>
+		</Item>
+		<Item id="SvcOfHttp">
+			<Constant Language="chinese">HTTP服务</Constant>
+			<Constant Language="english">HTTP Service</Constant>
+		</Item>
+		<Item id="SvcOfHttps">
+			<Constant Language="chinese">HTTPS服务</Constant>
+			<Constant Language="english">HTTPS Service</Constant>
+		</Item>
+		<Item id="StartService">
+			<Constant Language="chinese">启动服务</Constant>
+			<Constant Language="english">Start service</Constant>
+		</Item>
+		<Item id="StopService">
+			<Constant Language="chinese">停止服务</Constant>
+			<Constant Language="english">Stop service</Constant>
+		</Item>
+		<Item id="Settings">
+			<Constant Language="chinese">设置</Constant>
+			<Constant Language="english">Setting</Constant>
+		</Item>
+		<Item id="IDOK">
+			<Constant Language="chinese">确定</Constant>
+			<Constant Language="english">OK</Constant>
+		</Item>
+		<Item id="IDCANCEL">
+			<Constant Language="chinese">取消</Constant>
+			<Constant Language="english">Cancel</Constant>
+		</Item>
+		<Item id="Running">
+			<Constant Language="chinese">正在运行</Constant>
+			<Constant Language="english">Running</Constant>
+		</Item>
+		<Item id="Stopped">
+			<Constant Language="chinese">停止</Constant>
+			<Constant Language="english">Stopped</Constant>
+		</Item>
+		<Item id="Save">
+			<Constant Language="chinese">保存</Constant>
+			<Constant Language="english">Save</Constant>
+		</Item>
+		<Item id="SysSettings">
+			<Constant Language="chinese">系统设置</Constant>
+			<Constant Language="english">System settings</Constant>
+		</Item>
+		<Item id="CardTypeSettings">
+			<Constant Language="chinese">证件类型设置</Constant>
+			<Constant Language="english">Document type settings</Constant>
+		</Item>
+		<Item id="RecogMode">
+			<Constant Language="chinese">识读模式</Constant>
+			<Constant Language="english">Reading model</Constant>
+		</Item>
+		<Item id="RecogOptions">
+			<Constant Language="chinese">识读选项</Constant>
+			<Constant Language="english">Reading options</Constant>
+		</Item>
+		<Item id="DataGroup">
+			<Constant Language="chinese">芯片数据分组</Constant>
+			<Constant Language="english">Chip data grouping</Constant>
+		</Item>
+		<Item id="AdvancedSettings">
+			<Constant Language="chinese">高级设置</Constant>
+			<Constant Language="english">Advanced settings</Constant>
+		</Item>
+		<Item id="ImageProcess">
+			<Constant Language="chinese">图像处理</Constant>
+			<Constant Language="english">Image processing</Constant>
+		</Item>
+		<Item id="ProcessMethod">
+			<Constant Language="chinese">处理方式</Constant>
+			<Constant Language="english">Processing method</Constant>
+		</Item>
+		<Item id="SavePath">
+			<Constant Language="chinese">保存路径</Constant>
+			<Constant Language="english">save route</Constant>
+		</Item>
+		<Item id="ImageWhite">
+			<Constant Language="chinese">白光图</Constant>
+			<Constant Language="english">visible image </Constant>
+		</Item>
+		<Item id="ImageIR">
+			<Constant Language="chinese">红外图</Constant>
+			<Constant Language="english">IR image</Constant>
+		</Item>
+		<Item id="ImageUV">
+			<Constant Language="chinese">紫外图</Constant>
+			<Constant Language="english">UV image</Constant>
+		</Item>
+		<Item id="PicWhite">
+			<Constant Language="chinese">白光图像</Constant>
+			<Constant Language="english">White picture</Constant>
+		</Item>
+		<Item id="PicIR">
+			<Constant Language="chinese">红外图像</Constant>
+			<Constant Language="english">IR picture</Constant>
+		</Item>
+		<Item id="PicUV">
+			<Constant Language="chinese">紫外图像</Constant>
+			<Constant Language="english">UV picture</Constant>
+		</Item>
+		<Item id="PicHead">
+			<Constant Language="chinese">版面头像</Constant>
+			<Constant Language="english">Page photo</Constant>
+		</Item>
+		<Item id="PicChipHead">
+			<Constant Language="chinese">芯片头像</Constant>
+			<Constant Language="english">Chip photo</Constant>
+		</Item>
+		<Item id="Capture">
+			<Constant Language="chinese">采集</Constant>
+			<Constant Language="english">capture</Constant>
+		</Item>
+		<Item id="RemoveBG">
+			<Constant Language="chinese">去背景</Constant>
+			<Constant Language="english">background removal</Constant>
+		</Item>
+		<Item id="Compress">
+			<Constant Language="chinese">压缩</Constant>
+			<Constant Language="english">compress</Constant>
+		</Item>
+		<Item id="Upload">
+			<Constant Language="chinese">上传</Constant>
+			<Constant Language="english">upload</Constant>
+		</Item>
+		<Item id="DescOfDG1">
+			<Constant Language="chinese">机读信息</Constant>
+			<Constant Language="english">Machine readable info</Constant>
+		</Item>
+		<Item id="DescOfDG2">
+			<Constant Language="chinese">人脸</Constant>
+			<Constant Language="english">face</Constant>
+		</Item>
+		<Item id="DescOfDG3">
+			<Constant Language="chinese">指纹</Constant>
+			<Constant Language="english">fingerprint</Constant>
+		</Item>
+		<Item id="DescOfDG4">
+			<Constant Language="chinese">眼睛</Constant>
+			<Constant Language="english">eye</Constant>
+		</Item>
+		<Item id="DescOfDG5">
+			<Constant Language="chinese">显示的肖像</Constant>
+			<Constant Language="english">Displayed portrait</Constant>
+		</Item>
+		<Item id="DescOfDG6">
+			<Constant Language="chinese">预留</Constant>
+			<Constant Language="english">Reserved</Constant>
+		</Item>
+		<Item id="DescOfDG7">
+			<Constant Language="chinese">显示的签名</Constant>
+			<Constant Language="english">Displayed signature</Constant>
+		</Item>
+		<Item id="DescOfDG8">
+			<Constant Language="chinese">数据特征</Constant>
+			<Constant Language="english">Data characteristics</Constant>
+		</Item>
+		<Item id="DescOfDG9">
+			<Constant Language="chinese">结束特征</Constant>
+			<Constant Language="english">End characteristics</Constant>
+		</Item>
+		<Item id="DescOfDG10">
+			<Constant Language="chinese">物质特征</Constant>
+			<Constant Language="english">Material characteristics</Constant>
+		</Item>
+		<Item id="DescOfDG11">
+			<Constant Language="chinese">附加个人详细信息</Constant>
+			<Constant Language="english">Add personal details</Constant>
+		</Item>
+		<Item id="DescOfDG12">
+			<Constant Language="chinese">附加证件详细信息</Constant>
+			<Constant Language="english">Add ID details</Constant>
+		</Item>
+		<Item id="DescOfDG13">
+			<Constant Language="chinese">选择性详细信息</Constant>
+			<Constant Language="english">Selective details</Constant>
+		</Item>
+		<Item id="DescOfDG14">
+			<Constant Language="chinese">安全选项</Constant>
+			<Constant Language="english">Security Options</Constant>
+		</Item>
+		<Item id="DescOfDG15">
+			<Constant Language="chinese">主动认证公钥信息</Constant>
+			<Constant Language="english">Active auth public key info</Constant>
+		</Item>
+		<Item id="DescOfDG16">
+			<Constant Language="chinese">被通知人员</Constant>
+			<Constant Language="english">Notified person</Constant>
+		</Item>
+		<Item id="EnableRejection">
+			<Constant Language="chinese">启用拒识功能</Constant>
+			<Constant Language="english">Enable rejection</Constant>
+		</Item>
+		<Item id="Rejection">
+			<Constant Language="chinese">拒识</Constant>
+			<Constant Language="english">Rejection</Constant>
+		</Item>
+		<Item id="EnableBarRecog">
+			<Constant Language="chinese">启用条码识别</Constant>
+			<Constant Language="english">Enable barcode recognition</Constant>
+		</Item>
+		<Item id="EnablePhoneBarcode">
+			<Constant Language="chinese">识别手机条码</Constant>
+			<Constant Language="english">Recog Barcode on Phone</Constant>
+		</Item>
+		<Item id="EnableCallback">
+			<Constant Language="chinese">启用回调模式</Constant>
+			<Constant Language="english">Enable callback model</Constant>
+		</Item>
+		<Item id="EnableDetectTakenaway">
+			<Constant Language="chinese">启用检测拿出</Constant>
+			<Constant Language="english">Enable take out detection</Constant>
+		</Item>
+		<Item id="RefindMRZOnWhiteImage">
+			<Constant Language="chinese">白光图重新识别MRZ</Constant>
+			<Constant Language="english">visible image re-identifies MRZ</Constant>
+		</Item>
+		<Item id="UVDull">
+			<Constant Language="chinese">检测紫外迟钝</Constant>
+			<Constant Language="english">Detection of UV dullness</Constant>
+		</Item>
+		<Item id="UVFibre">
+			<Constant Language="chinese">检测紫外纤维</Constant>
+			<Constant Language="english">UV fiber detection</Constant>
+		</Item>
+		<Item id="CheckIfCopy">
+			<Constant Language="chinese">复印件检测</Constant>
+			<Constant Language="english">Copy inspection</Constant>
+		</Item>
+		<Item id="SaftyCheck">
+			<Constant Language="chinese">安全特征检测</Constant>
+			<Constant Language="english">Safety feature detection</Constant>
+		</Item>
+		<Item id="SelfDefined">
+			<Constant Language="chinese">自定义</Constant>
+			<Constant Language="english">customize</Constant>
+		</Item>
+		<Item id="CoveredSave">
+			<Constant Language="chinese">覆盖保存</Constant>
+			<Constant Language="english">coverage save</Constant>
+		</Item>
+		<Item id="ContinueSave">
+			<Constant Language="chinese">连续保存</Constant>
+			<Constant Language="english">Continuous save</Constant>
+		</Item>
+		<Item id="RapidMRZRecog">
+			<Constant Language="chinese">机读码识别(快速)</Constant>
+			<Constant Language="english">Machine readable zone recognition (fast)</Constant>
+		</Item>
+		<Item id="MRZRecog">
+			<Constant Language="chinese">机读码识别</Constant>
+			<Constant Language="english">Machine readable zone recognition</Constant>
+		</Item>
+		<Item id="RecogMRZAndVIZ">
+			<Constant Language="chinese">机读码及版面识别</Constant>
+			<Constant Language="english">Machine readable zone and layout recognition</Constant>
+		</Item>
+		<Item id="RecogMRZAndChip">
+			<Constant Language="chinese">机读码及芯片识别</Constant>
+			<Constant Language="english">Machine readable zone and chip recognition</Constant>
+		</Item>
+		<Item id="RecogMRZAndVIZAndChip">
+			<Constant Language="chinese">机读码,版面以及芯片识别</Constant>
+			<Constant Language="english">Machine readable zone，layout and chip recognition</Constant>
+		</Item>
+		<Item id="SaveOrigImage">
+			<Constant Language="chinese">保存原图</Constant>
+			<Constant Language="english">Save the original image</Constant>
+		</Item>
+		<Item id="OrigImageSavePath">
+			<Constant Language="chinese">保存路径</Constant>
+			<Constant Language="english">save route</Constant>
+		</Item>
+		<Item id="MaxSave">
+			<Constant Language="chinese">最多保存</Constant>
+			<Constant Language="english">Save at most</Constant>
+		</Item>
+		<Item id="PiecesOfOrigImage">
+			<Constant Language="chinese">张原图</Constant>
+			<Constant Language="english">original pictures</Constant>
+		</Item>
+		<Item id="CardTypes">
+			<Constant Language="chinese">证件类型</Constant>
+			<Constant Language="english">type of certificate</Constant>
+		</Item>
+		<Item id="Indexes">
+			<Constant Language="chinese">索引</Constant>
+			<Constant Language="english">index</Constant>
+		</Item>
+		<Item id="CardTypesNotSelected">
+			<Constant Language="chinese">未选择的证件类型</Constant>
+			<Constant Language="english">Unselected document type</Constant>
+		</Item>
+		<Item id="CardTypesSelected">
+			<Constant Language="chinese">已选择的证件类型</Constant>
+			<Constant Language="english">Selected document type</Constant>
+		</Item>
+		<Item id="NoRightToAccess">
+			<Constant Language="chinese">没有访问权限</Constant>
+			<Constant Language="english">No access</Constant>
+		</Item>
+		<Item id="Warning">
+			<Constant Language="chinese">警告</Constant>
+			<Constant Language="english">warning</Constant>
+		</Item>
+		<Item id="FailedModifyServiceAttr">
+			<Constant Language="chinese">修改服务属性出错</Constant>
+			<Constant Language="english">modifying service property error </Constant>
+		</Item>
+		<Item id="UnknownCardType">
+			<Constant Language="chinese">未知证件类型</Constant>
+			<Constant Language="english">Unknown document type</Constant>
+		</Item>
+		<Item id="SetSavePath">
+			<Constant Language="chinese">设置保存路径</Constant>
+			<Constant Language="english">Set save path</Constant>
+		</Item>
+		<Item id="NeedRefresh">
+			<Constant Language="chinese">配置项已保存，请重新连接WebSocket以使更改生效</Constant>
+			<Constant Language="english">The configuration item has been saved. Please reconnect the WebSocket to take effect.</Constant>
+		</Item>
+		<Item id="DescOfWebsocketError">
+			<Constant Language="chinese">websocket连接出错,请确认WebSocket服务正常运行，并重新建立连接</Constant>
+			<Constant Language="english">websocket error, please identify that websocket service is ok</Constant>
+		</Item>
+		<Item id="CardRecogSystem">
+			<Constant Language="chinese">证件识别系统</Constant>
+			<Constant Language="english">Card recoginition system</Constant>
+		</Item>
+		<Item id="Connect">
+			<Constant Language="chinese">建立连接</Constant>
+			<Constant Language="english">connect</Constant>
+		</Item>
+		<Item id="Disconnect">
+			<Constant Language="chinese">断开连接</Constant>
+			<Constant Language="english">disconnect</Constant>
+		</Item>
+		<Item id="DescFailSetRFID">
+			<Constant Language="chinese">设置是否读取芯片信息出错</Constant>
+			<Constant Language="english">Failed to set rfid</Constant>
+		</Item>
+		<Item id="DescFailSetVIZ">
+			<Constant Language="chinese">设置是否识别版面信息出错</Constant>
+			<Constant Language="english">Failed to set viz</Constant>
+		</Item>
+		<Item id="PlaceHolderCardTextInfo">
+			<Constant Language="chinese">此处显示从证件读取的文本信息</Constant>
+			<Constant Language="english">Card text info is displayed here</Constant>
+		</Item>
+		<Item id="DescFailSendWebsocket">
+			<Constant Language="chinese">向后台服务发送指令出错</Constant>
+			<Constant Language="english">Failed to send data to websocket service</Constant>
+		</Item>
+		<Item id="WebDescDeviceNotFound">
+			<Constant Language="chinese">WebSocket已连接, 未检测到设备</Constant>
+			<Constant Language="english">websocket is connected, but device is not found</Constant>
+		</Item>
+		<Item id="WebDescRequireRestartSvc">
+			<Constant Language="chinese">WebSocket服务需要重新启动</Constant>
+			<Constant Language="english">websocket needs restart</Constant>
+		</Item>
+		<Item id="WebDescAskForSupport">
+			<Constant Language="chinese">WebSocket服务遇到问题, 请联系管理员</Constant>
+			<Constant Language="english">ask the commander for support</Constant>
+		</Item>
+		<Item id="WebDescRequireReconnect">
+			<Constant Language="chinese">WebSocket服务要求web端重新建立连接</Constant>
+			<Constant Language="english">websocket wants the WEB client to reconnect</Constant>
+		</Item>
+		<Item id="ReadVIZ">
+			<Constant Language="chinese">识别版面信息</Constant>
+			<Constant Language="english">Recognize layout</Constant>
+		</Item>
+		<Item id="ReadRFID">
+			<Constant Language="chinese">读取芯片信息</Constant>
+			<Constant Language="english">Read chip card</Constant>
+		</Item>
+		<Item id="FlagYes">
+			<Constant Language="chinese">是</Constant>
+			<Constant Language="english">Y</Constant>
+		</Item>
+		<Item id="FlagNo">
+			<Constant Language="chinese">否</Constant>
+			<Constant Language="english">N</Constant>
+		</Item>
+		<Item id="ErrorAutoProcessingIDCard">
+			<Constant Language="chinese">自动识读出错</Constant>
+			<Constant Language="english">The function AutoProcessIDCard failed</Constant>
+		</Item>
+		<Item id="ErrorOnRecog">
+			<Constant Language="chinese">识别出错</Constant>
+			<Constant Language="english">Failed while recoginzing IDCard</Constant>
+		</Item>
+		<Item id="GeneratedSidFront">
+			<Constant Language="chinese">生成的二代证正面图像</Constant>
+			<Constant Language="english">Generated Sid Front</Constant>
+		</Item>
+		<Item id="GeneratedSidBack">
+			<Constant Language="chinese">生成的二代证背面图像</Constant>
+			<Constant Language="english">Generated Sid Back</Constant>
+		</Item>
+		<Item id="Exit">
+			<Constant Language="chinese">退出</Constant>
+			<Constant Language="english">Exit</Constant>
+		</Item>
+		<Item id="FailedCaptureImage">
+			<Constant Language="chinese">采集图像失败</Constant>
+			<Constant Language="english">Failed capturing image</Constant>
+		</Item>
+		<Item id="NumberOfReplace">
+			<Constant Language="chinese">换证次数</Constant>
+			<Constant Language="english">Number of certificate renewals</Constant>
+		</Item>
+		<Item id="EnglishNameRemarks">
+			<Constant Language="chinese">英文姓名备用</Constant>
+			<Constant Language="english">English Name Remarks</Constant>
+		</Item>
+		<Item id="CountryAndRegionCode">
+			<Constant Language="chinese">所属国家和地区代码</Constant>
+			<Constant Language="english">Country and region code</Constant>
+		</Item>
+		<Item id="PreVersionAssociationNumber">
+			<Constant Language="chinese">既往版本证件号码关联项</Constant>
+			<Constant Language="english">Previous version association number</Constant>
+		</Item>
+		<Item id="OldCertificateNumber">
+			<Constant Language="chinese">旧证号码</Constant>
+			<Constant Language="english">Old certificate number</Constant>
+		</Item>
+		<Item id="Verify">
+			<Constant Language="chinese">证件查验</Constant>
+			<Constant Language="english">Document verification</Constant>
+		</Item>
+			<Item id="CardInArea">
+			<Constant Language="chinese">证件在检测区域内</Constant>
+			<Constant Language="english">CardInArea</Constant>
+		</Item>
+			<Item id="CardNotInArea">
+			<Constant Language="chinese">证件不在检测区域内</Constant>
+			<Constant Language="english">CardNotInArea</Constant>
+		</Item>
+	</Constants>
+</Locale>
+
