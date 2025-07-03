@@ -1,9 +1,0 @@
-1.运行程序需要ROOT权限，否则无权访问USB设备，也可以通过修改配置文件修改对USB设备的访问权限，修改方法如下：
-  （1）打开 /lib/udev/rules.d/50-udev-default.rules
-  （2）找到#‘libusb’（或者'usb'） device nodes
-  （3）将MODE=“0664”修改为MODE=“0666”
-  （4）执行 sudo udevadm control --reload，重启系统
-2.GCC版本不低于5.4.0
-3.支持系统最低版本Ubuntu 16.04
-4.运行EPRDemo.sh或者EPRDemo启动程序
-5.如果字体有问题，请安装程序目录下的OCRB.otf字体
